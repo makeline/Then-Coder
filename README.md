@@ -29,4 +29,7 @@ https://play.google.com/store/apps/details?id=org.aerovek.chartr
 ## **Submitting Code Changes**
 1. Clone the repo
 ```
-git clone https://github.com/AerovekCommunity/Chartr.Android
+git clone https://github.com/AerovekCommunity/Chartr.Android.git
+```
+2. Create an issue describing the bugfix or feature you plan to work on. Here's one that has been created already - [Implement Transaction Details](https://github.com/AerovekCommunity/Chartr.Android/issues/1), or if one exists already that you want to work on just assign yourself to it.
+3. Create a branch off of `main` and name it with the issue number first followed by a dash and a description related to the issue being worked on. First make sure your main branch is up to
