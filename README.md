@@ -47,4 +47,14 @@ git clone https://github.com/AerovekCommunity/Chartr.Android.git
 5. Create a pull request from your branch into main and ask a core contributor to review it
 6. Once the pull request is approved you can merge your branch into main
 
-You can also join our Telegram and Discord ch
+You can also join our Telegram and Discord channels and ask questions there. 
+
+## Community
+### Telegram
+
+* Join the [Aerovek Aviation](https://t.me/aerovekviation) channel on Telegram where you can ask general questions, voice ideas, or just chat with the community.
+
+* Join the [AeroDao](https://t.me/AeroDao) Telegram channel to ask development related questions about this project or the mobile projects. You can tag [Jay](https://t.me/prolowfile) if you are really stuck on something or something in the code isn't clear.
+
+### Discord
+* T
