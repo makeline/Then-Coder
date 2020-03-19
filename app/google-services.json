@@ -1,3 +1,18 @@
 {
   "project_info": {
-    "project_numb
+    "project_number": "430526050106",
+    "project_id": "aerovek-aviation",
+    "storage_bucket": "aerovek-aviation.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:430526050106:android:4a917e7d4850cec4cd2a03",
+        "android_client_info": {
+          "package_name": "org.aerovek.chartr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "430526050106-7898evecf4nmbgdgou949o7d1pbar6k1.apps.googleusercontent.com",
+          "client
