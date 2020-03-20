@@ -15,4 +15,16 @@
       "oauth_client": [
         {
           "client_id": "430526050106-7898evecf4nmbgdgou949o7d1pbar6k1.apps.googleusercontent.com",
-          "client
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.aerovek.chartr",
+            "certificate_hash": "758618785133631a56b8cff910f746c0ed386960"
+          }
+        },
+        {
+          "client_id": "430526050106-iuig677enirsqir46557p4t6tsgm32fm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.aerovek.chartr",
+            "certificate_hash": "e029bbd676faa3606c06a3157c8efbc0e98f2ec3"
+        
