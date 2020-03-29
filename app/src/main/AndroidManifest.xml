@@ -35,4 +35,15 @@
             android:value="AIzaSyB93FFfK-yi7MUO5Bg1q1bvnj4UvSojbu0" />
 
         <provider
- 
+            android:name="org.aerovek.chartr.util.ChartrFileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name="org.aerovek.chartr.ui.MainActivity"
+            android:theme="@style/The
