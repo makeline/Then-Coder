@@ -46,4 +46,16 @@
 
         <activity
             android:name="org.aerovek.chartr.ui.MainActivity"
-            android:theme="@style/The
+            android:theme="@style/Theme.AppSplash"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateVisible"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"  />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="org.aerovek.chartr.ui.onboarding.OnboardingActivity"
+            a
