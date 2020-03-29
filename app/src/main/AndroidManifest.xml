@@ -58,4 +58,9 @@
 
         <activity
             android:name="org.aerovek.chartr.ui.onboarding.OnboardingActivity"
-            a
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"
+            android:exported="true" />
+
+    </application>
+</manifest>
