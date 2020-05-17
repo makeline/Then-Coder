@@ -1,3 +1,4 @@
+
 /*
 The MIT License (MIT)
 
@@ -23,11 +24,30 @@ SOFTWARE.
 */
 package org.aerovek.chartr
 
-import org.aerovek.chartr.data.buildconfig.BuildConfigProvider
+import android.app.Application
+import org.aerovek.chartr.data.di.DataModules
+import org.koin.core.context.startKoin
+import org.koin.android.ext.koin.androidContext
 
-class BuildConfigProviderImpl : BuildConfigProvider {
-    override val isDebugOrBetaBuild: Boolean
-        get() = BuildConfig.DEBUG || BuildConfig.INTERNAL
-    override val isProductionBuild: Boolean
-        get() = BuildConfig.PRODUCTION
+/**
+ * Entry point for the application
+ */
+class ChartrApplication : Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+
+        println("[ChartrApplication onCreate]")
+
+        startKoin {
+            androidContext(this@ChartrApplication)
+            modules(
+                listOf(
+                    AppModules.appModule,
+                    DataModules.dataModule,
+                    DataModules.networkModule
+                )
+            )
+        }
+    }
 }
