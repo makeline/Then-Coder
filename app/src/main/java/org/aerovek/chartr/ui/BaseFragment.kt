@@ -28,4 +28,22 @@ import androidx.fragment.app.Fragment
 
 open class BaseFragment : Fragment() {
 
-    fun setupBackPressListener(backPressHan
+    fun setupBackPressListener(backPressHandler: () -> Unit) {
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    backPressHandler()
+                }
+            }
+        )
+    }
+
+//    @CallSuper
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//
+//        super.onCreate(savedInstanceState)
+//
+//        // TODO maybe some authentication processing here
+//    }
+//    override fun on
