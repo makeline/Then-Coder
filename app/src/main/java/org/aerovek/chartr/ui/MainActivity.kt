@@ -142,3 +142,75 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.sendAeroFragment -> {
                     this.supportActionBar?.show()
+                    this.toolbarTextView.text = getString(R.string.withdraw_title)
+                }
+                R.id.receiveAeroFragment -> {
+                    this.supportActionBar?.show()
+                    this.toolbarTextView.text = getString(R.string.receive_title)
+                }
+                R.id.transactionHistoryFragment -> {
+                    this.supportActionBar?.show()
+                    this.toolbarTextView.text = getString(R.string.transaction_history_title)
+                }
+                R.id.moreFragment -> {
+                    this.supportActionBar?.show()
+                    this.bottomNav.visibility = View.VISIBLE
+                    this.toolbarTextView.text = getString(R.string.more_title)
+                }
+            }
+        }
+
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
+        toolbar.setNavigationOnClickListener { onBackPressed() }
+    }
+
+    private fun setupBottomNav() {
+        bottomNav.setupWithNavController(navController)
+
+        bottomNav.setOnItemReselectedListener {
+            when (it.itemId) {
+                R.id.homeFragment -> {
+                    println("---- Home was reselected")
+                }
+                R.id.walletFragment -> {
+                    println("---- Wallet was reselected")
+                }
+                R.id.myAccountFragment -> {
+                    println("---- Account was reselected")
+                }
+            }
+        }
+    }
+
+    private fun createBiometricPrompt(): BiometricPrompt {
+        val executor = ContextCompat.getMainExecutor(this)
+
+        val callback = object : BiometricPrompt.AuthenticationCallback() {
+            @SuppressLint("RestrictedApi")
+            override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
+                super.onAuthenticationError(errorCode, errString)
+                Log.d(TAG, "$errorCode :: $errString")
+                if (errorCode == BiometricPrompt.ERROR_NEGATIVE_BUTTON) {
+                   // loginWithPassword() // Because in this app, the negative button allows the user to enter an account password. This is completely optional and your app doesn’t have to do it.
+                }
+            }
+
+                override fun onAuthenticationFailed() {
+                    super.onAuthenticationFailed()
+                    Log.d(TAG, "Authentication failed for an unknown reason")
+                }
+
+                override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
+                    super.onAuthenticationSucceeded(result)
+                    Log.d(TAG, "Authentication was successful")
+
+                }
+        }
+
+        val biometricPrompt = BiometricPrompt(this,executor,callback)
+
+        return biometricPrompt
+
+    }
+
+}
