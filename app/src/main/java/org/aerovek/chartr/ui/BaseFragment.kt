@@ -46,4 +46,10 @@ open class BaseFragment : Fragment() {
 //
 //        // TODO maybe some authentication processing here
 //    }
-//    override fun on
+//    override fun onSaveInstanceState(outState: Bundle) {
+//        // TODO maybe save off authenticated state here
+//        super.onSaveInstanceState(outState)
+//    }
+}
+
+//private const val BUNDLE_AUTHENTICATED = "authenticated"
