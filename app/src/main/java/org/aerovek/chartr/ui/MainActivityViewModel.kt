@@ -32,4 +32,10 @@ class MainActivityViewModel(app: Application) : BaseViewModel(app) {
     val createAccountEvent: LiveData<Boolean> = _createAcountEvent
 
     fun postAccountCreated() {
-        _crea
+        _createAcountEvent.postValue(true)
+    }
+
+    init {
+        println("[MainActivityViewModel init]")
+    }
+}
