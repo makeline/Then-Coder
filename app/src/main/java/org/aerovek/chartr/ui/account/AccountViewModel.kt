@@ -26,4 +26,15 @@ package org.aerovek.chartr.ui.account
 
 import android.app.Application
 import android.content.SharedPreferences
-import org.aerove
+import org.aerovek.chartr.data.buildconfig.EnvironmentRepository
+import org.aerovek.chartr.data.model.ChartrAccount
+import org.aerovek.chartr.data.model.elrond.contract.QueryContractInput
+import org.aerovek.chartr.data.model.elrond.wallet.Wallet
+import org.aerovek.chartr.data.repository.elrond.VmRepository
+import org.aerovek.chartr.ui.AppConstants
+import org.aerovek.chartr.ui.BaseViewModel
+
+class AccountViewModel(
+    app: Application,
+    sharedPreferences: SharedPreferences,
+    environme
