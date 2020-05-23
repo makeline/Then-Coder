@@ -37,4 +37,16 @@ import org.aerovek.chartr.ui.BaseViewModel
 class AccountViewModel(
     app: Application,
     sharedPreferences: SharedPreferences,
-    environme
+    environmentRepository: EnvironmentRepository,
+    private val vmRepository: VmRepository
+) : BaseViewModel(app) {
+    private val senderAddress = sharedPreferences.getString(AppConstants.UserPrefsKeys.WALLET_ADDRESS, null) ?: ""
+    private val scAddress = environmentRepository.selectedElrondEnvironment.scAddress
+    private val wallet: Wallet = Wallet.createFromPrivateKey(
+        sharedPreferences.getString(
+            AppConstants.UserPrefsKeys.WALLET_PRIVATE_KEY,
+            null
+        ) ?: ""
+    )
+
+    suspend fun retrieveAccount(): 
