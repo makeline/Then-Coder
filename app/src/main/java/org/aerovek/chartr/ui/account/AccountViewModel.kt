@@ -49,4 +49,14 @@ class AccountViewModel(
         ) ?: ""
     )
 
-    suspend fun retrieveAccount(): 
+    suspend fun retrieveAccount(): ChartrAccount? {
+        val queryContractInput = QueryContractInput(
+            scAddress = scAddress,
+            funcName = "getAccount",
+            args = listOf(wallet.publicKeyHex),
+            caller = senderAddress,
+            value = "0"
+        )
+        return vmRepository.getChartrAccount(queryContractInput)
+    }
+}
