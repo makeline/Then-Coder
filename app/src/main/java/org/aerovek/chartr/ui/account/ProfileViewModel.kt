@@ -280,3 +280,18 @@ class ProfileViewModel(
 
                             println("IMAGE UPLOAD SUCCESSFUL")
                             it.metadata?.let { metadata ->
+                                println("IMAGE UPLOADED: ${metadata.name} - ${metadata.path}")
+                            }
+                            saveSuccessful.postValue(Unit)
+                            showProgressBar.postValue(false)
+                        }
+
+                    } else {
+                        saveSuccessful.postValue(Unit)
+                        showProgressBar.postValue(false)
+                    }
+                }
+            }
+        }
+    }
+}
