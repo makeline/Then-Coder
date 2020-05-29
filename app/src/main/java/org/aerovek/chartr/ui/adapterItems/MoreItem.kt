@@ -41,4 +41,7 @@ class MoreItem(private val context: Context, private val viewModel: MoreItemView
 
     override fun getLayout() = R.layout.more_item
 
-    override fun initializeViewBinding(view: View): MoreItemBinding
+    override fun initializeViewBinding(view: View): MoreItemBinding {
+        return DataBindingUtil.bind(view)!!
+    }
+}
