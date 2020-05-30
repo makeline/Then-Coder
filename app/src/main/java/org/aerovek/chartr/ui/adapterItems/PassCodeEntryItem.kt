@@ -36,4 +36,7 @@ class PassCodeEntryItem (val id : Int, var isActive : Boolean ): BindableItem<Pa
         return DataBindingUtil.bind(view)!!
     }
     override fun bind(viewBinding: PasscodeButtonItemBinding, position: Int) {
-        view
+        viewBinding.isActive = isActive
+    }
+
+}
