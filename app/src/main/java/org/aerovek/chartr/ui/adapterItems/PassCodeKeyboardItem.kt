@@ -29,4 +29,17 @@ import androidx.databinding.DataBindingUtil
 import com.xwray.groupie.viewbinding.BindableItem
 import org.aerovek.chartr.R
 import org.aerovek.chartr.databinding.PinPadKeyboardButtonBinding
-import org.aerov
+import org.aerovek.chartr.ui.passcode.PassCodeViewModel
+import org.aerovek.chartr.ui.passcode.PinPadModel
+import org.aerovek.chartr.ui.passcode.PinPadType
+
+class PassCodeKeyboardItem(
+    private val buttonBackgroud: Drawable,
+    private val pinPadModel: PinPadModel,
+    val passCodeViewModel: PassCodeViewModel
+    ): BindableItem<PinPadKeyboardButtonBinding>() {
+
+    override fun getLayout() = R.layout.pin_pad_keyboard_button
+
+    override fun initializeViewBinding(view: View) : PinPadKeyboardButtonBinding {
+        return DataBindingUti
