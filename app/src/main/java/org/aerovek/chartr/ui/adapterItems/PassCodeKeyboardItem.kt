@@ -42,4 +42,15 @@ class PassCodeKeyboardItem(
     override fun getLayout() = R.layout.pin_pad_keyboard_button
 
     override fun initializeViewBinding(view: View) : PinPadKeyboardButtonBinding {
-        return DataBindingUti
+        return DataBindingUtil.bind(view)!!
+    }
+    override fun bind(viewBinding: PinPadKeyboardButtonBinding, position: Int) {
+        viewBinding.passCodeViewModel = passCodeViewModel
+        viewBinding.background = buttonBackgroud
+        viewBinding.pinPad = pinPadModel
+
+        if (pinPadModel.type == PinPadType.BackSpace) {
+            viewBinding.btn.setPadding(0, 56, 0, 0)
+        }
+    }
+}
