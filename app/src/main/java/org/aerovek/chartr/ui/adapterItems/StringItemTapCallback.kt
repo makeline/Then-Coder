@@ -1,3 +1,5 @@
 package org.aerovek.chartr.ui.adapterItems
 
-interface StringItemTapCal
+interface StringItemTapCallback {
+    fun onItemTapped(item: String)
+}
