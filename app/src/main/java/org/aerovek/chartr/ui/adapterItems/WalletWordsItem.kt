@@ -34,4 +34,9 @@ class WalletWordsItem(val title: String) : BindableItem<WalletWordsItemBinding>(
         viewBinding.item = title
     }
 
-    
+    override fun getLayout() = R.layout.wallet_words_item
+
+    override fun initializeViewBinding(view: View): WalletWordsItemBinding {
+        return DataBindingUtil.bind(view)!!
+    }
+}
