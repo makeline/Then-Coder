@@ -18,4 +18,20 @@ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWA
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+package org.aerovek.chartr.ui.adapterItems
+
+import android.view.View
+import androidx.databinding.DataBindingUtil
+import com.xwray.groupie.viewbinding.BindableItem
+import org.aerovek.chartr.R
+import org.aerovek.chartr.databinding.WalletWordsItemBinding
+
+class WalletWordsItem(val title: String) : BindableItem<WalletWordsItemBinding>() {
+    override fun bind(viewBinding: WalletWordsItemBinding, position: Int) {
+        viewBinding.item = title
+    }
+
+    
