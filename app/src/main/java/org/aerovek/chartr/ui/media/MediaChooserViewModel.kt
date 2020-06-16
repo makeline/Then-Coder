@@ -1,3 +1,4 @@
+
 /*
 The MIT License (MIT)
 
@@ -21,19 +22,27 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package org.aerovek.chartr.ui.home
+package org.aerovek.chartr.ui.media
 
 import android.app.Application
-import androidx.lifecycle.MutableLiveData
+import com.hadilq.liveevent.LiveEvent
 import org.aerovek.chartr.ui.BaseViewModel
 
-class HomeViewModel(
-    app: Application
-) : BaseViewModel(app) {
+class MediaChooserViewModel(app: Application) : BaseViewModel(app) {
 
-    val showLoading = MutableLiveData(true)
+    val takePhotoTap = LiveEvent<Unit>()
+    val chooseFromLibraryTap = LiveEvent<Unit>()
+    val cancelTap = LiveEvent<Unit>()
 
-    init {
-        showLoading.postValue(false)
+    fun takePhotoClicked() {
+        takePhotoTap.postValue(Unit)
+    }
+
+    fun chooseFromLibraryClicked() {
+        chooseFromLibraryTap.postValue(Unit)
+    }
+
+    fun cancelClicked() {
+        cancelTap.postValue(Unit)
     }
 }
