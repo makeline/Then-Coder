@@ -36,4 +36,14 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.xwray.groupie.GroupAdapter
-import
+import com.xwray.groupie.GroupieViewHolder
+import org.aerovek.chartr.R
+import org.aerovek.chartr.databinding.MoreFragmentBinding
+import org.aerovek.chartr.ui.AppConstants
+import org.aerovek.chartr.ui.BaseFragment
+import org.aerovek.chartr.ui.adapterItems.MoreItem
+import org.aerovek.chartr.ui.adapterItems.viewmodels.MoreItemViewModel
+import org.aerovek.chartr.util.DialogModel
+import org.aerovek.chartr.util.NavigationObserver
+import org.aerovek.chartr.util.setDataItems
+import org.aerovek.chartr.ut
