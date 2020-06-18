@@ -46,4 +46,16 @@ import org.aerovek.chartr.ui.adapterItems.viewmodels.MoreItemViewModel
 import org.aerovek.chartr.util.DialogModel
 import org.aerovek.chartr.util.NavigationObserver
 import org.aerovek.chartr.util.setDataItems
-import org.aerovek.chartr.ut
+import org.aerovek.chartr.util.showGenericDialog
+import org.koin.android.ext.android.inject
+
+class MoreFragment : BaseFragment() {
+    private val viewModel: MoreViewModel by inject()
+    private lateinit var binding: MoreFragmentBinding
+    private val sharedPreferences: SharedPreferences by inject()
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return DataBindingUtil.inflate<MoreFragmentBinding>(inflater, R.layout.more_fragment, container, false).apply {
