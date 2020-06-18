@@ -59,3 +59,15 @@ class MoreFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         return DataBindingUtil.inflate<MoreFragmentBinding>(inflater, R.layout.more_fragment, container, false).apply {
+            binding = this
+            lifecycleOwner = viewLifecycleOwner
+
+            setupBackPressListener {
+                findNavController().popBackStack(R.id.homeFragment, false)
+            }
+
+            val settingsItem = MoreItem(requireContext(),
+                MoreItemViewModel(
+                    MoreItemType.Settings,
+                    getString(R.string.settings_title),
+                    ContextCompat.getDrawable(requireContext(), R.drawable.ic_settin
