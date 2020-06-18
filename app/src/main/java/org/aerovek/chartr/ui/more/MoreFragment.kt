@@ -70,4 +70,15 @@ class MoreFragment : BaseFragment() {
                 MoreItemViewModel(
                     MoreItemType.Settings,
                     getString(R.string.settings_title),
-                    ContextCompat.getDrawable(requireContext(), R.drawable.ic_settin
+                    ContextCompat.getDrawable(requireContext(), R.drawable.ic_settings_24)!!
+                ), viewModel)
+
+            val createAccountItem = MoreItem(requireContext(),
+                MoreItemViewModel(
+                    MoreItemType.CreateAccount,
+                    getString(R.string.create_account_title),
+                    ContextCompat.getDrawable(requireContext(), R.drawable.ic_add_black_24)!!
+                ), viewModel)
+
+            val privacyPolicyItem = MoreItem(requireContext(),
+                MoreItemView
