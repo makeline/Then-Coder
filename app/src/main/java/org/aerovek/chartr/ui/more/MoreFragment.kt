@@ -90,4 +90,19 @@ class MoreFragment : BaseFragment() {
 
             // If user created a wallet and account, show the My Account item, otherwise show the Create Account item
             val moreItems = if (sharedPreferences.contains(AppConstants.UserPrefsKeys.USER_PIN)
-                && sharedPreferences.contain
+                && sharedPreferences.contains(AppConstants.UserPrefsKeys.ACCOUNT_TYPE)) {
+                mutableListOf(
+                    settingsItem,
+                    privacyPolicyItem
+                )
+            } else {
+                mutableListOf(
+                    createAccountItem,
+                    settingsItem,
+                    privacyPolicyItem
+                )
+            }
+
+            recyclerView.apply {
+                layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+ 
