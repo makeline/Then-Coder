@@ -81,4 +81,13 @@ class MoreFragment : BaseFragment() {
                 ), viewModel)
 
             val privacyPolicyItem = MoreItem(requireContext(),
-                MoreItemView
+                MoreItemViewModel(
+                    MoreItemType.PrivacyPolicy,
+                    getString(R.string.privacy_policy_title),
+                    ContextCompat.getDrawable(requireContext(), R.drawable.ic_outline_info_black_24)!!
+                ), viewModel)
+
+
+            // If user created a wallet and account, show the My Account item, otherwise show the Create Account item
+            val moreItems = if (sharedPreferences.contains(AppConstants.UserPrefsKeys.USER_PIN)
+                && sharedPreferences.contain
