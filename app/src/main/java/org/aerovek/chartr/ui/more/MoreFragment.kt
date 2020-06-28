@@ -105,4 +105,16 @@ class MoreFragment : BaseFragment() {
 
             recyclerView.apply {
                 layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
- 
+                adapter = GroupAdapter<GroupieViewHolder>()
+                setDataItems(moreItems)
+            }
+
+            viewModel.privacyPolicyTap.observe(viewLifecycleOwner) {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(AppConstants.PRIVACY_POLICY_URL))
+                startActivity(intent)
+            }
+
+            viewModel.showNoBalanceMessage.observe(viewLifecycleOwner) {
+                showGenericDialog(
+                    requireContext(),
+                
