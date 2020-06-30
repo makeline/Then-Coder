@@ -117,4 +117,18 @@ class MoreFragment : BaseFragment() {
             viewModel.showNoBalanceMessage.observe(viewLifecycleOwner) {
                 showGenericDialog(
                     requireContext(),
-                
+                    DialogModel(
+                        title = null,
+                        message = R.string.network_fee_to_create_account,
+                        positive = R.string.ok,
+                        negative = R.string.close,
+                        positiveFun = { },
+                        negativeFun = { },
+                        exitVisibility = View.VISIBLE
+                    ), dismissListener = null
+                )
+            }
+        }.root
+    }
+
+    override fun o
