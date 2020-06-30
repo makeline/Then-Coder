@@ -131,4 +131,11 @@ class MoreFragment : BaseFragment() {
         }.root
     }
 
-    override fun o
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.navigationEvent.observe(
+            viewLifecycleOwner,
+            NavigationObserver(NavHostFragment.findNavController(this@MoreFragment))
+        )
+    }
+}
