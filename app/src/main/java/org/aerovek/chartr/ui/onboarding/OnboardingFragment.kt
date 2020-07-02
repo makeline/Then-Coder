@@ -30,3 +30,21 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import org.aerovek.chartr.R
 import org.aerovek.chartr.databinding.OnboardingFragmentBinding
+import org.aerovek.chartr.ui.BaseFragment
+
+
+class OnboardingFragment(
+    private val _title: String,
+    private val _body: String,
+    private val _contentDesc: String,
+    private val _imageRes: Int
+): BaseFragment() {
+
+    private lateinit var binding: OnboardingFragmentBinding
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        return DataBindingUtil.inflate<OnboardingFragmentBinding>(inflater, R.lay
