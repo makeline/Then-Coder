@@ -47,4 +47,15 @@ class OnboardingFragment(
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return DataBindingUtil.inflate<OnboardingFragmentBinding>(inflater, R.lay
+        return DataBindingUtil.inflate<OnboardingFragmentBinding>(inflater, R.layout.onboarding_fragment, container, false).apply {
+
+            binding = this
+            lifecycleOwner = this@OnboardingFragment.viewLifecycleOwner
+
+            binding.title.text = _title
+            binding.description.text = _body
+            binding.imageView.contentDescription = _contentDesc
+            binding.imageView.setImageResource(_imageRes)
+        }.root
+    }
+}
