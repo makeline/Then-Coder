@@ -107,3 +107,98 @@ class PassCodeFragment : BottomSheetDialogFragment() {
                     binding.recycleButtonView.adapter?.notifyItemChanged(pinItems.indexOf(it))
                 }
             }
+
+            passCodeViewModel.invalidPin.observe(viewLifecycleOwner) {
+                showGenericDialog(
+                    requireContext(),
+                    DialogModel(
+                        null,
+                        R.string.pin_no_match
+                    ), dismissListener = null
+                )
+            }
+
+            passCodeViewModel.pinCodePair.observe(viewLifecycleOwner) { pair ->
+                if (pair.second == PinPadType.Value) {
+                    pinItems[pair.first].isActive = true
+                }
+                else if (pair.second == PinPadType.BackSpace)
+                {
+                    pinItems[pair.first].isActive = false
+                }
+                binding.recycleButtonView.adapter?.notifyItemChanged(pair.first)
+            }
+
+            passCodeViewModel.entryComplete.observe(viewLifecycleOwner) {
+                isValidPin = true
+                dismiss()
+            }
+
+            val pinPadList = listOf(
+                PinPadModel("1",PinPadType.Value),
+                PinPadModel("2",PinPadType.Value),
+                PinPadModel("3",PinPadType.Value),
+                PinPadModel("4",PinPadType.Value),
+                PinPadModel("5",PinPadType.Value),
+                PinPadModel("6",PinPadType.Value),
+                PinPadModel("7",PinPadType.Value),
+                PinPadModel("8",PinPadType.Value),
+                PinPadModel("9",PinPadType.Value),
+                PinPadModel("",PinPadType.Blank),
+                PinPadModel("0",PinPadType.Value),
+                PinPadModel("",PinPadType.BackSpace, ContextCompat.getDrawable(this@PassCodeFragment.requireActivity(), R.drawable.ic_back_space)!!),
+            )
+
+            ContextCompat.getDrawable(this@PassCodeFragment.requireActivity(), R.drawable.button_square_white)?.let { drawable ->
+                pinNumbers = pinPadList.map { pinPadModel->
+                    PassCodeKeyboardItem(drawable, pinPadModel, passCodeViewModel)
+                }
+                binding.recycleKeyPadView.apply {
+                    setDataItems(pinNumbers)
+                }
+            }
+        }.root
+    }
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val dialog = super.onCreateDialog(savedInstanceState)
+        dialog.makeBottomsheetFullScreen(this, isDismissable)
+        return dialog
+    }
+
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        dismissListener?.onDismiss(isValidPin)
+    }
+
+    fun setup(dismissListener: PassCodeDismissListener, isDismissable: Boolean) {
+        this.dismissListener = dismissListener
+        this.isDismissable = isDismissable
+    }
+
+    private fun setupRecyclerView(recyclerView: RecyclerView, columnCount: Int) {
+        recyclerView.apply {
+            layoutManager = GridLayoutManager(this@PassCodeFragment.requireActivity(), columnCount)
+            adapter = GroupAdapter<GroupieViewHolder>()
+        }
+    }
+
+}
+
+data class PinPadModel(
+    val value: String? = null,
+    val type: PinPadType,
+    val background: Drawable? = null
+)
+
+enum class PinPadType {
+    Value,
+    BackSpace,
+    Blank
+}
+
+interface PassCodeDismissListener {
+    fun onDismiss(isValidPin: Boolean)
+}
+
+
