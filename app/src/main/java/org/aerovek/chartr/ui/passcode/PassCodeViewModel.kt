@@ -31,4 +31,15 @@ import com.hadilq.liveevent.LiveEvent
 import org.aerovek.chartr.ui.AppConstants
 import org.aerovek.chartr.ui.BaseViewModel
 
-class PassCod
+class PassCodeViewModel (app: Application, private val sharedPreferences: SharedPreferences) : BaseViewModel(app) {
+
+    private val _enterPinLabel = MutableLiveData("Enter PIN")
+    val enterPinLabel: LiveData<String> = _enterPinLabel
+    val pinCodePair = MutableLiveData(Pair(0, PinPadType.Blank))
+    val entryComplete = LiveEvent<Unit>()
+    val insecurePinDetected = LiveEvent<Unit>()
+    val invalidPin = LiveEvent<Unit>()
+    val clearDots = LiveEvent<Unit>()
+    var isFirstEntry = true
+    var enteredPin = ""
+    var savedFirstE
