@@ -42,4 +42,17 @@ class PassCodeViewModel (app: Application, private val sharedPreferences: Shared
     val clearDots = LiveEvent<Unit>()
     var isFirstEntry = true
     var enteredPin = ""
-    var savedFirstE
+    var savedFirstEntry = ""
+
+
+    // Use this to determine if user is creating a new PIN,
+    // or just unlocking the app or signing a transaction
+    private val isNewWallet = !sharedPreferences.contains(AppConstants.UserPrefsKeys.USER_PIN)
+
+    // Simple regex to catch repeating digits or a few others like 123456
+    private val regex = Regex("\\b(\\d)\\1+\\b|123456|234567|345678|456789")
+
+    fun onClick(pinPadModel: PinPadModel) {
+        when(pinPadModel.type) {
+            PinPadType.BackSpace -> {
+         
