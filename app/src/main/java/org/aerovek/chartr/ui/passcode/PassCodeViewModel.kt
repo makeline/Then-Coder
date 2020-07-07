@@ -55,4 +55,18 @@ class PassCodeViewModel (app: Application, private val sharedPreferences: Shared
     fun onClick(pinPadModel: PinPadModel) {
         when(pinPadModel.type) {
             PinPadType.BackSpace -> {
-         
+                if (enteredPin.isNotEmpty()) {
+                    enteredPin = enteredPin.dropLast(1)
+                    pinCodePair.postValue(Pair((enteredPin.length), PinPadType.BackSpace))
+                }
+            }
+            PinPadType.Blank -> {
+                // NoOp for now
+                println("Backspace Pressed")
+            }
+            PinPadType.Value -> {
+                enteredPin += pinPadModel.value
+
+                if (enteredPin.length == 6) {
+                    if (isNewWallet) {
+  
