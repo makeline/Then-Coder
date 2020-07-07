@@ -84,4 +84,14 @@ class PassCodeViewModel (app: Application, private val sharedPreferences: Shared
     private fun validateNewWalletPin() {
         if (isFirstEntry) {
             if (regex.matches(enteredPin)) {
-                insecurePinDetected.post
+                insecurePinDetected.postValue(Unit)
+            } else {
+                _enterPinLabel.postValue("Enter PIN again to confirm")
+                isFirstEntry = false
+                savedFirstEntry = enteredPin
+            }
+        } else {
+            if (enteredPin == savedFirstEntry) {
+                // Store the PIN temporarily, this will be copied over to the
+                // real pin entry storage after they finish the setup process.
+                sharedPreferences.edit().putString(AppConstants.UserPrefsKeys.USER_
