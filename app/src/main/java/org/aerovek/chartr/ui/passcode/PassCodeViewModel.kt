@@ -69,4 +69,19 @@ class PassCodeViewModel (app: Application, private val sharedPreferences: Shared
 
                 if (enteredPin.length == 6) {
                     if (isNewWallet) {
-  
+                        validateNewWalletPin()
+                    } else {
+                        validateForExistingPin()
+                    }
+                    reset()
+                } else {
+                    pinCodePair.postValue(Pair(enteredPin.length - 1, PinPadType.Value))
+                }
+            }
+        }
+    }
+
+    private fun validateNewWalletPin() {
+        if (isFirstEntry) {
+            if (regex.matches(enteredPin)) {
+                insecurePinDetected.post
