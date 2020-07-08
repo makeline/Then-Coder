@@ -94,4 +94,25 @@ class PassCodeViewModel (app: Application, private val sharedPreferences: Shared
             if (enteredPin == savedFirstEntry) {
                 // Store the PIN temporarily, this will be copied over to the
                 // real pin entry storage after they finish the setup process.
-                sharedPreferences.edit().putString(AppConstants.UserPrefsKeys.USER_
+                sharedPreferences.edit().putString(AppConstants.UserPrefsKeys.USER_TEMP_PIN, enteredPin).apply()
+
+                entryComplete.postValue(Unit)
+            } else {
+                invalidPin.postValue(Unit)
+            }
+        }
+    }
+
+    private fun validateForExistingPin() {
+        if (enteredPin == sharedPreferences.getString(AppConstants.UserPrefsKeys.USER_PIN, "")) {
+            entryComplete.postValue(Unit)
+        } else {
+            invalidPin.postValue(Unit)
+        }
+    }
+
+    private fun reset() {
+        enteredPin = ""
+        clearDots.postValue(Unit)
+    }
+}
