@@ -44,4 +44,15 @@ import kotlinx.coroutines.launch
 import org.aerovek.chartr.R
 import org.aerovek.chartr.databinding.QrScannerFragmentBinding
 import org.aerovek.chartr.util.DispatcherProvider
-import o
+import org.aerovek.chartr.util.makeBottomsheetFullScreen
+import org.koin.android.ext.android.inject
+import java.lang.Exception
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
+
+class QRScannerFragment : BottomSheetDialogFragment() {
+    private val dispatcherProvider: DispatcherProvider by inject()
+    private val viewModel: QRScannerViewModel by inject()
+    private lateinit var binding: QrScannerFragmentBinding
+    private lateinit var dismissListener: QRDismissListener
+    private lateinit var cameraEx
