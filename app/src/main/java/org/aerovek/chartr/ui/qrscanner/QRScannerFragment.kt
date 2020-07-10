@@ -34,4 +34,14 @@ import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.viewModelScope
-import com.google.android.materi
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.common.util.concurrent.ListenableFuture
+import com.google.mlkit.vision.barcode.BarcodeScannerOptions
+import com.google.mlkit.vision.barcode.BarcodeScanning
+import com.google.mlkit.vision.barcode.common.Barcode
+import com.google.mlkit.vision.common.InputImage
+import kotlinx.coroutines.launch
+import org.aerovek.chartr.R
+import org.aerovek.chartr.databinding.QrScannerFragmentBinding
+import org.aerovek.chartr.util.DispatcherProvider
+import o
