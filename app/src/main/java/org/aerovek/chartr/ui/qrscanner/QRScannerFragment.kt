@@ -67,4 +67,17 @@ class QRScannerFragment : BottomSheetDialogFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-       
+        savedInstanceState: Bundle?
+    ): View? {
+        return DataBindingUtil.inflate<QrScannerFragmentBinding>(inflater, R.layout.qr_scanner_fragment, container, false).apply {
+            binding = this
+            vm = viewModel
+            lifecycleOwner = viewLifecycleOwner
+
+            startCamera()
+        }.root
+    }
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val dialog = super.onCreateDialog(savedInstanceState)
+        dialog.makeBottomsheetFullScreen(th
