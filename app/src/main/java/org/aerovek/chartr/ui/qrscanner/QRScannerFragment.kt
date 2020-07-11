@@ -55,4 +55,16 @@ class QRScannerFragment : BottomSheetDialogFragment() {
     private val viewModel: QRScannerViewModel by inject()
     private lateinit var binding: QrScannerFragmentBinding
     private lateinit var dismissListener: QRDismissListener
-    private lateinit var cameraEx
+    private lateinit var cameraExecutor: ExecutorService
+    lateinit var cameraProviderFuture: ListenableFuture<ProcessCameraProvider>
+    private var scannedAddressText: String? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext())
+        cameraExecutor = Executors.newSingleThreadExecutor()
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+       
