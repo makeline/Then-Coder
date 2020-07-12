@@ -80,4 +80,23 @@ class QRScannerFragment : BottomSheetDialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState)
-        dialog.makeBottomsheetFullScreen(th
+        dialog.makeBottomsheetFullScreen(this, true)
+        return dialog
+    }
+
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        dismissListener.onDismiss(scannedAddressText)
+        cameraExecutor.shutdown()
+    }
+
+    fun setup(listener: QRDismissListener) {
+        dismissListener = listener
+    }
+
+    private fun startCamera() {
+        cameraProviderFuture.addListener({
+            val cameraProvider = cameraProviderFuture.get()
+            val preview = Preview.Builder()
+                .build()
+        
