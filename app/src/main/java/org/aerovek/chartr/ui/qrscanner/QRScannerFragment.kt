@@ -99,4 +99,17 @@ class QRScannerFragment : BottomSheetDialogFragment() {
             val cameraProvider = cameraProviderFuture.get()
             val preview = Preview.Builder()
                 .build()
-        
+                .also {
+                    viewModel.viewModelScope.launch(dispatcherProvider.Main) {
+                        it.setSurfaceProvider(binding.viewFinder.surfaceProvider)
+                    }
+                }
+
+            // Set back camera as a default
+            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+
+            val analyzer = ImageAnalysis.Builder()
+                .build()
+                .also {
+                    val analyzer = ImageAnalyzer { scannedText ->
+                   
