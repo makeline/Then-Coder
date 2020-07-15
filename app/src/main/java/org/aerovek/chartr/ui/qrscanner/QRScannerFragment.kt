@@ -112,4 +112,16 @@ class QRScannerFragment : BottomSheetDialogFragment() {
                 .build()
                 .also {
                     val analyzer = ImageAnalyzer { scannedText ->
-                   
+                        this.scannedAddressText = scannedText
+                        dismiss()
+                    }
+                    it.setAnalyzer(cameraExecutor, analyzer)
+                }
+
+            try {
+                viewModel.viewModelScope.launch(dispatcherProvider.Main) {
+                    cameraProvider.unbindAll()
+                    cameraProvider.bindToLifecycle(requireActivity(), cameraSelector, preview, analyzer)
+                }
+            } catch (e: Exception) {
+                
