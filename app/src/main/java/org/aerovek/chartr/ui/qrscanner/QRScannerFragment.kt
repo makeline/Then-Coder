@@ -124,4 +124,17 @@ class QRScannerFragment : BottomSheetDialogFragment() {
                     cameraProvider.bindToLifecycle(requireActivity(), cameraSelector, preview, analyzer)
                 }
             } catch (e: Exception) {
-                
+                println("Error in camera listener - ERROR: ${e.message}\n\t STACK TRACE: ${e.printStackTrace()}")
+            }
+
+        }, cameraExecutor)
+    }
+}
+
+internal class ImageAnalyzer(private val callback: (scannedText: String?) -> Unit) : ImageAnalysis.Analyzer {
+
+    @SuppressLint("UnsafeOptInUsageError")
+    override fun analyze(imageProxy: ImageProxy) {
+        val rotationDegrees = imageProxy.imageInfo.rotationDegrees
+        val image = imageProxy.image?.let {
+            InputImage.fromMediaImage(it, rotation
