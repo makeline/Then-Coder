@@ -137,4 +137,17 @@ internal class ImageAnalyzer(private val callback: (scannedText: String?) -> Uni
     override fun analyze(imageProxy: ImageProxy) {
         val rotationDegrees = imageProxy.imageInfo.rotationDegrees
         val image = imageProxy.image?.let {
-            InputImage.fromMediaImage(it, rotation
+            InputImage.fromMediaImage(it, rotationDegrees)
+        }!!
+
+        val options = BarcodeScannerOptions.Builder()
+            .setBarcodeFormats(Barcode.FORMAT_QR_CODE)
+            .build()
+
+        val scanner = BarcodeScanning.getClient(options)
+        scanner.process(image).addOnSuccessListener { barcodes ->
+            if (barcodes.size == 0) {
+                imageProxy.close()
+            } else {
+                for (barcode in barcodes) {
+                    println("Barcode display value: ${barcode.displayVa
