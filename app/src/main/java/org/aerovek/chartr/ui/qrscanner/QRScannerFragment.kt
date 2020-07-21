@@ -150,4 +150,20 @@ internal class ImageAnalyzer(private val callback: (scannedText: String?) -> Uni
                 imageProxy.close()
             } else {
                 for (barcode in barcodes) {
-                    println("Barcode display value: ${barcode.displayVa
+                    println("Barcode display value: ${barcode.displayValue}")
+                    if (barcode.valueType == Barcode.TYPE_TEXT) {
+                        callback(barcode.displayValue)
+                        imageProxy.close()
+                    }
+                }
+            }
+        }.addOnFailureListener { ex ->
+            println("Failed to process input image: ERROR - ${ex.message} \n\t STACKTRACE: ${ex.printStackTrace()}")
+            imageProxy.close()
+        }
+    }
+}
+
+interface QRDismissListener {
+    fun onDismiss(walletAddress: String?)
+}
