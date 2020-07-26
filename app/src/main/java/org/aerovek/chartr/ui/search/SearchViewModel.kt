@@ -49,3 +49,13 @@ class SearchViewModel(
     val viewReady = LiveEvent<List<ChartrAccount>>()
 
     init {
+        retrieveAccounts(false)
+    }
+
+    fun retrieveAccounts(fetchNew: Boolean) {
+        viewModelScope.launch(dispatcherProvider.IO) {
+            val contractInput = QueryContractInput(
+                scAddress = environmentRepository.selectedElrondEnvironment.scAddress,
+                funcName = "accountList",
+                args = listOf(AppConstants.ACCOUNT_TYPE_BUSINESS_VALUE.toHex()),
+                caller = AppConstants.ACCOUNT_RETRIEVAL_ADDRESS,
