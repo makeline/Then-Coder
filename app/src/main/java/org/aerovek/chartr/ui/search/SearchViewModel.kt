@@ -33,4 +33,19 @@ import org.aerovek.chartr.data.cache.ChartrAccountsCache
 import org.aerovek.chartr.data.model.ChartrAccount
 import org.aerovek.chartr.data.model.elrond.contract.QueryContractInput
 import org.aerovek.chartr.data.repository.elrond.VmRepository
-import org.aerovek.chartr.data.util.t
+import org.aerovek.chartr.data.util.toHex
+import org.aerovek.chartr.ui.AppConstants
+import org.aerovek.chartr.ui.BaseViewModel
+import org.aerovek.chartr.util.DispatcherProvider
+
+class SearchViewModel(
+    app: Application,
+    private val dispatcherProvider: DispatcherProvider,
+    private val vmRepository: VmRepository,
+    private val environmentRepository: EnvironmentRepository
+) : BaseViewModel(app) {
+
+    val showLoading = MutableLiveData(true)
+    val viewReady = LiveEvent<List<ChartrAccount>>()
+
+    init {
