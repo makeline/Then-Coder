@@ -59,3 +59,16 @@ class SearchViewModel(
                 funcName = "accountList",
                 args = listOf(AppConstants.ACCOUNT_TYPE_BUSINESS_VALUE.toHex()),
                 caller = AppConstants.ACCOUNT_RETRIEVAL_ADDRESS,
+                value = "0"
+            )
+
+            val businessAccounts = if (fetchNew || ChartrAccountsCache.businessAccounts.isEmpty()) {
+                vmRepository.getChartrAccountList(contractInput) ?: listOf()
+            } else {
+                ChartrAccountsCache.businessAccounts
+            }.groupBy { item ->
+                item.username
+            }.map {
+                it.value.sortedByDescending { account ->
+                    account.recordVersion
+                }.tak
