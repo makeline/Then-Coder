@@ -71,4 +71,10 @@ class SearchViewModel(
             }.map {
                 it.value.sortedByDescending { account ->
                     account.recordVersion
-                }.tak
+                }.take(1)[0]
+            }
+
+            viewReady.postValue(businessAccounts)
+        }
+    }
+}
