@@ -35,4 +35,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-im
+import org.aerovek.chartr.R
+import org.aerovek.chartr.databinding.WalletFragmentBinding
+import org.aerovek.chartr.ui.AppConstants
+import org.aerovek.chartr.ui.BaseFragment
+import org.aerovek.chartr.ui.wallet.overview.WalletOverviewFragment
+import org.aerovek.chartr.ui.wallet.transaction.ReceiveAeroFragment
+import org.aerovek.chartr.ui.wallet.transaction.SendAeroFragment
+import org.aerovek.chartr.ui.wallet.transaction.TransactionHistoryFragment
+import org.aerovek.chartr.util.NavigationObserver
+import org.koin.android.ext.android.i
