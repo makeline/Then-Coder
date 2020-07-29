@@ -44,4 +44,18 @@ import org.aerovek.chartr.ui.wallet.transaction.ReceiveAeroFragment
 import org.aerovek.chartr.ui.wallet.transaction.SendAeroFragment
 import org.aerovek.chartr.ui.wallet.transaction.TransactionHistoryFragment
 import org.aerovek.chartr.util.NavigationObserver
-import org.koin.android.ext.android.i
+import org.koin.android.ext.android.inject
+
+class WalletFragment : BaseFragment() {
+    private val sharedPreferences: SharedPreferences by inject()
+
+    private val viewModel: WalletViewModel by inject()
+    lateinit var binding: WalletFragmentBinding
+    private lateinit var pagerAdapter: WalletPageAdapter
+    private var fragmentList: List<Fragment> = listOf()
+    private var hasWallet = false
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        hasWallet = sharedPreferences.contains(
