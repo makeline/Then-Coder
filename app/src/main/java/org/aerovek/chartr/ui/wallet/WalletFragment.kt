@@ -58,4 +58,18 @@ class WalletFragment : BaseFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        hasWallet = sharedPreferences.contains(
+        hasWallet = sharedPreferences.contains(AppConstants.UserPrefsKeys.WALLET_ADDRESS)
+
+        // If user hasn't created a wallet yet don't initialize these fragments yet
+        if (hasWallet) {
+            fragmentList = listOf(
+                WalletOverviewFragment.newInstance(),
+                SendAeroFragment.newInstance(),
+                ReceiveAeroFragment.newInstance(),
+                TransactionHistoryFragment.newInstance()
+            )
+        }
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, cont
