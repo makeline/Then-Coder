@@ -72,4 +72,18 @@ class WalletFragment : BaseFragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, cont
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return DataBindingUtil.inflate<WalletFragmentBinding>(inflater, R.layout.wallet_fragment, container, false).apply {
+            binding = this
+            vm = viewModel
+            lifecycleOwner = viewLifecycleOwner
+
+            setupBackPressListener {
+                findNavController().popBackStack(R.id.homeFragment, false)
+            }
+        }.root
+    }
+
+    override fun onViewCreated(view: View, savedInstance
