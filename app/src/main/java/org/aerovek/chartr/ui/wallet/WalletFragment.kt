@@ -86,4 +86,14 @@ class WalletFragment : BaseFragment() {
         }.root
     }
 
-    override fun onViewCreated(view: View, savedInstance
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        pagerAdapter = WalletPageAdapter(this@WalletFragment)
+        binding.viewPager.adapter = pagerAdapter
+
+        val tabLayout: TabLayout = binding.tabLayout
+        TabLayoutMediator(tabLayout, binding.viewPager) { tab, position ->
+            println("TabLayoutMediator called with - tab: ${tab.id}, position: $position")
+            when (position) {
+                0 -> tab.text = getString(R.string.overview
