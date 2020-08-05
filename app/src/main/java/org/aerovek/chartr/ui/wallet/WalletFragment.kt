@@ -96,4 +96,17 @@ class WalletFragment : BaseFragment() {
         TabLayoutMediator(tabLayout, binding.viewPager) { tab, position ->
             println("TabLayoutMediator called with - tab: ${tab.id}, position: $position")
             when (position) {
-                0 -> tab.text = getString(R.string.overview
+                0 -> tab.text = getString(R.string.overview_title)
+                1 -> tab.text = getString(R.string.withdraw_title)
+                2 -> tab.text = getString(R.string.deposit_title)
+                3 -> tab.text = getString(R.string.activity_title)
+            }
+        }.attach()
+
+        viewModel.navigationEvent.observe(
+            viewLifecycleOwner,
+            NavigationObserver(NavHostFragment.findNavController(this@WalletFragment))
+        )
+    }
+
+    private inner
