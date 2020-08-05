@@ -109,4 +109,11 @@ class WalletFragment : BaseFragment() {
         )
     }
 
-    private inner
+    private inner class WalletPageAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
+        override fun getItemCount(): Int = fragmentList.size
+
+        override fun createFragment(position: Int): Fragment {
+            return fragmentList[position]
+        }
+    }
+}
