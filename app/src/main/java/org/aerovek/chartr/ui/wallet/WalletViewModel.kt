@@ -34,4 +34,14 @@ import org.aerovek.chartr.util.NavigationEvent
 
 class WalletViewModel(app: Application, sharedPreferences: SharedPreferences) : BaseViewModel(app) {
     private val _navigationEvent = LiveEvent<NavigationEvent>()
-    val navigationEvent: LiveData<NavigationEvent> = _navi
+    val navigationEvent: LiveData<NavigationEvent> = _navigationEvent
+
+    val showLoading = MutableLiveData(true)
+    val showCreateWalletButton = MutableLiveData(!sharedPreferences.contains(AppConstants.UserPrefsKeys.USER_PIN))
+
+    fun createWalletClicked() {
+        _navigationEvent.postValue(NavigationEvent.Directions(
+            WalletFragmentDirections.actionWalletFragmentToCreateWalletFragment()
+        ))
+    }
+}
