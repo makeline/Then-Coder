@@ -43,4 +43,21 @@ class CreateWalletFragment : BaseFragment() {
         return DataBindingUtil.inflate<CreateWalletFragmentBinding>(inflater, R.layout.create_wallet_fragment, container, false).apply {
             binding = this
             vm = viewModel
-            lifecycleOwner
+            lifecycleOwner = viewLifecycleOwner
+
+            setupBackPressListener {
+                findNavController(this@CreateWalletFragment).navigateUp()
+            }
+        }.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.navigationEvent.observe(
+            viewLifecycleOwner,
+            NavigationObserver(findNavController(this@CreateWalletFragment))
+        )
+    }
+
+    companion object {
+        fun newInstance() = Cre
