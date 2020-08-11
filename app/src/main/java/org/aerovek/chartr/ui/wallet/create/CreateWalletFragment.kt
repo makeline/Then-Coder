@@ -25,4 +25,14 @@ package org.aerovek.chartr.ui.wallet.create
 
 import android.os.Bundle
 import android.view.LayoutInflater
-imp
+import android.view.View
+import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import org.aerovek.chartr.R
+import org.aerovek.chartr.databinding.CreateWalletFragmentBinding
+import org.aerovek.chartr.ui.BaseFragment
+import org.aerovek.chartr.util.NavigationObserver
+import org.koin.android.ext.android.inject
+
+class CreateWalletFragment : Base
