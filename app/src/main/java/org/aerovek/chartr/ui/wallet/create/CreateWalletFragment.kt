@@ -35,4 +35,12 @@ import org.aerovek.chartr.ui.BaseFragment
 import org.aerovek.chartr.util.NavigationObserver
 import org.koin.android.ext.android.inject
 
-class CreateWalletFragment : Base
+class CreateWalletFragment : BaseFragment() {
+    private val viewModel: CreateWalletViewModel by inject()
+    private lateinit var binding: CreateWalletFragmentBinding
+
+    override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return DataBindingUtil.inflate<CreateWalletFragmentBinding>(inflater, R.layout.create_wallet_fragment, container, false).apply {
+            binding = this
+            vm = viewModel
+            lifecycleOwner
