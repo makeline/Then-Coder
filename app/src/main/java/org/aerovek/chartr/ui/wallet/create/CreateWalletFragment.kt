@@ -60,4 +60,6 @@ class CreateWalletFragment : BaseFragment() {
     }
 
     companion object {
-        fun newInstance() = Cre
+        fun newInstance() = CreateWalletFragment()
+    }
+}
