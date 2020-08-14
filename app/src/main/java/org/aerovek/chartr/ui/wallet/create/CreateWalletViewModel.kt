@@ -42,4 +42,6 @@ class CreateWalletViewModel(app: Application) : BaseViewModel(app) {
     fun importWalletClicked() {
         _navigationEvent.postValue(NavigationEvent.Directions(
             CreateWalletFragmentDirections.actionCreateWalletToProtectWallet(false)
-    
+        ))
+    }
+}
