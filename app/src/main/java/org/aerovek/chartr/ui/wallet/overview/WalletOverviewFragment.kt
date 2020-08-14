@@ -54,3 +54,14 @@ class WalletOverviewFragment : BaseFragment() {
 
             viewModel.refreshingComplete.observe(viewLifecycleOwner) {
                 binding.swipeRefreshLayout.isRefreshing = false
+            }
+
+            binding.swipeRefreshLayout.apply {
+                setOnRefreshListener {
+                    isRefreshing = true
+                    viewModel.updateBalance(true)
+                }
+            }
+        }.root
+    }
+}
