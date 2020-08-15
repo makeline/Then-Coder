@@ -37,4 +37,16 @@ import org.aerovek.chartr.util.NavigationObserver
 import org.koin.android.ext.android.inject
 
 class ProtectWalletTipsFragment : BaseFragment() {
-    private val vm: ProtectWalletTipsViewMod
+    private val vm: ProtectWalletTipsViewModel by inject()
+    private lateinit var binding: ProtectWalletTipsFragmentBinding
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return DataBindingUtil.inflate<ProtectWalletTipsFragmentBinding>(inflater, R.layout.protect_wallet_tips_fragment, container, false).apply {
+            binding = this
+            lifecycleOwner = viewLifecycleOwner
+            viewModel = vm
+
+            setupBackPr
