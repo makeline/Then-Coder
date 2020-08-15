@@ -49,4 +49,16 @@ class ProtectWalletTipsFragment : BaseFragment() {
             lifecycleOwner = viewLifecycleOwner
             viewModel = vm
 
-            setupBackPr
+            setupBackPressListener { findNavController().navigateUp() }
+        }.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        vm.navigationEvent.observe(
+            viewLifecycleOwner,
+            NavigationObserver(NavHostFragment.findNavController(this@ProtectWalletTipsFragment))
+        )
+    }
+}
