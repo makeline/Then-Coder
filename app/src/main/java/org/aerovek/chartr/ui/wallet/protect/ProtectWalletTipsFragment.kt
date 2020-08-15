@@ -25,4 +25,16 @@ package org.aerovek.chartr.ui.wallet.protect
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.V
+import android.view.View
+import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import org.aerovek.chartr.R
+import org.aerovek.chartr.databinding.ProtectWalletTipsFragmentBinding
+import org.aerovek.chartr.ui.BaseFragment
+import org.aerovek.chartr.util.NavigationObserver
+import org.koin.android.ext.android.inject
+
+class ProtectWalletTipsFragment : BaseFragment() {
+    private val vm: ProtectWalletTipsViewMod
