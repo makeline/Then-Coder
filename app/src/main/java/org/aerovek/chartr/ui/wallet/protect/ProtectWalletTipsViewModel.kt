@@ -35,4 +35,8 @@ class ProtectWalletTipsViewModel(app: Application) : BaseViewModel(app) {
     val navigationEvent: LiveData<NavigationEvent> = _navigationEvent
 
     fun continueButtonClicked() {
-        _navigationE
+        _navigationEvent.postValue(NavigationEvent.Directions(
+            ProtectWalletTipsFragmentDirections.actionProtectWalletTipsToSecretPhraseFragment()
+        ))
+    }
+}
