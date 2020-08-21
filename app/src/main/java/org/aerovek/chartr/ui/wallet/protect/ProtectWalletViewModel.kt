@@ -29,4 +29,13 @@ import com.hadilq.liveevent.LiveEvent
 import org.aerovek.chartr.ui.BaseViewModel
 import org.aerovek.chartr.util.NavigationEvent
 
-class ProtectW
+class ProtectWalletViewModel(app: Application) : BaseViewModel(app) {
+    private val _navigationEvent = LiveEvent<NavigationEvent>()
+    val navigationEvent: LiveData<NavigationEvent> = _navigationEvent
+    var isCreatingNewWallet = true
+
+    val showPassCodeView = LiveEvent<Unit>()
+
+    fun continueButtonClicked() {
+        if (isCreatingNewWallet) {
+            _navigationEvent.postValue(NavigationEvent.Directions(ProtectWalletFragmentDirections.actionProtectWalletToWalletTips(
