@@ -1,3 +1,4 @@
+
 /*
 The MIT License (MIT)
 
@@ -21,30 +22,27 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package org.aerovek.chartr.ui.wallet.protect
+package org.aerovek.chartr.ui.wallet.transaction
 
-import android.app.Application
-import androidx.lifecycle.LiveData
-import com.hadilq.liveevent.LiveEvent
-import org.aerovek.chartr.ui.BaseViewModel
-import org.aerovek.chartr.util.NavigationEvent
+import android.app.Dialog
+import android.content.DialogInterface
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import org.aerovek.chartr.R
+import org.aerovek.chartr.databinding.ConfirmTransferFragmentBinding
+import org.aerovek.chartr.ui.passcode.PassCodeDismissListener
+import org.aerovek.chartr.ui.passcode.PassCodeFragment
+import org.aerovek.chartr.util.makeBottomsheetFullScreen
+import org.koin.android.ext.android.inject
 
-class ProtectWalletViewModel(app: Application) : BaseViewModel(app) {
-    private val _navigationEvent = LiveEvent<NavigationEvent>()
-    val navigationEvent: LiveData<NavigationEvent> = _navigationEvent
-    var isCreatingNewWallet = true
 
-    val showPassCodeView = LiveEvent<Unit>()
-
-    fun continueButtonClicked() {
-        if (isCreatingNewWallet) {
-            _navigationEvent.postValue(NavigationEvent.Directions(ProtectWalletFragmentDirections.actionProtectWalletToWalletTips()))
-        } else {
-            _navigationEvent.postValue(NavigationEvent.Directions(ProtectWalletFragmentDirections.actionProtectWalletToImportWallet()))
-        }
-    }
-
-    fun createPasscodeClicked() {
-        showPassCodeView.postValue(Unit)
-    }
-}
+class ConfirmTransferFragment : BottomSheetDialogFragment() {
+    private val viewModel: ConfirmTransferViewModel by inject()
+    lateinit var binding: ConfirmTransferFragmentBinding
+    private var dismissListener: ConfirmTransferDismissListener? = null
+    private var didCompleteTransaction: Boolean = false
+    var assetBeingSent: String? = null
