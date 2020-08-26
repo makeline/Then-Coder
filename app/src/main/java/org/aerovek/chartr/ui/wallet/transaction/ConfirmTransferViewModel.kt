@@ -37,4 +37,18 @@ import org.aerovek.chartr.data.model.elrond.transaction.Transaction
 import org.aerovek.chartr.data.model.elrond.wallet.Wallet
 import org.aerovek.chartr.data.repository.elrond.AccountRepository
 import org.aerovek.chartr.data.repository.elrond.ElrondNetworkRepository
-import org.aerovek.chartr
+import org.aerovek.chartr.data.repository.elrond.TransactionRepository
+import org.aerovek.chartr.data.util.toHex
+import org.aerovek.chartr.ui.AppConstants
+import org.aerovek.chartr.ui.BaseViewModel
+import org.aerovek.chartr.util.DispatcherProvider
+import org.aerovek.chartr.util.FirebaseHelper
+import java.lang.Exception
+import java.math.BigInteger
+import java.util.*
+
+class ConfirmTransferViewModel(
+    app: Application,
+    private val networkRepository: ElrondNetworkRepository,
+    private val dispatcherProvider: DispatcherProvider,
+    pr
