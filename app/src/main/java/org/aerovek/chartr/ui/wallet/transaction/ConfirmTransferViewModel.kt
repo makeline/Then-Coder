@@ -51,4 +51,14 @@ class ConfirmTransferViewModel(
     app: Application,
     private val networkRepository: ElrondNetworkRepository,
     private val dispatcherProvider: DispatcherProvider,
-    pr
+    private val accountRepository: AccountRepository,
+    private val transactionRepository: TransactionRepository,
+    private val sharedPreferences: SharedPreferences,
+    private val environmentRepository: EnvironmentRepository
+    ) : BaseViewModel(app) {
+    val transferAmount = MutableLiveData("")
+    val usdAmount = MutableLiveData("")
+    val recipientAddress = MutableLiveData("")
+    val truncatedAddress = MutableLiveData("")
+    val networkFee = MutableLiveData("")
+    val closeButtonClicked = LiveEvent<Un
