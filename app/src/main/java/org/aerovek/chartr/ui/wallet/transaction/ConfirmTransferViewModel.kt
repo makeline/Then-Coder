@@ -61,4 +61,16 @@ class ConfirmTransferViewModel(
     val recipientAddress = MutableLiveData("")
     val truncatedAddress = MutableLiveData("")
     val networkFee = MutableLiveData("")
-    val closeButtonClicked = LiveEvent<Un
+    val closeButtonClicked = LiveEvent<Unit>()
+    val showLoadingView = MutableLiveData(true)
+    val showPinPad = LiveEvent<Unit>()
+    val transactionComplete = LiveEvent<Unit>()
+    val transactionFailed = LiveEvent<Unit>()
+
+    private lateinit var transaction: Transaction
+
+    private val senderAddress =
+        Address.fromBech32(sharedPreferences.getString(AppConstants.UserPrefsKeys.WALLET_ADDRESS, null) ?: "")
+
+    fun initialize(amount: String, usdAmountDisplay: String, asset: String) {
+        viewModelScope.launch(dispatch
