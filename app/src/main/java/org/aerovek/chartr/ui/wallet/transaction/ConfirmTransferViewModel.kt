@@ -82,4 +82,19 @@ class ConfirmTransferViewModel(
             // The token and value need to be hex encoded
             val amountHex = preparedAmount.toBigInteger().toHex()
             println("AMOUNT HEX: $amountHex")
-            val tokenIdHex = e
+            val tokenIdHex = environmentRepository.selectedElrondEnvironment.aeroTokenId.toHex()
+            println("TOKENID HEX: $tokenIdHex")
+            val dataField = "ESDTTransfer@$tokenIdHex@$amountHex"
+
+            transaction = prepareTransaction(
+                recipientAddress.value!!,
+                networkConfig,
+                dataField,
+                asset,
+                preparedAmount
+            )
+
+            println("DATA FIELD: ${transaction.data}")
+            println("TX COST: ${transaction.gasLimit}")
+
+            show
