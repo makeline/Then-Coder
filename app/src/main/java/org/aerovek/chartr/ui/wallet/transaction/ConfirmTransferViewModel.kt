@@ -73,4 +73,13 @@ class ConfirmTransferViewModel(
         Address.fromBech32(sharedPreferences.getString(AppConstants.UserPrefsKeys.WALLET_ADDRESS, null) ?: "")
 
     fun initialize(amount: String, usdAmountDisplay: String, asset: String) {
-        viewModelScope.launch(dispatch
+        viewModelScope.launch(dispatcherProvider.IO) {
+            val networkConfig = networkRepository.getNetworkConfig()
+            val preparedAmount = prepareAmount(amount)
+
+            // This is a ESDT transfer so we need to call a special function
+            //  and requires the value field to be set to 0 on the transaction
+            // The token and value need to be hex encoded
+            val amountHex = preparedAmount.toBigInteger().toHex()
+            println("AMOUNT HEX: $amountHex")
+            val tokenIdHex = e
