@@ -97,4 +97,22 @@ class ConfirmTransferViewModel(
             println("DATA FIELD: ${transaction.data}")
             println("TX COST: ${transaction.gasLimit}")
 
-            show
+            showLoadingView.postValue(false)
+        }
+    }
+
+    fun continueClicked() {
+        showPinPad.postValue(Unit)
+    }
+
+    fun sendTransaction() {
+        viewModelScope.launch(dispatcherProvider.IO) {
+            showLoadingView.postValue(true)
+
+            try {
+                val wallet = Wallet.createFromPrivateKey(
+                    sharedPreferences.getString(
+                        AppConstants.UserPrefsKeys.WALLET_PRIVATE_KEY,
+                        null
+                    ) ?: ""
+          
