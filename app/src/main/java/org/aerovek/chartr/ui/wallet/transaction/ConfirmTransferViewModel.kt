@@ -115,4 +115,13 @@ class ConfirmTransferViewModel(
                         AppConstants.UserPrefsKeys.WALLET_PRIVATE_KEY,
                         null
                     ) ?: ""
-          
+                )
+
+                val sentTransaction = transactionRepository.sendTransaction(transaction, wallet)
+                println("TX HASH: ${sentTransaction.txHash}")
+                transactionComplete.postValue(Unit)
+            } catch (e: ElrondException.CannotSignTransactionException) {
+                FirebaseHelper.HandledException.logEvent("Transaction failed - could not sign transaction")
+                transactionFailed.postValue(Unit)
+            } catch (e: Exception) {
+ 
