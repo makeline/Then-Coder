@@ -124,4 +124,18 @@ class ConfirmTransferViewModel(
                 FirebaseHelper.HandledException.logEvent("Transaction failed - could not sign transaction")
                 transactionFailed.postValue(Unit)
             } catch (e: Exception) {
- 
+                FirebaseHelper.HandledException.logEvent("Transaction failed - ${e.message?.substring(0, 75)}")
+                transactionFailed.postValue(Unit)
+            }
+
+            showLoadingView.postValue(false)
+        }
+    }
+
+    fun closeClicked() {
+        closeButtonClicked.postValue(Unit)
+    }
+
+    /**
+     * Takes the user entered amount and converts it to the long erd string version
+     * i.e., if user entered 100.125, we split 100 and 125 into a 2 eleme
