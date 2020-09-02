@@ -164,4 +164,24 @@ class ConfirmTransferViewModel(
                 amountString += "0"
             }
         } else {
-            // else just append the 18 digit fractional piece to the whole number 
+            // else just append the 18 digit fractional piece to the whole number piece
+            amountString += decimalValue
+        }
+
+        return amountString
+    }
+
+    private fun prepareTransaction(
+        toAddress: String,
+        networkConfig: NetworkConfig,
+        data: String,
+        asset: String,
+        preparedAmount: String
+    ): Transaction {
+        val receiverAddress = Address.fromBech32(toAddress)
+        val senderAccount = accountRepository.getAccount(senderAddress)
+
+        val transactionCost = 500000L
+
+        var tx = Transaction(
+            sender = senderAdd
