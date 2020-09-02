@@ -138,4 +138,18 @@ class ConfirmTransferViewModel(
 
     /**
      * Takes the user entered amount and converts it to the long erd string version
-     * i.e., if user entered 100.125, we split 100 and 125 into a 2 eleme
+     * i.e., if user entered 100.125, we split 100 and 125 into a 2 element array,
+     * then start padding zeros to the end of 125 until we effectively move the decimal 18 places to the right
+     * to end up with 100125000000000000000
+     *  */
+    private fun prepareAmount(amount: String): String {
+        val amountParts = amount.split(".")
+        val wholeNumValue = amountParts[0]
+        var decimalValue = "0"
+
+        if (amountParts.size == 2) {
+             decimalValue = amountParts[1]
+        }
+
+        // Initialize first with the whole number
+        var
