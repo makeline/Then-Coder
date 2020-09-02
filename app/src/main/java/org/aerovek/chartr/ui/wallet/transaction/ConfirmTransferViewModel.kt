@@ -184,4 +184,20 @@ class ConfirmTransferViewModel(
         val transactionCost = 500000L
 
         var tx = Transaction(
-            sender = senderAdd
+            sender = senderAddress,
+            receiver = receiverAddress,
+            chainID = networkConfig.chainID,
+            gasPrice = networkConfig.minGasPrice,
+            version = networkConfig.minTransactionVersion,
+            nonce = senderAccount.nonce
+        )
+
+        tx = if (asset.lowercase(Locale.getDefault()) == "egld") {
+            tx.copy(value = preparedAmount.toBigInteger())
+        } else {
+            tx.copy(data = data, value = BigInteger.ZERO)
+        }
+
+        val gasLimit = try {
+            val cost =
+ 
