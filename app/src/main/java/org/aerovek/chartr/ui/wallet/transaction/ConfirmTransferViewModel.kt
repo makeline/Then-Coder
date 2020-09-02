@@ -152,4 +152,16 @@ class ConfirmTransferViewModel(
         }
 
         // Initialize first with the whole number
-        var
+        var amountString = wholeNumValue
+
+        // If the fractional piece is not 18 digits pad zeros to it
+        if (decimalValue.length in 1..17) {
+            // First append the initial fractional value
+            amountString += decimalValue
+
+            // Start padding zeros
+            for (i in decimalValue.length..17) {
+                amountString += "0"
+            }
+        } else {
+            // else just append the 18 digit fractional piece to the whole number 
