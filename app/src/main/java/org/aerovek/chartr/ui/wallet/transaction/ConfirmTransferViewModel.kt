@@ -200,4 +200,16 @@ class ConfirmTransferViewModel(
 
         val gasLimit = try {
             val cost =
- 
+                transactionRepository.estimateCostOfTransaction(tx).toLong()
+            if (cost > 0L) {
+                cost
+            } else {
+                transactionCost
+            }
+        } catch (e: Exception) {
+            transactionCost
+        }
+
+        return tx.copy(gasLimit = gasLimit)
+    }
+}
