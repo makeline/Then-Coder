@@ -23,4 +23,17 @@ SOFTWARE.
 */
 package org.aerovek.chartr.ui.wallet.transaction
 
-import an
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.SharedPreferences
+import android.graphics.Bitmap
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.databinding.DataBindingUtil
+import com.google.zxing.BarcodeFormat
+import com.google.zxing.qrcode.QRCodeWriter
+import org.aerov
