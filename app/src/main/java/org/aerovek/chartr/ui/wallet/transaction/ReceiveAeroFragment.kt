@@ -49,4 +49,16 @@ class ReceiveAeroFragment : BaseFragment() {
     private lateinit var binding: ReceiveAeroFragmentBinding
 
     override fun onCreateView(
-        inflater: L
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return DataBindingUtil.inflate<ReceiveAeroFragmentBinding>(inflater, R.layout.receive_aero_fragment, container, false).apply {
+            binding = this
+            vm = viewModel
+            lifecycleOwner = viewLifecycleOwner
+
+            val address = sharedPreferences.getString(AppConstants.UserPrefsKeys.WALLET_ADDRESS, "")
+            viewModel.addressText.postValue(address)
+
+            try {
+                v
