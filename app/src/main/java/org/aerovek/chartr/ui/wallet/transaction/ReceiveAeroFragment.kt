@@ -36,4 +36,17 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.qrcode.QRCodeWriter
-import org.aerov
+import org.aerovek.chartr.R
+import org.aerovek.chartr.databinding.ReceiveAeroFragmentBinding
+import org.aerovek.chartr.ui.AppConstants
+import org.aerovek.chartr.ui.BaseFragment
+import org.koin.android.ext.android.inject
+
+
+class ReceiveAeroFragment : BaseFragment() {
+    private val sharedPreferences: SharedPreferences by inject()
+    private val viewModel: ReceiveAeroViewModel by inject()
+    private lateinit var binding: ReceiveAeroFragmentBinding
+
+    override fun onCreateView(
+        inflater: L
