@@ -61,4 +61,13 @@ class ReceiveAeroFragment : BaseFragment() {
             viewModel.addressText.postValue(address)
 
             try {
-                v
+                val writer = QRCodeWriter()
+                val bitMatrix = writer.encode(address, BarcodeFormat.QR_CODE, 240, 240)
+                val width = bitMatrix.width
+                val height = bitMatrix.height
+                val black = ContextCompat.getColor(requireContext(), R.color.black)
+                val white = ContextCompat.getColor(requireContext(), R.color.white)
+
+                val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565)
+                for (x in 0 until width) {
+                
