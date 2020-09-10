@@ -70,4 +70,16 @@ class ReceiveAeroFragment : BaseFragment() {
 
                 val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565)
                 for (x in 0 until width) {
-                
+                    for (y in 0 until height) {
+                        val color = if (bitMatrix.get(x, y)) { black } else { white }
+                        bitmap.setPixel(x, y, color)
+                    }
+                }
+
+                binding.qrImage.setImageBitmap(bitmap)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+
+            viewModel.addressCopied.observe(viewLifecycleOwner) { addressText ->
+                val clipboardManager = ContextCompat.getSystemService(req
