@@ -82,4 +82,15 @@ class ReceiveAeroFragment : BaseFragment() {
             }
 
             viewModel.addressCopied.observe(viewLifecycleOwner) { addressText ->
-                val clipboardManager = ContextCompat.getSystemService(req
+                val clipboardManager = ContextCompat.getSystemService(requireContext(), ClipboardManager::class.java)!!
+                val clip = ClipData.newPlainText("address", addressText)
+                clipboardManager.setPrimaryClip(clip)
+                Toast.makeText(requireContext(), "Address copied to clipboard", Toast.LENGTH_LONG).show()
+            }
+        }.root
+    }
+
+    companion object {
+        fun newInstance() = ReceiveAeroFragment()
+    }
+}
