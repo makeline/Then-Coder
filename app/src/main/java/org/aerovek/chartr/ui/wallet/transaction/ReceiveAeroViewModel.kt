@@ -41,4 +41,5 @@ class ReceiveAeroViewModel(app: Application) : BaseViewModel(app) {
 
     fun closeClicked() {
         close.postValue(Unit)
-    
+    }
+}
