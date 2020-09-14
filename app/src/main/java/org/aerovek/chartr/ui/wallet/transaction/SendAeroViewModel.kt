@@ -24,4 +24,14 @@ SOFTWARE.
 package org.aerovek.chartr.ui.wallet.transaction
 
 import android.app.Application
-import a
+import android.content.SharedPreferences
+import android.widget.CompoundButton
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
+import com.hadilq.liveevent.LiveEvent
+import kotlinx.coroutines.launch
+import org.aerovek.chartr.data.buildconfig.EnvironmentRepository
+import org.aerovek.chartr.data.cache.WalletCache
+import org.aerovek.chartr.data.model.elrond.address.Address
+import org.aerovek.chartr.data.network.
