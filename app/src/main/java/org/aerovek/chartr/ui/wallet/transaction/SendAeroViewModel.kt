@@ -34,4 +34,16 @@ import kotlinx.coroutines.launch
 import org.aerovek.chartr.data.buildconfig.EnvironmentRepository
 import org.aerovek.chartr.data.cache.WalletCache
 import org.aerovek.chartr.data.model.elrond.address.Address
-import org.aerovek.chartr.data.network.
+import org.aerovek.chartr.data.network.ElrondNetwork
+import org.aerovek.chartr.data.repository.elrond.AccountRepository
+import org.aerovek.chartr.data.repository.elrond.ElrondNetworkRepository
+import org.aerovek.chartr.data.repository.elrond.EsdtRepository
+import org.aerovek.chartr.ui.AppConstants
+import org.aerovek.chartr.ui.BaseViewModel
+import org.aerovek.chartr.util.*
+import java.lang.Exception
+import java.net.SocketTimeoutException
+
+class SendAeroViewModel(
+    app: Application,
+    networkRepository: ElrondNetwor
