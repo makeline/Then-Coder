@@ -46,4 +46,17 @@ import java.net.SocketTimeoutException
 
 class SendAeroViewModel(
     app: Application,
-    networkRepository: ElrondNetwor
+    networkRepository: ElrondNetworkRepository,
+    private val dispatcherProvider: DispatcherProvider,
+    esdtRepository: EsdtRepository,
+    private val accountRepository: AccountRepository,
+    sharedPreferences: SharedPreferences,
+    private val environmentRepository: EnvironmentRepository
+    ) : BaseViewModel(app) {
+
+    private val _navigationEvent = LiveEvent<NavigationEvent>()
+    val navigationEvent: LiveData<NavigationEvent> = _navigationEvent
+
+    val recipientAddressText = MutableLiveData("")
+    val amountText = MutableLiveData("")
+    v
