@@ -76,4 +76,14 @@ class SendAeroViewModel(
         viewModelScope.launch(dispatcherProvider.IO) {
             try {
 
-   
+                val economics = if (WalletCache.networkEconomics == null) {
+                    networkRepository.getNetworkEconomics()
+                } else {
+                    WalletCache.networkEconomics!!
+                }
+                WalletCache.networkEconomics = economics
+
+                println("TOTAL SUPPLY = ${economics.totalSupply}")
+                println("CIRCULATING SUPPLY =  ${economics.circulatingSupply}")
+                println("STAKED =  ${economics.staked}")
+                println("PRICE =  ${
