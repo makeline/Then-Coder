@@ -59,4 +59,21 @@ class SendAeroViewModel(
 
     val recipientAddressText = MutableLiveData("")
     val amountText = MutableLiveData("")
-    v
+    val usdAmountText = MutableLiveData("")
+    val showLoadingView = MutableLiveData(true)
+    val showInvalidAddress = LiveEvent<Unit>()
+    val scannerTapped = LiveEvent<Unit>()
+    val sendAeroChecked = MutableLiveData(true)
+    val sendEgldChecked = MutableLiveData(false)
+
+    private var aeroBalanceText: String? = null
+    var aeroPrice = 0.0
+
+    private var egldBalanceText: String? = null
+    var egldPrice = 0.0
+
+    init {
+        viewModelScope.launch(dispatcherProvider.IO) {
+            try {
+
+   
