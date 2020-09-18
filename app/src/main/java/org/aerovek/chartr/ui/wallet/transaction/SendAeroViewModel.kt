@@ -86,4 +86,14 @@ class SendAeroViewModel(
                 println("TOTAL SUPPLY = ${economics.totalSupply}")
                 println("CIRCULATING SUPPLY =  ${economics.circulatingSupply}")
                 println("STAKED =  ${economics.staked}")
-                println("PRICE =  ${
+                println("PRICE =  ${economics.price}")
+                println("MARKET CAP = ${economics.marketCap}")
+                println("APR = ${economics.apr}")
+                println("TOP UP APR = ${economics.topUpApr}")
+                println("BASE APR = ${economics.baseApr}")
+
+
+                val address = Address.fromBech32(sharedPreferences.getString(AppConstants.UserPrefsKeys.WALLET_ADDRESS, null)!!)
+
+                val accountDetails = if (WalletCache.walletAccount == null) {
+                
