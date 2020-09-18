@@ -96,4 +96,13 @@ class SendAeroViewModel(
                 val address = Address.fromBech32(sharedPreferences.getString(AppConstants.UserPrefsKeys.WALLET_ADDRESS, null)!!)
 
                 val accountDetails = if (WalletCache.walletAccount == null) {
-                
+                    accountRepository.getAccount(address)
+                } else {
+                    WalletCache.walletAccount!!
+                }
+                WalletCache.walletAccount = accountDetails
+
+                val accountTokenDetails = if (WalletCache.accountTokenDetails == null) {
+                    accountRepository.getAccountTokenDetails(address.bech32, environmentRepository.selectedElrondEnvironment.aeroTokenId)
+                } else {
+                    WalletCache.
