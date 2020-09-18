@@ -117,4 +117,16 @@ class SendAeroViewModel(
                 }
                 WalletCache.aeroDetails = aeroTokenDetails
 
-       
+                aeroPrice = if (environmentRepository.selectedElrondEnvironment == ElrondNetwork.DevNet) {
+                    0.08
+                } else {
+                    aeroTokenDetails.price
+                }
+
+                aeroBalanceText = accountTokenDetails.balance
+                egldBalanceText = accountDetails.balance.toString()
+                egldPrice = economics.price
+
+                showLoadingView.postValue(false)
+            } catch (ste: SocketTimeoutException) {
+     
