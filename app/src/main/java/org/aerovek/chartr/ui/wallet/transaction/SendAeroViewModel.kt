@@ -105,4 +105,16 @@ class SendAeroViewModel(
                 val accountTokenDetails = if (WalletCache.accountTokenDetails == null) {
                     accountRepository.getAccountTokenDetails(address.bech32, environmentRepository.selectedElrondEnvironment.aeroTokenId)
                 } else {
-                    WalletCache.
+                    WalletCache.accountTokenDetails!!
+                }
+                // Update cache in case we retrieved from backend
+                WalletCache.accountTokenDetails = accountTokenDetails
+
+                val aeroTokenDetails = if (WalletCache.aeroDetails == null) {
+                    esdtRepository.getTokenDetails(environmentRepository.selectedElrondEnvironment.aeroTokenId)
+                } else {
+                    WalletCache.aeroDetails!!
+                }
+                WalletCache.aeroDetails = aeroTokenDetails
+
+       
