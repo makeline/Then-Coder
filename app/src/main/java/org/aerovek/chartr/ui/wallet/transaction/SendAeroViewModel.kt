@@ -129,4 +129,16 @@ class SendAeroViewModel(
 
                 showLoadingView.postValue(false)
             } catch (ste: SocketTimeoutException) {
-     
+                ste.message?.let {
+                    FirebaseHelper.HandledException.logEvent("Socket timeout exception")
+                }
+            } catch (e: Exception) {
+                e.message?.let {
+                    if (it.length > 100) {
+                        FirebaseHelper.HandledException.logEvent(it.substring(IntRange(0, 99)))
+                    } else {
+                        FirebaseHelper.HandledException.logEvent(it)
+                    }
+                }
+            }
+        }
