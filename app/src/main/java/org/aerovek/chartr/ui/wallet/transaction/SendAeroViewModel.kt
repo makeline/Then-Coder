@@ -159,4 +159,12 @@ class SendAeroViewModel(
     fun maxButtonTapped() {
         if (sendEgldChecked.value == true) {
             egldBalanceText?.let {
-                am
+                amountText.postValue(it.formatTokenBalance())
+            }
+        } else {
+            aeroBalanceText?.let {
+                amountText.postValue(it.formatTokenBalance())
+            }
+        }
+    }
+}
