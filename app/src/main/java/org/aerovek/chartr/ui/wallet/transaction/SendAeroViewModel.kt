@@ -142,3 +142,21 @@ class SendAeroViewModel(
                 }
             }
         }
+    }
+
+    fun sendAeroCheckboxChanged(checkbox: CompoundButton, isChecked: Boolean) {
+        sendAeroChecked.postValue(isChecked)
+    }
+
+    fun sendEgldCheckboxChanged(checkbox: CompoundButton, isChecked: Boolean) {
+        sendEgldChecked.postValue(isChecked)
+    }
+
+    fun scannerImageTapped() {
+        scannerTapped.postValue(Unit)
+    }
+
+    fun maxButtonTapped() {
+        if (sendEgldChecked.value == true) {
+            egldBalanceText?.let {
+                am
