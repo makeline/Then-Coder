@@ -147,3 +147,6 @@ class TransactionHistoryViewModel(
             "$plusOrMinus${tx.esdtAmount?.formatTokenBalance(4)} ${tx.tokenId?.substring(0, tx.tokenId?.indexOf("-")!!)}"
         } else {
             "$plusOrMinus${tx.value.toString().formatTokenBalance(4)} EGLD"
+        }
+    }
+}
