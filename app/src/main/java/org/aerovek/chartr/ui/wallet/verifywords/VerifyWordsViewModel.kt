@@ -37,4 +37,15 @@ class VerifyWordsViewModel(app: Application, private val sharedPreferences: Shar
     val navigationEvent: LiveData<NavigationEvent> = _navigationEvent
 
     private val _enterWordLabel1 = MutableLiveData("")
-    val enterWordLabel1: LiveData<String> = _enterWordLa
+    val enterWordLabel1: LiveData<String> = _enterWordLabel1
+    private val _enterWordLabel2 = MutableLiveData("")
+    val enterWordLabel2 = _enterWordLabel2
+    private val _enterWordLabel3 = MutableLiveData("")
+    val enterWordLabel3 = _enterWordLabel3
+    private val _enterWordLabel4 = MutableLiveData("")
+    val enterWordLabel4 = _enterWordLabel4
+
+    private val randomMap: MutableMap<Int, String> = mutableMapOf()
+    private var randomKeys: List<Int> = mutableListOf()
+
+    var wordsToValidate: Pair<MutableMap<Int, String>, List<Int>> = Pair(mutableMapOf
