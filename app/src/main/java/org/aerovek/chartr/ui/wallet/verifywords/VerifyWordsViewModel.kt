@@ -27,4 +27,14 @@ import android.app.Application
 import android.content.SharedPreferences
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.hadilq.live
+import com.hadilq.liveevent.LiveEvent
+import org.aerovek.chartr.ui.AppConstants
+import org.aerovek.chartr.ui.BaseViewModel
+import org.aerovek.chartr.util.NavigationEvent
+
+class VerifyWordsViewModel(app: Application, private val sharedPreferences: SharedPreferences) : BaseViewModel(app) {
+    private val _navigationEvent = LiveEvent<NavigationEvent>()
+    val navigationEvent: LiveData<NavigationEvent> = _navigationEvent
+
+    private val _enterWordLabel1 = MutableLiveData("")
+    val enterWordLabel1: LiveData<String> = _enterWordLa
