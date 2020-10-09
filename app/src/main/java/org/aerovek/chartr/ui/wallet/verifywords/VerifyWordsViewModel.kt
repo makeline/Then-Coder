@@ -69,4 +69,8 @@ class VerifyWordsViewModel(app: Application, private val sharedPreferences: Shar
             // Pull the first four from the dictionary to use as our random selection to validate
             _enterWordLabel1.postValue("Enter word #${randomKeys[0] + 1}")
             _enterWordLabel2.postValue("Enter word #${randomKeys[1] + 1}")
-            _enterWordLabel3.postValue("Enter word #${random
+            _enterWordLabel3.postValue("Enter word #${randomKeys[2] + 1}")
+            _enterWordLabel4.postValue("Enter word #${randomKeys[3] + 1}")
+        }
+    }
+}
