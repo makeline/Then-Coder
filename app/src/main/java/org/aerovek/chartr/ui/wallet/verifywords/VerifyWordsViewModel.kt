@@ -48,4 +48,15 @@ class VerifyWordsViewModel(app: Application, private val sharedPreferences: Shar
     private val randomMap: MutableMap<Int, String> = mutableMapOf()
     private var randomKeys: List<Int> = mutableListOf()
 
-    var wordsToValidate: Pair<MutableMap<Int, String>, List<Int>> = Pair(mutableMapOf
+    var wordsToValidate: Pair<MutableMap<Int, String>, List<Int>> = Pair(mutableMapOf(), listOf())
+
+    init {
+        sharedPreferences.getString(AppConstants.UserPrefsKeys.WALLET_WORDS, null)?.let {
+            // First create a dictionary in the correct order
+            val wordsDictionary = it.split(" ").mapIndexed { idx, word ->
+                idx to word
+            }.toMap()
+
+            // Now randomize the words and store in a new map for display and for validating
+            wordsDictionary.keys.shuffled().forEach { key ->
+   
