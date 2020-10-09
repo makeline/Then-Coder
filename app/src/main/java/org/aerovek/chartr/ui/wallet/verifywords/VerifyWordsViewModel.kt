@@ -59,4 +59,14 @@ class VerifyWordsViewModel(app: Application, private val sharedPreferences: Shar
 
             // Now randomize the words and store in a new map for display and for validating
             wordsDictionary.keys.shuffled().forEach { key ->
-   
+                randomMap[key] = wordsDictionary.getValue(key)
+            }
+
+            randomKeys = randomMap.keys.toList()
+
+            wordsToValidate = Pair(randomMap, randomKeys)
+
+            // Pull the first four from the dictionary to use as our random selection to validate
+            _enterWordLabel1.postValue("Enter word #${randomKeys[0] + 1}")
+            _enterWordLabel2.postValue("Enter word #${randomKeys[1] + 1}")
+            _enterWordLabel3.postValue("Enter word #${random
