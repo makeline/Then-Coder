@@ -45,3 +45,88 @@ fun Dialog.makeBottomsheetFullScreen(fragment: BottomSheetDialogFragment, isDism
                 val dlg = it as BottomSheetDialog
                 val parent = dlg.findViewById<FrameLayout>(com.google.android.material.R.id.design_bottom_sheet)
                 val behavior: BottomSheetBehavior<FrameLayout> = BottomSheetBehavior.from(parent as FrameLayout)
+                val layoutParams = parent.layoutParams
+
+                // Less than API 30 need to use different methods for getting screen dimensions
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
+                    val displayMetrics = DisplayMetrics()
+                    fragment.requireActivity().windowManager.defaultDisplay.getMetrics(displayMetrics)
+                    layoutParams.height = displayMetrics.heightPixels
+                } else {
+                    layoutParams.height = fragment.requireActivity().windowManager.currentWindowMetrics.bounds.height()
+                }
+
+                parent.layoutParams = layoutParams
+                behavior.state = BottomSheetBehavior.STATE_EXPANDED
+                behavior.isDraggable = isDismissable
+                fragment.isCancelable = isDismissable
+            }
+        }
+    })
+}
+
+fun showGenericDialog(
+    context: Context,
+    dialogModel: DialogModel,
+    dismissListener: IDismissDialog?
+) {
+    lateinit var dialog: AlertDialog
+    dialogModel.apply {
+        val view = LayoutInflater.from(context).inflate(R.layout.generic_dialog, null, false)
+        dialog = AlertDialog.Builder(context, R.style.dialog).setView(view).create()
+
+        view.findViewById<TextView>(R.id.message).apply {
+            if (message != null) {
+                setText(message)
+            } else {
+                isVisible = false
+            }
+        }
+
+        view.findViewById<Button>(R.id.btnOk).apply {
+            if (positive != null) {
+                setText(positive)
+                setOnClickListener {
+                    dialog.dismiss()
+                    positiveFun?.invoke()
+                }
+            } else {
+                isVisible = false
+            }
+        }
+
+        view.findViewById<ImageView>(R.id.exit).apply {
+            if (exitVisibility != null) {
+                this.visibility = exitVisibility
+            }
+            setOnClickListener {
+                dialog.dismiss()
+            }
+        }
+
+        view.findViewById<Button>(R.id.cancelCta).apply {
+            if (negative != null) {
+                setText(negative)
+                setOnClickListener {
+                    dialog.dismiss()
+                    negativeFun?.invoke()
+                }
+            } else {
+                isVisible = false
+            }
+        }
+
+        view.findViewById<CheckBox>(R.id.dontShowAgainCheckbox).apply {
+            isVisible = isDontShowAgainVisible
+        }
+
+        dialog.setCancelable(false)
+        dialog.show()
+
+        dialog.setOnDismissListener(object : DialogInterface.OnDismissListener {
+            override fun onDismiss(dialog: DialogInterface?) {
+                dismissListener?.onDismiss()
+            }
+        })
+    }
+}
