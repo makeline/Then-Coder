@@ -16,4 +16,15 @@ fun <T : Any> AutoCompleteTextView.setAdapterWithInitialSelection(entries: List<
 }
 
 // Need both to be handled in same function as it can happen that the initialSelection is called prior to setting the adapter
-@BindingAdapter(value = ["entries", "
+@BindingAdapter(value = ["entries", "initialSelection"], requireAll = false)
+fun AutoCompleteTextView.setAdapterWithInitialSelectionArray(entries: Array<String>?, position: Int?) {
+    if (entries != null && position != null) {
+        setAdapterWithInitialSelectionWorker(entries.asList(), position)
+    }
+}
+
+private fun <T : Any> AutoCompleteTextView.setAdapterWithInitialSelectionWorker(entries: List<T>, position: Int) {
+    if (entries.isEmpty()) {
+        (parent as ViewGroup).visibility = View.GONE
+        return
+    }
