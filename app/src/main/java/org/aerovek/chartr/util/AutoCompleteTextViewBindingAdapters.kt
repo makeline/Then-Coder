@@ -28,3 +28,13 @@ private fun <T : Any> AutoCompleteTextView.setAdapterWithInitialSelectionWorker(
         (parent as ViewGroup).visibility = View.GONE
         return
     }
+    val adjustedPosition = if (position !in entries.indices) {
+        0
+    } else {
+        position
+    }
+    (parent as ViewGroup).visibility = View.VISIBLE
+    val adapter = NoFilterArrayAdapter(context, R.layout.dropdown_menu_popup_item, entries)
+    setAdapter(adapter)
+    setText(adapter.getItem(adjustedPosition).toString())
+}
