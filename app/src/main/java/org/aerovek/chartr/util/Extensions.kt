@@ -36,4 +36,18 @@ fun String.formatTokenBalance(decimalPrecision: Int? = null): String {
 
         if (remainder.length < 18) {
             for (i in remainder.length..17) {
-                remainder = "
+                remainder = "0$remainder"
+            }
+        }
+
+        // Format display value to 4 decimal places
+        val doubleVal = "$quotient.$remainder".toBigDecimal()
+        if (decimalPrecision != null) {
+            String.format("%.${decimalPrecision}f", doubleVal)
+        } else {
+            doubleVal.toString()
+        }
+    } else {
+        "0"
+    }
+}
