@@ -39,3 +39,7 @@ enum class FirebaseHelper(private val eventName: String) {
             return
         }
 
+        bundle.putString(this.eventName, payload)
+        Firebase.analytics.logEvent(this.eventName, bundle)
+    }
+}
