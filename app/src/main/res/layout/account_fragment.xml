@@ -19,4 +19,15 @@
             android:layout_height="wrap_content"
             android:background="@drawable/button_square_black"
             android:paddingTop="16dp"
-           
+            app:tabSelectedTextColor="@color/white"
+            app:tabTextColor="@color/disabledGray"
+            app:tabTextAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:tabMode="scrollable"
+            app:tabIndicatorHeight="0dp"
+            app:tabGravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <androidx.v
