@@ -72,4 +72,12 @@
             style="@style/HeadlineTextMediumBlack"
             android:textAlignment="center"
             app:layout_constraintTop_toTopOf="parent"
-            a
+            app:layout_constraintStart_toEndOf="@id/closeButton"
+            app:layout_constraintEnd_toStartOf="@id/rightGutter" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainContentContainer"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:visibility="@{vm.showLoadingView ? View.GONE : View.VISIBLE}"
+            app:layout_constraintTop_toBottomOf="@id/titl
