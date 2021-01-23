@@ -62,4 +62,14 @@
             app:layout_constraintStart_toEndOf="@id/leftGutter"
             app:tint="@color/black" />
 
-        
+        <TextView
+            android:id="@+id/titleLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:text="@string/confirm_transfer_title"
+            style="@style/HeadlineTextMediumBlack"
+            android:textAlignment="center"
+            app:layout_constraintTop_toTopOf="parent"
+            a
