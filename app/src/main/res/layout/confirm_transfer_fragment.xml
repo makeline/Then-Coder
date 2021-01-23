@@ -50,4 +50,16 @@
 
 
         <ImageView
-            androi
+            android:id="@+id/closeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close"
+            android:onClick="@{() -> vm.closeClicked()}"
+            android:padding="8dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/close"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/leftGutter"
+            app:tint="@color/black" />
+
+        
