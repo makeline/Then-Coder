@@ -80,4 +80,15 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:visibility="@{vm.showLoadingView ? View.GONE : View.VISIBLE}"
-            app:layout_constraintTop_toBottomOf="@id/titl
+            app:layout_constraintTop_toBottomOf="@id/titleLabel"
+            app:layout_constraintStart_toEndOf="@id/leftGutter"
+            app:layout_constraintEnd_toStartOf="@id/rightGutter">
+
+            <TextView
+                android:id="@+id/transferAmountLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:text="@{vm.transferAmount}"
+                style="@style/HeadlineTextGiantBlack"
+                android:textAlig
