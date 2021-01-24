@@ -103,4 +103,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="@{vm.usdAmount}"
-                androi
+                android:visibility="gone"
+                style="@style/BodyTextDark"
+                android:textAlignment="center"
+                app:layout_constraintTop_toBottomOf="@id/transferAmountLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="~ $59.27" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                andro
