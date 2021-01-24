@@ -91,4 +91,16 @@
                 android:layout_marginTop="80dp"
                 android:text="@{vm.transferAmount}"
                 style="@style/HeadlineTextGiantBlack"
-                android:textAlig
+                android:textAlignment="center"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="-1500 AERO" />
+
+            <TextView
+                android:id="@+id/usdAmountLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@{vm.usdAmount}"
+                androi
