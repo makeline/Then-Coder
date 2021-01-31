@@ -143,4 +143,12 @@
                         android:id="@+id/recipient"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-             
+                        android:layout_marginStart="16dp"
+                        android:textColor="@color/hintGray"
+                        style="@style/BodyTextDark"
+                        android:textSize="14sp"
+                        android:textAlignment="textEnd"
+                        android:text="@{vm.truncatedAddress}"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@i
