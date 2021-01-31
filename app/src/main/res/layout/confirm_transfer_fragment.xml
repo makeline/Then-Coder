@@ -133,4 +133,14 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        style="@sty
+                        style="@style/BodyTextDark"
+                        android:textSize="14sp"
+                        android:text="@string/to_title"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/recipient"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+             
