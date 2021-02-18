@@ -151,4 +151,14 @@
                         android:text="@{vm.truncatedAddress}"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@i
+                        app:layout_constraintStart_toEndOf="@id/toLabel"
+                        tools:text="erd1kfjr4848kd...294kdkfkfk0s" />
+
+                    <TextView
+                        android:id="@+id/feeLabel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:textStyle="bold"
+                        android:visibility="gone"
+                        style="@style/B
