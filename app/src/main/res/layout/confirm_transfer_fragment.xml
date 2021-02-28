@@ -171,4 +171,11 @@
                         android:id="@+id/infoImage"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                    
+                        android:background="@drawable/button_round_grey_32"
+                        android:visibility="gone"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/ic_outline_info_24"
+                        android:contentDescription="Info"
+                        app:layout_constraintStart_toEndOf="@id/feeLabel"
+                        app:layout_constraintTop_toBottomOf="@id/rec
