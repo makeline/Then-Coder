@@ -178,4 +178,15 @@
                         android:src="@drawable/ic_outline_info_24"
                         android:contentDescription="Info"
                         app:layout_constraintStart_toEndOf="@id/feeLabel"
-                        app:layout_constraintTop_toBottomOf="@id/rec
+                        app:layout_constraintTop_toBottomOf="@id/recipient"
+                        />
+
+                    <TextView
+                        android:id="@+id/networkFee"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:visibility="gone"
+                        android:layout_marginStart="8dp"
+                        android:textColor="@color/hintGray"
+                        style="@style/BodyTe
