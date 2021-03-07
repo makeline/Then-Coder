@@ -199,4 +199,14 @@
 
                     <TextView
                         android:id="@+id/totalLabel"
-                        android:layout_widt
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:textStyle="bold"
+                        style="@style/BodyTextDark"
+                        android:textSize="14sp"
+                        android:text="@string/total_usd_title"
+                        app:layout_constraintTop_toBottomOf="@id/networkFee"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+  
