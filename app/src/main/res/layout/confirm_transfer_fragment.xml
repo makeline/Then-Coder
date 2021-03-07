@@ -189,4 +189,14 @@
                         android:visibility="gone"
                         android:layout_marginStart="8dp"
                         android:textColor="@color/hintGray"
-                        style="@style/BodyTe
+                        style="@style/BodyTextDark"
+                        android:textAlignment="textEnd"
+                        android:textSize="14sp"
+                        android:text="@{vm.networkFee}"
+                        app:layout_constraintTop_toBottomOf="@id/recipient"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="0.00005 eGLD ($0.00)" />
+
+                    <TextView
+                        android:id="@+id/totalLabel"
+                        android:layout_widt
