@@ -219,3 +219,14 @@
                         android:textAlignment="textEnd"
                         android:textSize="14sp"
                         android:text="@{vm.usdAmount}"
+                        app:layout_constraintTop_toBottomOf="@id/networkFee"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="$120.05" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <android.widget.Button
+                android:id="@+id/confirmButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_con
