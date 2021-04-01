@@ -229,4 +229,15 @@
             <android.widget.Button
                 android:id="@+id/confirmButton"
                 android:layout_width="0dp"
-                android:layout_height="wrap_con
+                android:layout_height="wrap_content"
+                style="@style/FilledButton"
+                android:background="@color/black"
+                android:onClick="@{() -> vm.continueClicked()}"
+                android:text="@string/confirm_title"
+                android:layout_marginBottom="96dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+  
