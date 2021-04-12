@@ -56,4 +56,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:pa
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:onClick="@{() -> vm.importWalletClicked()}"
+            style="@style/LinkTextAeroBlue"
+            android:text="@string/import_existing_wallet"
+            app:layout_constraintStart_toEndOf="@id/leftGutter"
+            app:layout_constraintEnd_toStartOf="@id/rightGutter"
+            app:layout_constraintBottom_toTopOf="@+id/createWalletBtn" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@id/
