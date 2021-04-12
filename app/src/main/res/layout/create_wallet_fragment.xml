@@ -45,4 +45,15 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             style="@style/BodyTextDark"
-            android:padd
+            android:paddingTop="48dp"
+            android:text="@string/create_wallet_desc"
+            app:layout_constraintStart_toEndOf="@id/leftGutter"
+            app:layout_constraintEnd_toStartOf="@id/rightGutter"
+            app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+        <TextView
+            android:id="@+id/importWalletLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:pa
