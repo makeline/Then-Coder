@@ -66,4 +66,13 @@
             app:layout_constraintBottom_toTopOf="@+id/createWalletBtn" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@id/
+            android:id="@id/createWalletBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:onClick="@{() -> vm.createWalletClicked()}"
+            style="@style/FilledButton"
+            android:background="@color/black"
+            android:text="@string/create_wallet"
+            app:layout_constraintStart_toEndOf="@id/leftGutter"
+            app:layout_constraintEnd_toStartOf="@id/rightG
