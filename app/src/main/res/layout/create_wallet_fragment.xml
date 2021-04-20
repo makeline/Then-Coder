@@ -75,4 +75,8 @@
             android:background="@color/black"
             android:text="@string/create_wallet"
             app:layout_constraintStart_toEndOf="@id/leftGutter"
-            app:layout_constraintEnd_toStartOf="@id/rightG
+            app:layout_constraintEnd_toStartOf="@id/rightGutter"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
