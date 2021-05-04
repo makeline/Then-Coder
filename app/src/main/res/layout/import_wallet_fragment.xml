@@ -66,4 +66,14 @@
                     android:textAlignment="center"
                     app:layout_constraintEnd_toStartOf="@id/rightGutter"
                     app:layout_constraintStart_toEndOf="@id/leftGutter"
-                    app:layout_constraintTop_t
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/walletWordsList"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/gray_border"
+                    android:minHeight="100dp"
+                    android:padding="8dp"
+                    app:layout_constraintEnd_toStartOf="
