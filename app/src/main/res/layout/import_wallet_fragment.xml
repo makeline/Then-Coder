@@ -76,4 +76,14 @@
                     android:background="@drawable/gray_border"
                     android:minHeight="100dp"
                     android:padding="8dp"
-                    app:layout_constraintEnd_toStartOf="
+                    app:layout_constraintEnd_toStartOf="@id/rightGutter"
+                    app:layout_constraintStart_toEndOf="@id/leftGutter"
+                    app:layout_constraintTop_toBottomOf="@id/label" />
+
+                <ImageButton
+                    android:id="@+id/clearWordsLabel"
+                    style="@style/LinkTextAeroBlue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:src="@drawable/ic_back_spac
