@@ -105,4 +105,14 @@
                     app:layout_constraintEnd_toStartOf="@id/rightGutter"
                     app:layout_constraintStart_toEndOf="@id/leftGutter"
                     app:layout_constraintTop_toBottomOf="@id/clearWordsLabel"
-           
+                    tools:text="dilemma" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/typeaheadResultsRecyclerView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:layout_marginBottom="64dp"
+                    app:layout_constraintStart_toEndOf="@id/leftGutter"
+                    app:layout_constraintEnd_toStartOf="@id/rightGutter"
+       
