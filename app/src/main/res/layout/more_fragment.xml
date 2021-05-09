@@ -50,4 +50,15 @@
         </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id=
+            android:id="@+id/recyclerView"
+            android:visibility="@{vm.showLoading ? View.GONE : View.VISIBLE}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/leftGutter"
+            app:layout_constraintEnd_toStartOf="@id/rightGutter" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layou
