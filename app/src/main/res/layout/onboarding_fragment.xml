@@ -43,4 +43,14 @@
                     style="@style/TextAppearance.AppCompat.Headline"
                     android:paddingTop="48dp"
                     android:paddingBottom="16dp"
-                    app:layout_constraintSta
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Welcome" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintStart_toStartOf="parent"
