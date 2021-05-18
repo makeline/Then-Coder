@@ -32,4 +32,15 @@
             app:layout_constraintBottom_toBottomOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-        
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    style="@style/TextAppearance.AppCompat.Headline"
+                    android:paddingTop="48dp"
+                    android:paddingBottom="16dp"
+                    app:layout_constraintSta
