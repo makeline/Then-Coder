@@ -9,4 +9,15 @@
         android:background="@color/white">
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/l
+            android:id="@+id/leftGutter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/rightGutter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuid
