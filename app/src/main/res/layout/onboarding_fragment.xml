@@ -70,4 +70,6 @@
                     app:layout_constraintTop_toBottomOf="@id/imageView"
                     tools:text="The Chartr App will change the way you think when it comes to booking your next flight. " />
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </andro
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
