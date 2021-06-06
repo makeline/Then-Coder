@@ -7,4 +7,17 @@
     <data>
         <import type="android.view.View" />
         <variable name="isActive" type="Boolean" />
- 
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.widget.Button
+            android:id="@+id/blue"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/button_round_aero_blue"
+            android:visibility="@{isActive ? View.VISIBLE : View.GONE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:la
