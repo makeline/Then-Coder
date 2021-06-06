@@ -63,4 +63,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    style="@style/TextAp
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:paddingTop="48dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imageView"
+                    tools:text="The Chartr App will change the way you think when it comes to booking your next flight. " />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </andro
