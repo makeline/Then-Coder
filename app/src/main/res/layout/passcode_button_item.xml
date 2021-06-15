@@ -20,4 +20,15 @@
             android:background="@drawable/button_round_aero_blue"
             android:visibility="@{isActive ? View.VISIBLE : View.GONE}"
             app:layout_constraintStart_toStartOf="parent"
-            app:la
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+        <android.widget.Button
+            android:id="@+id/grey"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/button_round_disabled_gray"
+            android:visibility="@{isActive ? View.GONE : View.VISIBLE}"
+            app:layout_constraintStart_toStartOf="parent"
+      
