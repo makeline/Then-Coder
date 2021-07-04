@@ -30,4 +30,16 @@
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/topGutter"
             android:layout_width="wrap_content"
-            a
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="100dp" />
+
+        <TextView
+            android:id="@+id/enterPinText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            style="@style/HeadlineTextMediumBlack"
+            android:text="@{viewModel.enterPinLabel}"
+            app:layout_constraintTop_toTopOf="@id/topGutter"
+            app
