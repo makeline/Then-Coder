@@ -42,4 +42,15 @@
             style="@style/HeadlineTextMediumBlack"
             android:text="@{viewModel.enterPinLabel}"
             app:layout_constraintTop_toTopOf="@id/topGutter"
-            app
+            app:layout_constraintStart_toEndOf="@id/leftGutter"
+            app:layout_constraintEnd_toStartOf="@id/rightGutter"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleButtonView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:paddingTop="16dp"
+            dataItems="item"
+            app:layout_constraintStart_toEndOf="
