@@ -2,3 +2,23 @@
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="passCodeViewModel"
+            type="org.aerovek.chartr.ui.passcode.PassCodeViewModel" />
+
+        <variable
+            name="pinPad"
+            type="org.aerovek.chartr.ui.passcode.PinPadModel" />
+
+        <variable
+            name="background"
+            type="android.graphics.drawable.Drawable" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:la
