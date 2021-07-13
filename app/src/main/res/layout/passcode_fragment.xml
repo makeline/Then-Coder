@@ -64,4 +64,12 @@
             android:nestedScrollingEnabled="false"
             android:layout_marginBottom="128dp"
             dataItems="item"
-            app:layout_constraintVertical_bia
+            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
