@@ -21,4 +21,16 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:la
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.widget.Button
+            android:id="@+id/btn"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:background="@{background}"
+            android:drawableTop="@{pinPad.background}"
+            android:text="@{pinPad.value}"
+            android:onClick="@{() -> passCodeViewModel.onClick(pinPad)}"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toSta
