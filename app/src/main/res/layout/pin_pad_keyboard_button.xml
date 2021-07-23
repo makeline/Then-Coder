@@ -33,4 +33,11 @@
             android:text="@{pinPad.value}"
             android:onClick="@{() -> passCodeViewModel.onClick(pinPad)}"
             android:textColor="@color/black"
-            app:layout_constraintStart_toSta
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="8"
+            tools:drawableTop="@drawable/ic_back_space" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
