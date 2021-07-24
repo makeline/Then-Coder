@@ -204,3 +204,65 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/businessNameInputLayout"
                         style="@style/CustomTextInputLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:accessibilityLiveRegion="polite"
+                        android:theme="@style/CustomTextInputLayout"
+                        app:hintEnabled="false"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/businessNameLabel">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/businessNameEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
+                            android:text="@={vm.businessName}"
+                            android:singleLine="true"
+                            android:textStyle="normal"
+                            tools:text="Chico Charter" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/tagsLabel"
+                        style="@style/BodyTextDark"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/search_tags"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/businessNameInputLayout" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tagsInputLayout"
+                        style="@style/CustomTextInputLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:accessibilityLiveRegion="polite"
+                        android:theme="@style/CustomTextInputLayout"
+                        app:hintEnabled="false"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tagsLabel">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tagsEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
+                            android:text="@={vm.tags}"
+                            android:singleLine="true"
+                            android:textStyle="normal"
+                            tools:text="cropduster,jet,male pilot" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
