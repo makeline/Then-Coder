@@ -4,4 +4,7 @@
         <item name="windowSplashScreenBackground">@color/white</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_chartr_circle</item>
         <item name="windowSplashScreenAnimationDuration">10</item>
-        <item name="postSplashScreenThe
+        <item name="postSplashScreenTheme">@style/AppTheme</item>
+    </style>
+
+</resources>
