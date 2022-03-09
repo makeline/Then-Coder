@@ -4,4 +4,7 @@ import org.aerovek.chartr.data.network.ElrondNetwork
 
 interface EnvironmentRepository {
     val selectedElrondEnvironment: ElrondNetwork
-    val selectedPrimeTrustEnvironme
+    val selectedPrimeTrustEnvironment: String
+    val selectedPlaidEnvironment: String
+    val selectedAerovekEnvironment: String
+}
