@@ -7,4 +7,7 @@ import org.aerovek.chartr.data.model.elrond.network.NetworkEconomics
 
 object WalletCache {
     var accountTokenDetails: AccountToken? = null
-    var aeroDetails: EsdtToken? =
+    var aeroDetails: EsdtToken? = null
+    var networkEconomics: NetworkEconomics? = null
+    var walletAccount: Account? = null
+}
