@@ -28,4 +28,12 @@ import okhttp3.OkHttpClient
 import org.aerovek.chartr.data.buildconfig.EnvironmentRepository
 import org.aerovek.chartr.data.buildconfig.EnvironmentRepositoryImpl
 import org.aerovek.chartr.data.network.*
-import org.aerovek.chartr.data.network.AeroPlaidServi
+import org.aerovek.chartr.data.network.AeroPlaidService
+import org.aerovek.chartr.data.network.PrimeTrustServiceImpl
+import org.aerovek.chartr.data.network.interceptors.PostRequestInterceptor
+import org.aerovek.chartr.data.repository.AeroPlaidRepository
+import org.aerovek.chartr.data.repository.AeroPlaidRepositoryImpl
+import org.aerovek.chartr.data.repository.PrimeTrustRepository
+import org.aerovek.chartr.data.repository.PrimeTrustRepositoryImpl
+import org.aerovek.chartr.data.repository.elrond.*
+import org.aerovek.chartr.data.repository.elrond.AccountRepository
