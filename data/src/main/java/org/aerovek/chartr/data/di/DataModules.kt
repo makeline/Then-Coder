@@ -36,4 +36,15 @@ import org.aerovek.chartr.data.repository.AeroPlaidRepositoryImpl
 import org.aerovek.chartr.data.repository.PrimeTrustRepository
 import org.aerovek.chartr.data.repository.PrimeTrustRepositoryImpl
 import org.aerovek.chartr.data.repository.elrond.*
-import org.aerovek.chartr.data.repository.elrond.AccountRepository
+import org.aerovek.chartr.data.repository.elrond.AccountRepositoryImpl
+import org.koin.core.qualifier.named
+import org.koin.dsl.module
+
+object DataModules {
+    val dataModule = module {
+        single { Gson() }
+
+        single<EnvironmentRepository> { EnvironmentRepositoryImpl(buildConfigProvider = get()) }
+        single<PrimeTrustRepository> { PrimeTrustRepositoryImpl(primeTrustService = get())}
+        single<AeroPlaidRepository> { AeroPlaidRepositoryImpl(aeroPlaidService = get())}
+        single<AccountRepository> { AccountRepositoryImpl(elrondGatewayService = get
