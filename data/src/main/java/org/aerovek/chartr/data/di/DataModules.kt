@@ -47,4 +47,12 @@ object DataModules {
         single<EnvironmentRepository> { EnvironmentRepositoryImpl(buildConfigProvider = get()) }
         single<PrimeTrustRepository> { PrimeTrustRepositoryImpl(primeTrustService = get())}
         single<AeroPlaidRepository> { AeroPlaidRepositoryImpl(aeroPlaidService = get())}
-        single<AccountRepository> { AccountRepositoryImpl(elrondGatewayService = get
+        single<AccountRepository> { AccountRepositoryImpl(elrondGatewayService = get(), elrondApiService = get()) }
+        single<ElrondNetworkRepository> { ElrondNetworkRepositoryImpl(elrondGatewayService = get(), elrondApiService = get()) }
+        single<TransactionRepository> { TransactionRepositoryImpl(elrondService = get()) }
+        single<VmRepository> { VmRepositoryImpl(elrondService = get()) }
+        single<EsdtRepository> { EsdtRepositoryImpl(elrondApiService = get(), elrondGatewayService = get(), vmRepository = get()) }
+    }
+
+    val networkModule = module {
+        single<OkHtt
