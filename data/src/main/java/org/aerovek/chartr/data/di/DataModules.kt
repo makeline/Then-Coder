@@ -55,4 +55,17 @@ object DataModules {
     }
 
     val networkModule = module {
-        single<OkHtt
+        single<OkHttpClient>(named(KoinNamedNetwork.PrimeTrust)) {
+            OkHttpClient.Builder().build()
+        }
+        single<OkHttpClient>(named(KoinNamedNetwork.ElrondApi)) {
+            OkHttpClient.Builder().build()
+        }
+        single<OkHttpClient>(named(KoinNamedNetwork.ElrondGateway)) {
+            OkHttpClient.Builder().build()
+        }
+        single<OkHttpClient>(named(KoinNamedNetwork.AeroNodeJs)) {
+            OkHttpClient.Builder().build()
+        }
+
+        single { Post
