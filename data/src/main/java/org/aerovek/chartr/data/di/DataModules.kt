@@ -76,4 +76,12 @@ object DataModules {
         single<RestClient>(named(KoinNamedNetwork.ElrondApi)) {
             provideElrondApiRestClient(environmentRepository = get(), okHttpClient = get(named(KoinNamedNetwork.ElrondApi)), gson = get())
         }
-        single<RestClient>(nam
+        single<RestClient>(named(KoinNamedNetwork.ElrondGateway)) {
+            provideElrondGatewayRestClient(environmentRepository = get(), okHttpClient = get(named(KoinNamedNetwork.ElrondGateway)), gson = get())
+        }
+        single<RestClient>(named(KoinNamedNetwork.AeroNodeJs)) {
+            provideAeroRestClient(environmentRepository = get(), okHttpClient = get(named(KoinNamedNetwork.AeroNodeJs)), gson = get())
+        }
+
+        single<PrimeTrustService> {
+            PrimeTrustServiceImpl(restClient = get(named(KoinNamedNet
