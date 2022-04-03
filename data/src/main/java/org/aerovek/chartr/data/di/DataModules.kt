@@ -68,4 +68,12 @@ object DataModules {
             OkHttpClient.Builder().build()
         }
 
-        single { Post
+        single { PostRequestInterceptor() }
+
+        single<RestClient>(named(KoinNamedNetwork.PrimeTrust)) {
+            providePrimeTrustRestClient(environmentRepository = get(), okHttpClient = get(named(KoinNamedNetwork.PrimeTrust)), gson = get())
+        }
+        single<RestClient>(named(KoinNamedNetwork.ElrondApi)) {
+            provideElrondApiRestClient(environmentRepository = get(), okHttpClient = get(named(KoinNamedNetwork.ElrondApi)), gson = get())
+        }
+        single<RestClient>(nam
