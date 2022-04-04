@@ -84,4 +84,13 @@ object DataModules {
         }
 
         single<PrimeTrustService> {
-            PrimeTrustServiceImpl(restClient = get(named(KoinNamedNet
+            PrimeTrustServiceImpl(restClient = get(named(KoinNamedNetwork.PrimeTrust)), gson = get())
+        }
+        single<ElrondApiService> {
+            ElrondApiServiceImpl(restClient = get(named(KoinNamedNetwork.ElrondApi)), gson = get())
+        }
+        single<ElrondGatewayService> {
+            ElrondGatewayServiceImpl(environmentRepository = get(), restClient = get(named(KoinNamedNetwork.ElrondGateway)), gson = get())
+        }
+        single<AeroPlaidService> {
+            AeroPlaidServiceImpl(restClient = get(named(KoinNamedNetwork.AeroNodeJs)), gson 
