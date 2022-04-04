@@ -93,4 +93,12 @@ object DataModules {
             ElrondGatewayServiceImpl(environmentRepository = get(), restClient = get(named(KoinNamedNetwork.ElrondGateway)), gson = get())
         }
         single<AeroPlaidService> {
-            AeroPlaidServiceImpl(restClient = get(named(KoinNamedNetwork.AeroNodeJs)), gson 
+            AeroPlaidServiceImpl(restClient = get(named(KoinNamedNetwork.AeroNodeJs)), gson = get())
+        }
+    }
+
+    private fun provideElrondApiRestClient(environmentRepository: EnvironmentRepository, okHttpClient: OkHttpClient, gson: Gson): RestClient {
+        return RestClient(httpClient = okHttpClient, baseUrl = environmentRepository.selectedElrondEnvironment.apiUrl, gson = gson)
+    }
+    private fun provideElrondGatewayRestClient(environmentRepository: EnvironmentRepository, okHttpClient: OkHttpClient, gson: Gson): RestClient {
+        return RestClient(httpClient =
