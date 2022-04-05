@@ -101,4 +101,11 @@ object DataModules {
         return RestClient(httpClient = okHttpClient, baseUrl = environmentRepository.selectedElrondEnvironment.apiUrl, gson = gson)
     }
     private fun provideElrondGatewayRestClient(environmentRepository: EnvironmentRepository, okHttpClient: OkHttpClient, gson: Gson): RestClient {
-        return RestClient(httpClient =
+        return RestClient(httpClient = okHttpClient, baseUrl = environmentRepository.selectedElrondEnvironment.gatewayUrl, gson = gson)
+    }
+
+    private fun providePrimeTrustRestClient(environmentRepository: EnvironmentRepository, okHttpClient: OkHttpClient, gson: Gson): RestClient {
+        return RestClient(httpClient = okHttpClient, baseUrl = environmentRepository.selectedPrimeTrustEnvironment, gson = gson)
+    }
+
+    private fun provideAeroRestClient(environmentRepository: EnvironmentRepository, okHttpClient
