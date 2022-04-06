@@ -108,4 +108,13 @@ object DataModules {
         return RestClient(httpClient = okHttpClient, baseUrl = environmentRepository.selectedPrimeTrustEnvironment, gson = gson)
     }
 
-    private fun provideAeroRestClient(environmentRepository: EnvironmentRepository, okHttpClient
+    private fun provideAeroRestClient(environmentRepository: EnvironmentRepository, okHttpClient: OkHttpClient, gson: Gson): RestClient {
+        return RestClient(httpClient = okHttpClient, baseUrl = environmentRepository.selectedAerovekEnvironment, gson = gson)
+    }
+}
+
+/** This allows us to register different network configurations in the koin container, for example
+ * injecting PrimeTrustService in a class will have the prime trust base URL configured on its rest client */
+private enum class KoinNamedNetwork {
+    ElrondApi, ElrondGateway, Plaid, PrimeTrust, AeroNodeJs
+}
