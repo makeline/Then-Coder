@@ -34,4 +34,12 @@ class BurnEsdtUsecase internal constructor(
                 value = ESDT_TRANSACTION_VALUE,
                 gasLimit = ESDT_MANAGEMENT_GAS_LIMIT,
                 gasPrice = gasPrice,
-                data = args.fold("ESDTBurn") { i
+                data = args.fold("ESDTBurn") { it1, it2 -> "$it1@$it2" },
+                chainID = networkConfig.chainID,
+                nonce = account.nonce
+            ),
+            wallet
+        )
+    }
+
+}
