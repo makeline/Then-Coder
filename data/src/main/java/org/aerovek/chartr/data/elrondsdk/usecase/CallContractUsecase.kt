@@ -17,4 +17,19 @@ class CallContractUsecase internal constructor(
     // https://github.com/ElrondNetwork/elrond-sdk/blob/576fdc4bc0fa713738d8556600f04e6377c7623f/erdpy/contracts.py#L62
     fun execute(
         account: Account,
-        wallet: Wa
+        wallet: Wallet,
+        networkConfig: NetworkConfig,
+        gasPrice: Long,
+        gasLimit: Long,
+        contractAddress: Address,
+        funcName: String,
+        args: List<String> = emptyList(),
+        value: BigInteger = BigInteger.ZERO,
+    ): Transaction {
+        val transaction = Transaction(
+            nonce = account.nonce,
+            receiver = contractAddress,
+            sender = account.address,
+            chainID = networkConfig.chainID,
+            gasPrice = gasPrice,
+  
