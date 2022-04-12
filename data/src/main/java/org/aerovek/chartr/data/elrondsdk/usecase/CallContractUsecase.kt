@@ -32,4 +32,11 @@ class CallContractUsecase internal constructor(
             sender = account.address,
             chainID = networkConfig.chainID,
             gasPrice = gasPrice,
-  
+            gasLimit = gasLimit,
+            value = value,
+            data = args.fold(funcName) { it1, it2 -> it1 + "@${ScUtils.prepareArgument(it2)}" }
+        )
+        return sendTransactionUsecase.execute(transaction, wallet)
+    }
+
+}
