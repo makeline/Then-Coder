@@ -27,4 +27,14 @@ class ChangeOwnerEsdtUsecase internal constructor(
             tokenIdentifier.toHex(),
             newOwnerAddress.hex
         )
-      
+        return sendTransactionUsecase.execute(
+            Transaction(
+                sender = account.address,
+                receiver = EsdtConstants.ESDT_SC_ADDR,
+                value = ESDT_TRANSACTION_VALUE,
+                gasLimit = ESDT_MANAGEMENT_GAS_LIMIT,
+                gasPrice = gasPrice,
+                data = args.fold("transferOwnership") { it1, it2 -> "$it1@$it2" },
+                chainID = networkConfig.chainID,
+                nonce = account.nonce
+            
