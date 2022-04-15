@@ -37,4 +37,9 @@ class ChangeOwnerEsdtUsecase internal constructor(
                 data = args.fold("transferOwnership") { it1, it2 -> "$it1@$it2" },
                 chainID = networkConfig.chainID,
                 nonce = account.nonce
-            
+            ),
+            wallet
+        )
+    }
+
+}
