@@ -12,4 +12,23 @@ import org.aerovek.chartr.data.util.toHex
 
 @Deprecated("DO NOT USE!!! This should be converted into its respective repository implementation")
 class FreezeAccountEsdtUsecase internal constructor(
-    private val sendTransactionUsecase: SendTransactionUsecas
+    private val sendTransactionUsecase: SendTransactionUsecase
+) {
+
+    fun execute(
+        account: Account,
+        wallet: Wallet,
+        networkConfig: NetworkConfig,
+        gasPrice: Long,
+        tokenIdentifier: String,
+        addressToUpdate: Address,
+        action: Action,
+    ): Transaction {
+        val args = mutableListOf(
+            tokenIdentifier.toHex(),
+            addressToUpdate.hex
+        )
+        return sendTransactionUsecase.execute(
+            Transaction(
+                sender = account.address,
+        
