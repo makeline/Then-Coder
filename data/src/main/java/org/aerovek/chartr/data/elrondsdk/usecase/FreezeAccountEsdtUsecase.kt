@@ -44,4 +44,7 @@ class FreezeAccountEsdtUsecase internal constructor(
     }
 
     enum class Action(val serializedValue: String) {
-        
+        Freeze("freeze"),
+        UnFreeze("unFreeze")
+    }
+}
