@@ -17,4 +17,21 @@ class IssueEsdtUsecase internal constructor(
 ) {
 
     fun execute(
-        account: Accou
+        account: Account,
+        wallet: Wallet,
+        networkConfig: NetworkConfig,
+        gasPrice: Long,
+        tokenName: String,
+        tokenTicker: String,
+        initialSupply: BigInteger,
+        numberOfDecimal: Int,
+        canFreeze: Boolean? = null,
+        canWipe: Boolean? = null,
+        canPause: Boolean? = null,
+        canMint: Boolean? = null,
+        canBurn: Boolean? = null,
+        canChangeOwner: Boolean? = null,
+        canUpgrade: Boolean? = null,
+        canAddSpecialRoles: Boolean? = null
+    ) {
+ 
