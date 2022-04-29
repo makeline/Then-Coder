@@ -34,4 +34,15 @@ class IssueEsdtUsecase internal constructor(
         canUpgrade: Boolean? = null,
         canAddSpecialRoles: Boolean? = null
     ) {
- 
+        execute(
+            account = account,
+            wallet = wallet,
+            networkConfig = networkConfig,
+            gasPrice = gasPrice,
+            tokenName = tokenName,
+            tokenTicker = tokenTicker,
+            initialSupply = initialSupply,
+            numberOfDecimal = numberOfDecimal,
+            managementProperties = mutableMapOf<ManagementProperty, Boolean>().apply {
+                if (canFreeze != null) {
+                    put(ManagementProperty.CanFre
