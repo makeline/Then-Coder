@@ -45,4 +45,17 @@ class IssueEsdtUsecase internal constructor(
             numberOfDecimal = numberOfDecimal,
             managementProperties = mutableMapOf<ManagementProperty, Boolean>().apply {
                 if (canFreeze != null) {
-                    put(ManagementProperty.CanFre
+                    put(ManagementProperty.CanFreeze, canFreeze)
+                }
+                if (canWipe != null) {
+                    put(ManagementProperty.CanWipe, canWipe)
+                }
+                if (canPause != null) {
+                    put(ManagementProperty.CanPause, canPause)
+                }
+                if (canMint != null) {
+                    put(ManagementProperty.CanMint, canMint)
+                }
+                if (canBurn != null) {
+                    put(ManagementProperty.CanBurn, canBurn)
+     
