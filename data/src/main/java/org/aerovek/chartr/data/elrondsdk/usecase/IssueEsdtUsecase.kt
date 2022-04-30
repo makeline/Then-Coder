@@ -73,4 +73,17 @@ class IssueEsdtUsecase internal constructor(
     }
 
     fun execute(
-        a
+        account: Account,
+        wallet: Wallet,
+        networkConfig: NetworkConfig,
+        gasPrice: Long,
+        tokenName: String,
+        tokenTicker: String,
+        initialSupply: BigInteger,
+        numberOfDecimal: Int,
+        managementProperties: Map<ManagementProperty, Boolean> = emptyMap()
+    ): Transaction {
+        if (!tokenName.matches("^[A-Za-z0-9]{3,20}$".toRegex())) {
+            throw IllegalArgumentException(
+                "tokenName length should be between 3 and 20 characters " +
+      
