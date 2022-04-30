@@ -58,4 +58,19 @@ class IssueEsdtUsecase internal constructor(
                 }
                 if (canBurn != null) {
                     put(ManagementProperty.CanBurn, canBurn)
-     
+                }
+                if (canChangeOwner != null) {
+                    put(ManagementProperty.CanChangeOwner, canChangeOwner)
+                }
+                if (canUpgrade != null) {
+                    put(ManagementProperty.CanUpgrade, canUpgrade)
+                }
+                if (canAddSpecialRoles != null) {
+                    put(ManagementProperty.CanAddSpecialRoles, canAddSpecialRoles)
+                }
+            }
+        )
+    }
+
+    fun execute(
+        a
