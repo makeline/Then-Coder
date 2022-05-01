@@ -97,4 +97,19 @@ class IssueEsdtUsecase internal constructor(
         }
         if (numberOfDecimal < 0 || numberOfDecimal > 18) {
             throw IllegalArgumentException("numberOfDecimal should be between 0 and 18")
-    
+        }
+        val args = mutableListOf(
+            tokenName.toHex(),
+            tokenTicker.toHex(),
+            initialSupply.toHex(),
+            numberOfDecimal.toHexString()
+        ).apply {
+            if (managementProperties.isNotEmpty()) {
+                addAll(managementProperties.map { (key, value) ->
+                    ScUtils.prepareBooleanArgument(key.serializedName, value)
+                })
+            }
+        }
+
+        return sendTransactionUsecase.execute(
+            Transaction
