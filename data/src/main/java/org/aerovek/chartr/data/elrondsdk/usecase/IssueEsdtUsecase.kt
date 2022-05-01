@@ -86,4 +86,15 @@ class IssueEsdtUsecase internal constructor(
         if (!tokenName.matches("^[A-Za-z0-9]{3,20}$".toRegex())) {
             throw IllegalArgumentException(
                 "tokenName length should be between 3 and 20 characters " +
-      
+                        "and alphanumeric only"
+            )
+        }
+        if (!tokenTicker.matches("^[A-Z0-9]{3,10}$".toRegex())) {
+            throw IllegalArgumentException(
+                "tokenTicker length should be between 3 and 10 characters " +
+                        "and alphanumeric uppercase only"
+            )
+        }
+        if (numberOfDecimal < 0 || numberOfDecimal > 18) {
+            throw IllegalArgumentException("numberOfDecimal should be between 0 and 18")
+    
