@@ -128,4 +128,7 @@ class IssueEsdtUsecase internal constructor(
     }
 
     companion object {
-        private val issu
+        private val issuingCost = "50000000000000000".toBigInteger() // 0.05 EGLD
+    }
+
+}
