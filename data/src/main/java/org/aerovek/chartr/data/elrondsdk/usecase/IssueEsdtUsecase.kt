@@ -112,4 +112,20 @@ class IssueEsdtUsecase internal constructor(
         }
 
         return sendTransactionUsecase.execute(
-            Transaction
+            Transaction(
+                sender = account.address,
+                receiver = EsdtConstants.ESDT_SC_ADDR,
+                value = issuingCost,
+                gasLimit = 60000000,
+                gasPrice = gasPrice,
+                data = args.fold("issue") { it1, it2 -> "$it1@$it2" },
+                chainID = networkConfig.chainID,
+                nonce = account.nonce,
+            ),
+            wallet
+        )
+
+    }
+
+    companion object {
+        private val issu
