@@ -16,4 +16,17 @@ class PauseAccountEsdtUsecase internal constructor(
 
     fun execute(
         account: Account,
-        wall
+        wallet: Wallet,
+        networkConfig: NetworkConfig,
+        gasPrice: Long,
+        tokenIdentifier: String,
+        action: Action,
+    ): Transaction {
+        return sendTransactionUsecase.execute(
+            Transaction(
+                sender = account.address,
+                receiver = EsdtConstants.ESDT_SC_ADDR,
+                value = ESDT_TRANSACTION_VALUE,
+                gasLimit = ESDT_MANAGEMENT_GAS_LIMIT,
+                gasPrice = gasPrice,
+                data = "${action.serializedValue}@${
