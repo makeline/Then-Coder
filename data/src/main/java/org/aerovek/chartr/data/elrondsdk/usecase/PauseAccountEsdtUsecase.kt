@@ -29,4 +29,16 @@ class PauseAccountEsdtUsecase internal constructor(
                 value = ESDT_TRANSACTION_VALUE,
                 gasLimit = ESDT_MANAGEMENT_GAS_LIMIT,
                 gasPrice = gasPrice,
-                data = "${action.serializedValue}@${
+                data = "${action.serializedValue}@${tokenIdentifier.toHex()}",
+                chainID = networkConfig.chainID,
+                nonce = account.nonce
+            ),
+            wallet
+        )
+    }
+
+    enum class Action(val serializedValue: String) {
+        Pause("pause"),
+        UnPause("unPause")
+    }
+}
