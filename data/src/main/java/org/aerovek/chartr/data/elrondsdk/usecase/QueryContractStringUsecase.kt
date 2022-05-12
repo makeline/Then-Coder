@@ -1,3 +1,4 @@
+
 package org.aerovek.chartr.data.elrondsdk.usecase
 
 import org.aerovek.chartr.data.model.elrond.address.Address
@@ -6,7 +7,7 @@ import org.aerovek.chartr.data.model.elrond.contract.QueryContractStringOutput
 import org.aerovek.chartr.data.repository.elrond.VmRepository
 
 @Deprecated("DO NOT USE!!! This should be converted into its respective repository implementation")
-class QueryContractHexUsecase internal constructor(
+class QueryContractStringUsecase internal constructor(
     private val vmRepository: VmRepository
 ) {
 
@@ -24,6 +25,6 @@ class QueryContractHexUsecase internal constructor(
             caller = caller,
             value = value
         )
-        return vmRepository.queryContractHex(payload)
+        return vmRepository.queryContractString(payload)
     }
 }
