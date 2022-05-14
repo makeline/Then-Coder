@@ -15,4 +15,15 @@ class QueryContractUsecase internal constructor(
         funcName: String,
         args: List<String> = emptyList(),
         caller: String? = null,
-    
+        value: String? = null
+    ): QueryContractOutput {
+        val payload = QueryContractInput(
+            scAddress = contractAddress.bech32,
+            funcName = funcName,
+            args = args,
+            caller = caller,
+            value = value
+        )
+        return vmRepository.queryContract(payload)
+    }
+}
