@@ -22,4 +22,18 @@ class SetSpecialRolesEsdtUsecase internal constructor(
         networkConfig: NetworkConfig,
         gasPrice: Long,
         tokenIdentifier: String,
-        
+        addressToUpdate: Address,
+        specialRoles: List<EsdtSpecialRole>,
+        action: Action
+    ): Transaction {
+        if (specialRoles.isEmpty()) {
+            throw IllegalArgumentException("specialRoles should not be empty")
+        }
+        val args = mutableListOf(
+            tokenIdentifier.toHex(),
+            addressToUpdate.hex
+        ).apply {
+            addAll(specialRoles.map { it.name.toHex() })
+        }
+        return sendTransactionUsecase.execute(
+            Transactio
