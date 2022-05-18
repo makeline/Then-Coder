@@ -51,4 +51,8 @@ class SetSpecialRolesEsdtUsecase internal constructor(
     }
 
     enum class Action(val serializedValue: String) {
-        Set("setSpecialRole")
+        Set("setSpecialRole"),
+        Unset("unSetSpecialRole")
+    }
+
+}
