@@ -36,4 +36,19 @@ class SetSpecialRolesEsdtUsecase internal constructor(
             addAll(specialRoles.map { it.name.toHex() })
         }
         return sendTransactionUsecase.execute(
-            Transactio
+            Transaction(
+                sender = account.address,
+                receiver = EsdtConstants.ESDT_SC_ADDR,
+                value = ESDT_TRANSACTION_VALUE,
+                gasLimit = ESDT_MANAGEMENT_GAS_LIMIT,
+                gasPrice = gasPrice,
+                data = args.fold(action.serializedValue) { it1, it2 -> "$it1@$it2" },
+                chainID = networkConfig.chainID,
+                nonce = account.nonce
+            ),
+            wallet
+        )
+    }
+
+    enum class Action(val serializedValue: String) {
+        Set("setSpecialRole")
