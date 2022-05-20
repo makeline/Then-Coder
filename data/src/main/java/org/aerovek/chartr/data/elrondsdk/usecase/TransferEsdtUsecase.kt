@@ -5,4 +5,18 @@ import org.aerovek.chartr.data.model.elrond.account.Account
 import org.aerovek.chartr.data.model.elrond.address.Address
 import org.aerovek.chartr.data.model.elrond.network.NetworkConfig
 import org.aerovek.chartr.data.model.elrond.transaction.Transaction
-import org.aer
+import org.aerovek.chartr.data.model.elrond.wallet.Wallet
+import org.aerovek.chartr.data.util.ScUtils
+import org.aerovek.chartr.data.util.toHex
+import java.math.BigInteger
+
+@Deprecated("DO NOT USE!!! This should be converted into its respective repository implementation")
+class TransferEsdtUsecase internal constructor(
+    private val sendTransactionUsecase: SendTransactionUsecase
+) {
+
+    fun execute(
+        account: Account,
+        wallet: Wallet,
+        networkConfig: NetworkConfig,
+        gasP
