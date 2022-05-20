@@ -19,4 +19,19 @@ class TransferEsdtUsecase internal constructor(
         account: Account,
         wallet: Wallet,
         networkConfig: NetworkConfig,
-        gasP
+        gasPrice: Long,
+        extraGasLimit: Long? = null, // <an appropriate amount for the method call>
+        receiver: Address,
+        tokenIdentifier: String,
+        valueToTransfer: BigInteger,
+        funcName: String? = null,
+        funcArgs: List<String> = emptyList(),
+    ): Transaction {
+        val args = mutableListOf(
+            tokenIdentifier.toHex(),
+            valueToTransfer.toHex()
+        ).apply {
+            if (funcName != null){
+                add(funcName.toHex())
+            }
+            i
