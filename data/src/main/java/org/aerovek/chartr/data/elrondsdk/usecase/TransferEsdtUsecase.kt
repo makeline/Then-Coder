@@ -34,4 +34,16 @@ class TransferEsdtUsecase internal constructor(
             if (funcName != null){
                 add(funcName.toHex())
             }
-            i
+            if (funcArgs.isNotEmpty()) {
+                addAll(funcArgs.map { ScUtils.prepareArgument(it) })
+            }
+        }
+        return sendTransactionUsecase.execute(
+            Transaction(
+                sender = account.address,
+                receiver = receiver,
+                value = ESDT_TRANSACTION_VALUE,
+                gasLimit = 500000L + (extraGasLimit ?: 0L),
+                gasPrice = gasPrice,
+                data = args.fold("ESDTTransfer") { it1, it2 -> "$it1@$it2" },
+               
