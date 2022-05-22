@@ -46,4 +46,11 @@ class TransferEsdtUsecase internal constructor(
                 gasLimit = 500000L + (extraGasLimit ?: 0L),
                 gasPrice = gasPrice,
                 data = args.fold("ESDTTransfer") { it1, it2 -> "$it1@$it2" },
-               
+                chainID = networkConfig.chainID,
+                nonce = account.nonce
+            ),
+            wallet
+        )
+    }
+
+}
