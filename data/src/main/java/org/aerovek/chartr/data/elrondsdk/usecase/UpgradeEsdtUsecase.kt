@@ -15,3 +15,19 @@ import org.aerovek.chartr.data.util.toHex
 class UpgradeEsdtUsecase internal constructor(
     private val sendTransactionUsecase: SendTransactionUsecase
 ) {
+
+    fun execute(
+        account: Account,
+        wallet: Wallet,
+        networkConfig: NetworkConfig,
+        gasPrice: Long,
+        tokenIdentifier: String,
+        managementProperties: Map<ManagementProperty, Boolean>
+    ): Transaction {
+        if (managementProperties.isEmpty()) {
+            throw IllegalArgumentException("managementProperties should not be empty")
+        }
+        val args = mutableListOf(
+            tokenIdentifier.toHex()
+        ).apply {
+ 
