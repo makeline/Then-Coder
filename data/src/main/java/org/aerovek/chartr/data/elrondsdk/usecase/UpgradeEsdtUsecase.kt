@@ -30,4 +30,15 @@ class UpgradeEsdtUsecase internal constructor(
         val args = mutableListOf(
             tokenIdentifier.toHex()
         ).apply {
- 
+            addAll(managementProperties.map { (key, value) ->
+                ScUtils.prepareBooleanArgument(key.serializedName, value)
+            })
+        }
+        return sendTransactionUsecase.execute(
+            Transaction(
+                sender = account.address,
+                receiver = EsdtConstants.ESDT_SC_ADDR,
+                value = ESDT_TRANSACTION_VALUE,
+                gasLimit = ESDT_MANAGEMENT_GAS_LIMIT,
+                gasPrice = gasPrice,
+          
