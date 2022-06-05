@@ -26,4 +26,17 @@ package org.aerovek.chartr.data.exceptions
 class ElrondException {
 
     open class AddressException(message: String? = null) : KnownException(message) {
-        private val s
+        private val serialVersionUID = 7303569975530215510L
+    }
+
+    class CannotCreateAddressException(input: Any) :
+        AddressException("Cannot create address from: $input") {
+        private val serialVersionUID = 1249335179408397539L
+    }
+
+    class CannotCreateBech32AddressException(input: Any) :
+        AddressException("Cannot create bech32 address from: $input") {
+        private val serialVersionUID = 1249335179408397539L
+    }
+
+    class BadAddressHrpException(message: String? = null) : AddressExcep
