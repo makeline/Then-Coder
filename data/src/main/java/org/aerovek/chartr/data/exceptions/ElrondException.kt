@@ -39,4 +39,17 @@ class ElrondException {
         private val serialVersionUID = 1249335179408397539L
     }
 
-    class BadAddressHrpException(message: String? = null) : AddressExcep
+    class BadAddressHrpException(message: String? = null) : AddressException(message) {
+        private val serialVersionUID = 7074540271315613570L
+    }
+
+    class EmptyAddressException(message: String? = null) : AddressException(message) {
+        private val serialVersionUID = -170346454394596227L
+    }
+
+    class CannotConvertBitsException(message: String? = null) : AddressException(message) {
+        private val serialVersionUID = 7002466269883351644L
+    }
+
+    class InvalidCharactersException(message: String? = null) : AddressException(message) {
+        private v
