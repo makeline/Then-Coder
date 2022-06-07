@@ -52,4 +52,16 @@ class ElrondException {
     }
 
     class InvalidCharactersException(message: String? = null) : AddressException(message) {
-        private v
+        private val serialVersionUID = 440923894748025560L
+    }
+
+    class InconsistentCasingException(message: String? = null) : AddressException(message) {
+        private val serialVersionUID = -6909226964519236168L
+    }
+
+    class MissingAddressHrpException(message: String? = null) : AddressException(message) {
+        private val serialVersionUID = -2279315088416839103L
+    }
+
+    class CannotGenerateMnemonicException(message: String? = null) : KnownException(message) {
+        private val se
