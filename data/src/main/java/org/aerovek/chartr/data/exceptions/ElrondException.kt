@@ -79,4 +79,7 @@ class ElrondException {
         private val serialVersionUID = -5983779627162656410L
     }
 
- 
+    class ProxyRequestException(message: String? = null) : KnownException(message) {
+        private val serialVersionUID = 1344143859356453293L
+    }
+}
