@@ -64,4 +64,19 @@ class ElrondException {
     }
 
     class CannotGenerateMnemonicException(message: String? = null) : KnownException(message) {
-        private val se
+        private val serialVersionUID = -9089149758748689110L
+    }
+
+    class CannotDeriveKeysException(message: String? = null) : KnownException(message) {
+        private val serialVersionUID = 6759812280546343157L
+    }
+
+    class CannotSerializeTransactionException(message: String? = null) : KnownException(message) {
+        private val serialVersionUID = -1322742374396410484L
+    }
+
+    class CannotSignTransactionException(message: String? = null) : KnownException(message) {
+        private val serialVersionUID = -5983779627162656410L
+    }
+
+ 
