@@ -43,4 +43,12 @@ data class AEAirport(
     val codeIataAirport: String,
     val codeIataCity: String,
     val codeIcaoAirport: String,
-    val codeIso2Count
+    val codeIso2Country: String,
+    val latitudeAirport: Double,
+    val longitudeAirport: Double,
+    val nameAirport: String,
+    val nameCountry: String,
+    val phone: String,
+    val timezone: String,
+    val distance: Double?
+)
