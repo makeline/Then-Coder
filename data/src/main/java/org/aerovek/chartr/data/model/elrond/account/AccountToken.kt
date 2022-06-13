@@ -6,4 +6,15 @@ data class AccountToken(
     val ticker: String,
     val owner: String,
     val decimals: Int,
-    val isP
+    val isPaused: Boolean,
+    val transactions: Int,
+    val accounts: Int,
+    val canUpgrade: Boolean,
+    val canMint: Boolean,
+    val canBurn: Boolean,
+    val canChangeOwner: Boolean,
+    val canPause: Boolean,
+    val canFreeze: Boolean,
+    val canWipe: Boolean,
+    val balance: String?
+)
