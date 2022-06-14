@@ -6,4 +6,9 @@ internal data class GetAccountResponse(
     val account: AccountData
 ) {
     internal data class AccountData(
-        val 
+        val nonce: Long,
+        val balance: BigInteger,
+        val code: String?,
+        val username: String?
+    )
+}
