@@ -8,4 +8,17 @@ import org.bouncycastle.util.encoders.Hex
 import java.io.ByteArrayOutputStream
 
 @Suppress("DataClassPrivateConstructor")
-data class Address private cons
+data class Address private constructor(
+    val hex: String
+) {
+    // Keep `pubKey` and `bech32` outside of the constructor
+    val pubKey: ByteArray by lazy { Hex.decode(hex) }
+    val bech32: String by lazy { Bech32.encode(HRP, convertBits(pubKey, 8, 5, true)) }
+
+    companion object {
+        const val HRP = "erd"
+        const val PUBKEY_LENGTH = 32
+        const val PUBKEY_STRING_LENGTH = PUBKEY_LENGTH * 2 // hex-encoded
+        const val BECH32_LENGTH = 62
+        const val ZERO_PUBKEY_STRING =
+            "000000000000000000000000000000000000000
