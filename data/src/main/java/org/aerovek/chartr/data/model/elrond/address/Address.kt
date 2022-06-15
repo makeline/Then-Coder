@@ -21,4 +21,15 @@ data class Address private constructor(
         const val PUBKEY_STRING_LENGTH = PUBKEY_LENGTH * 2 // hex-encoded
         const val BECH32_LENGTH = 62
         const val ZERO_PUBKEY_STRING =
-            "000000000000000000000000000000000000000
+            "0000000000000000000000000000000000000000000000000000000000000000"
+
+        fun createZeroAddress() = Address(ZERO_PUBKEY_STRING)
+
+        @Throws(ElrondException.AddressException::class, ElrondException.BadAddressHrpException::class)
+        fun fromBech32(value: String): Address {
+            val bech32Data = try {
+                Bech32.decode(value)
+            } catch (e: Exception) {
+                throw ElrondException.CannotCreateBech32AddressException(value)
+            }
+            if (bech32Data.hrp
