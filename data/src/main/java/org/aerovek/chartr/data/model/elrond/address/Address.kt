@@ -32,4 +32,15 @@ data class Address private constructor(
             } catch (e: Exception) {
                 throw ElrondException.CannotCreateBech32AddressException(value)
             }
-            if (bech32Data.hrp
+            if (bech32Data.hrp != HRP) {
+                throw ElrondException.BadAddressHrpException()
+            }
+            val decodedBytes: ByteArray = convertBits(bech32Data.data, 5, 8, false)
+            val hex = decodedBytes.toHexString()
+            return Address(hex)
+        }
+
+        @Throws(ElrondException.AddressException::class)
+        fun fromHex(value: String): Address {
+            if (value.length != PUBKEY_STRING_LENGTH || !isValidHex(value)) {
+                throw ElrondException.CannotCre
