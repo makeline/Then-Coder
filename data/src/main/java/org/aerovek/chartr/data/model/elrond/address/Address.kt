@@ -62,4 +62,23 @@ data class Address private constructor(
                 fromBech32(value)
                 true
             } catch (error: ElrondException.AddressException) {
-                
+                false
+            }
+        }
+
+        /**
+         * General power-of-2 base conversion.
+         */
+        @Throws(ElrondException.AddressException::class)
+        fun convertBits(
+            data: ByteArray,
+            fromBits: Int,
+            toBits: Int,
+            pad: Boolean
+        ): ByteArray {
+            /*-
+               Reference Python implementation by Pieter Wuille:
+
+               def convertbits(data, frombits, tobits, pad=True):
+                   acc = 0
+                   bits = 
