@@ -43,4 +43,23 @@ data class Address private constructor(
         @Throws(ElrondException.AddressException::class)
         fun fromHex(value: String): Address {
             if (value.length != PUBKEY_STRING_LENGTH || !isValidHex(value)) {
-                throw ElrondException.CannotCre
+                throw ElrondException.CannotCreateAddressException(value)
+            }
+            return Address(value)
+        }
+
+        private fun isValidHex(value: String): Boolean {
+            return try {
+                Hex.decode(value)
+                true
+            } catch (error: DecoderException) {
+                false
+            }
+        }
+
+        fun isValidBech32(value: String): Boolean {
+            return try {
+                fromBech32(value)
+                true
+            } catch (error: ElrondException.AddressException) {
+                
