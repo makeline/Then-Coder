@@ -81,4 +81,15 @@ data class Address private constructor(
 
                def convertbits(data, frombits, tobits, pad=True):
                    acc = 0
-                   bits = 
+                   bits = 0
+                   ret = []
+                   maxv = (1 << tobits) - 1
+                   max_acc = (1 << (frombits + tobits - 1)) - 1
+                   for value in data:
+                       if value < 0 or (value >> frombits):
+                           return None
+                       acc = ((acc << frombits) | value) & max_acc
+                       bits += frombits
+                       while bits >= tobits:
+                           bits -= tobits
+                           r
