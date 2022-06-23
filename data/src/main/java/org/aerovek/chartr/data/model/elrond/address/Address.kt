@@ -92,4 +92,17 @@ data class Address private constructor(
                        bits += frombits
                        while bits >= tobits:
                            bits -= tobits
-                           r
+                           ret.append((acc >> bits) & maxv)
+                   if pad:
+                       if bits:
+                           ret.append((acc << (tobits - bits)) & maxv)
+                   elif bits >= frombits or ((acc << (tobits - bits)) & maxv):
+                       return None
+                   return ret
+            */
+
+            var acc = 0
+            var bits = 0
+            val ret = ByteArrayOutputStream()
+            val maxv = (1 shl toBits) - 1
+            val maxAcc = (1 shl fromBits + t
