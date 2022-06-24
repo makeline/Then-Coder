@@ -105,4 +105,14 @@ data class Address private constructor(
             var bits = 0
             val ret = ByteArrayOutputStream()
             val maxv = (1 shl toBits) - 1
-            val maxAcc = (1 shl fromBits + t
+            val maxAcc = (1 shl fromBits + toBits - 1) - 1
+            for (value in data) {
+                val valueAsInt: Int = (value.toInt() and 0xff)
+                if (valueAsInt < 0 || valueAsInt ushr fromBits != 0) {
+                    throw ElrondException.CannotConvertBitsException()
+                }
+                acc = ((acc shl fromBits) or valueAsInt) and maxAcc
+                bits += fromBits
+                while (bits >= toBits) {
+                    bits -= toBits
+             
