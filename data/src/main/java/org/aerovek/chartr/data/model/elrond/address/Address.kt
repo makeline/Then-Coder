@@ -115,4 +115,17 @@ data class Address private constructor(
                 bits += fromBits
                 while (bits >= toBits) {
                     bits -= toBits
-             
+                    ret.write((acc ushr bits) and maxv)
+                }
+            }
+            if (pad) {
+                if (bits > 0) {
+                    ret.write((acc shl (toBits - bits)) and maxv)
+                }
+            } else if (bits >= fromBits || ((acc shl (toBits - bits)) and maxv) != 0) {
+                throw ElrondException.CannotConvertBitsException()
+            }
+            return ret.toByteArray()
+        }
+    }
+}
