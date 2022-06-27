@@ -28,4 +28,7 @@ internal data class GetAddressTransactionsResponse(
         val fee: String,
         val hyperblockNonce: Long?,
         val tokens: List<String>?,
-        val e
+        val esdtValues: List<String>?,
+        val operation: String?
+    )
+}
