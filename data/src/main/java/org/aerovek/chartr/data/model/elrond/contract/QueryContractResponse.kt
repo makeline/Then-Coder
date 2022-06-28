@@ -10,4 +10,15 @@ internal data class QueryContractResponse(
     data class Data(
         val returnData: List<String>?, // ex: ["Aw=="]
         val returnCode: String, // ex: "ok"
-        val 
+        val returnMessage: String?,
+        val gasRemaining: BigInteger,
+        val gasRefund: BigInteger,
+        val outputAccounts: LinkedTreeMap<String, QueryContractOutput.OutputAccount>?,
+
+        // Keeping those as placeholders for future development
+        // https://github.com/ElrondNetwork/elrond-go/blob/master/core/vmcommon/output.go
+        private val deletedAccounts: Any?,
+        private val touchedAccounts: Any?,
+        private val logs: Any?
+    )
+}
