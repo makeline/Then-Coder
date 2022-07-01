@@ -14,4 +14,25 @@ data class EsdtToken(
     val transactions: Int,
     val accounts: Int,
     val canUpgrade: Boolean,
-    
+    val canMint: Boolean,
+    val canBurn: Boolean,
+    val canChangeOwner: Boolean,
+    val canPause: Boolean,
+    val canFreeze: Boolean,
+    val canWipe: Boolean,
+    val price: Double,
+    val marketCap: Double,
+    val supply: String,
+    val circulatingSupply: String
+) {
+    data class EsdtAssets(
+        val website: String,
+        val description: String,
+        val social: EsdtSocialInfo,
+        val status: String,
+        val pngUrl: String,
+        val svgUrl: String
+    )
+
+    data class EsdtSocialInfo(
+   
