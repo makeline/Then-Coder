@@ -35,4 +35,11 @@ data class EsdtToken(
     )
 
     data class EsdtSocialInfo(
-   
+        val email: String,
+        val blog: String,
+        val twitter: String,
+        val whitepaper: String,
+        val coinmarketcap: String,
+        val coingecko: String
+    )
+}
