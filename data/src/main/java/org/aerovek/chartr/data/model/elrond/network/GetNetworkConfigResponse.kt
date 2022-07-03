@@ -7,4 +7,14 @@ internal data class GetNetworkConfigResponse(
 ) {
     internal data class NetworkConfigData(
         @SerializedName(value = "erd_chain_id")
-        val chainI
+        val chainID: String,
+        @SerializedName(value = "erd_denomination")
+        val erdDenomination: Int,
+        @SerializedName(value = "erd_gas_per_data_byte")
+        val gasPerDataByte: Int,
+        @SerializedName(value = "erd_gas_price_modifier")
+        val erdGasPriceModifier: Double,
+        @SerializedName(value = "erd_latest_tag_software_version")
+        val erdLatestTagSoftwareVersion: String,
+        @SerializedName(value = "erd_meta_consensus_group_size")
+        val erdMetaConsensusGroupS
