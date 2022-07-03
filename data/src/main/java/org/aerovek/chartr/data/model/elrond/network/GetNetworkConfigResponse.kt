@@ -29,4 +29,14 @@ internal data class GetNetworkConfigResponse(
         @SerializedName(value = "erd_num_nodes_in_shard")
         val erdNumNodesInShard: Long,
         @SerializedName(value = "erd_num_shards_without_meta")
-        va
+        val erdNumShardsWithoutMeta: Int,
+        @SerializedName(value = "erd_rewards_top_up_gradient_point")
+        val erdRewardsTopUpGradientPoint: String,
+        @SerializedName(value = "erd_round_duration")
+        val erdRoundDuration: Long,
+        @SerializedName(value = "erd_rounds_per_epoch")
+        val erdRoundsPerEpoch: Long,
+        @SerializedName(value = "erd_shard_consensus_group_size")
+        val erdShardConsensusGroupSize: Long,
+        @SerializedName(value = "erd_start_time")
+     
