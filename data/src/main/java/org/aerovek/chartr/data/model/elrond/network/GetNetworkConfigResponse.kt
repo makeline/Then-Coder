@@ -17,4 +17,16 @@ internal data class GetNetworkConfigResponse(
         @SerializedName(value = "erd_latest_tag_software_version")
         val erdLatestTagSoftwareVersion: String,
         @SerializedName(value = "erd_meta_consensus_group_size")
-        val erdMetaConsensusGroupS
+        val erdMetaConsensusGroupSize: Long,
+        @SerializedName(value = "erd_min_gas_limit")
+        val minGasLimit: Long,
+        @SerializedName(value = "erd_min_gas_price")
+        val minGasPrice: Long,
+        @SerializedName(value = "erd_min_transaction_version")
+        val minTransactionVersion: Int,
+        @SerializedName(value = "erd_num_metachain_nodes")
+        val erdNumMetachainNodes: Long,
+        @SerializedName(value = "erd_num_nodes_in_shard")
+        val erdNumNodesInShard: Long,
+        @SerializedName(value = "erd_num_shards_without_meta")
+        va
