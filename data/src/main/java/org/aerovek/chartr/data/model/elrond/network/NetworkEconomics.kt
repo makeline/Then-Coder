@@ -12,4 +12,6 @@ data class NetworkEconomics(
     val topUpApr: Double,
     val baseApr: Double
 ) {
-    
+    // keep it to allow companion extension
+    companion object
+}
