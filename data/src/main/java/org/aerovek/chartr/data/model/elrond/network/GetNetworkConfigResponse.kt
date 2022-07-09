@@ -39,4 +39,8 @@ internal data class GetNetworkConfigResponse(
         @SerializedName(value = "erd_shard_consensus_group_size")
         val erdShardConsensusGroupSize: Long,
         @SerializedName(value = "erd_start_time")
-     
+        val erdStartTime: Long,
+        @SerializedName(value = "erd_top_up_factor")
+        val erdTopUpFactor: String
+    )
+}
