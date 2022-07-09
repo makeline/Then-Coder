@@ -14,3 +14,21 @@ internal class GetTransactionInfoResponse(
         val sender: String,
         val receiver: String,
         val senderUsername: String?,
+        val receiverUsername: String?,
+        val gasPrice: Long,
+        val gasLimit: Long,
+        val data: String?,
+        val signature: String,
+        val sourceShard: Long,
+        val destinationShard: Long,
+        val blockNonce: Long,
+        val timestamp: Long,
+        val miniBlockHash: String?,
+        val blockHash: String?,
+        val status: String,
+        val hyperblockNonce: Long?,
+        val smartContractResults: List<ScResult>?
+    )
+
+    data class ScResult(
+    
