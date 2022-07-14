@@ -31,4 +31,17 @@ internal class GetTransactionInfoResponse(
     )
 
     data class ScResult(
-    
+        val hash: String?,
+        val nonce: Long,
+        val value: BigInteger,
+        val receiver: String,
+        val sender: String,
+        val data: String?,
+        val prevTxHash: String,
+        val originalTxHash: String,
+        val gasLimit: Long,
+        val gasPrice: Long,
+        val callType: String
+    )
+
+}
