@@ -27,4 +27,16 @@ data class Transaction(
     val isSigned = signature.isNotEmpty()
     val isSent = txHash.isNotEmpty()
 
-    @Throws(ElrondException.CannotSerialize
+    @Throws(ElrondException.CannotSerializeTransactionException::class)
+    fun serialize(): String = try {
+        gson.toJson(toMap())
+    } catch (error: ElrondException.AddressException) {
+        throw ElrondException.CannotSerializeTransactionException()
+    }
+
+    @Throws(ElrondException.AddressException::class)
+    private fun toMap(): Map<String, Any> {
+        return mutableMapOf<String, Any>().apply {
+            put("nonce", nonce)
+            put("value", value.toString(10))
+            put("receiver", receiver.bec
