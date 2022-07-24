@@ -53,4 +53,19 @@ data class Transaction(
                 put("gasLimit", gasLimit)
             }
             if (!data.isNullOrEmpty()) {
-                put("da
+                put("data", encode(data))
+            }
+            put("chainID", chainID)
+            put("version", version)
+            if (option != OPTION_NONE) {
+                put("option", option)
+            }
+            if (signature.isNotEmpty()) {
+                put("signature", signature)
+            }
+        }
+    }
+
+    private fun encode(data: String): String {
+        val dataAsBytes: ByteArray = data.toByteArray(StandardCharsets.UTF_8)
+        val encodedAsBytes: ByteArray = Base64.encode(dataAsByt
