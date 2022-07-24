@@ -68,4 +68,16 @@ data class Transaction(
 
     private fun encode(data: String): String {
         val dataAsBytes: ByteArray = data.toByteArray(StandardCharsets.UTF_8)
-        val encodedAsBytes: ByteArray = Base64.encode(dataAsByt
+        val encodedAsBytes: ByteArray = Base64.encode(dataAsBytes)
+        return String(encodedAsBytes)
+    }
+
+    companion object {
+        private val gson = GsonBuilder().disableHtmlEscaping().create()
+        const val VERSION_DEFAULT = 1
+        const val VERSION_TX_HASH_SIGN = 2
+        const val OPTION_NONE = 0
+        const val OPTION_TX_HASH_SIGN = 1
+    }
+
+}
