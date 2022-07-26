@@ -19,3 +19,12 @@ data class TransactionOnNetwork(
     val timestamp: Long,
     val gasUsed: Long,
     val receiverShard: Long,
+    val senderShard: Long,
+    val miniBlockHash: String,
+    val round: Long,
+    val searchOrder: Long,
+    val fee: String,
+    val hyperblockNonce: Long?,
+    val esdtAmount: String?,
+    val tokenId: String?
+)
