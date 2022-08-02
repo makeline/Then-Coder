@@ -28,4 +28,25 @@ data class PTCreateUserResponseData(
 data class PTCreateUserResponse(
     val type: String,
     val id: String,
-    val attributes: PTCreateUserRespon
+    val attributes: PTCreateUserResponseAttributes,
+    val links: PTCreateUserResponseLinks,
+    val relationships: PTCreateUserResponseRelationships
+)
+
+data class PTCreateUserResponseAttributes(
+    val claims: Any?,
+    @SerializedName("created-at")
+    val createdAt: String,
+    val disabled: Boolean,
+    val email: String,
+    val mfaTypes: List<Any>?,
+    val name: String,
+    @SerializedName("updated-at")
+    val updatedAt: String
+)
+
+data class PTCreateUserResponseLinks(
+    val self: String
+)
+
+data class PTCreateUserRes
