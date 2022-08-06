@@ -49,4 +49,24 @@ data class PTCreateUserResponseLinks(
     val self: String
 )
 
-data class PTCreateUserRes
+data class PTCreateUserResponseRelationships(
+    val userGroups: PTCreateUserResponseUserGroups
+)
+
+data class PTCreateUserResponseUserGroups(
+    val links: PTCreateUserResponseUserGroupsLinks
+)
+
+data class PTCreateUserResponseUserGroupsLinks(
+    val related: String
+)
+//endregion
+
+//region Create JWT
+data class PTCreateJwtRequest(
+    /** This should be in this date and time form 2022-06-02T12:12:48-07:00 */
+    @SerializedName("expires-at")
+    val expiresAt: String
+)
+
+data class 
