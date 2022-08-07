@@ -69,4 +69,7 @@ data class PTCreateJwtRequest(
     val expiresAt: String
 )
 
-data class 
+data class PTCreateJwtResponse(
+    val token: String
+)
+//endregion
