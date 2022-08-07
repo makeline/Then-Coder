@@ -13,4 +13,16 @@ sealed class ElrondNetwork(
     open val apiUrl: String,
     open val gatewayUrl: String,
     open val aeroTokenId: String,
-    open val scAddress: Stri
+    open val scAddress: String) {
+
+    object MainNet : ElrondNetwork(
+        apiUrl = "https://api.elrond.com",
+        gatewayUrl = "https://gateway.elrond.com",
+        aeroTokenId = EsdtConstants.AERO_TOKEN_ID_MAIN,
+        scAddress = "")
+
+    object DevNet : ElrondNetwork(
+        apiUrl = "https://devnet-api.elrond.com",
+        gatewayUrl = "https://devnet-gateway.elrond.com",
+        aeroTokenId = EsdtConstants.MARS_TOKEN_ID_DEV,
+        scAddress = "erd1qqqqqqqqqqqqqpgq0vra4223q6kwmlzrdtrcjwwrmawm0j79v8
