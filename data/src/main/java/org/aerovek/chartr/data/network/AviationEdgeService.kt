@@ -13,4 +13,13 @@ interface AviationEdgeService {
 }
 
 internal class AviationEdgeServiceImpl : AviationEdgeService {
-    override fun aut
+    override fun autocomplete(
+        cityName: String?,
+        airportName: String?,
+        codeIataCity: String?,
+        codeIataAirport: String?,
+        countryCode: String?
+    ) {
+    }
+
+}
