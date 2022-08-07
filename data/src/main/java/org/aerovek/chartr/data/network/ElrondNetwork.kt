@@ -25,4 +25,13 @@ sealed class ElrondNetwork(
         apiUrl = "https://devnet-api.elrond.com",
         gatewayUrl = "https://devnet-gateway.elrond.com",
         aeroTokenId = EsdtConstants.MARS_TOKEN_ID_DEV,
-        scAddress = "erd1qqqqqqqqqqqqqpgq0vra4223q6kwmlzrdtrcjwwrmawm0j79v8
+        scAddress = "erd1qqqqqqqqqqqqqpgq0vra4223q6kwmlzrdtrcjwwrmawm0j79v8yqpygz0l")
+
+    //object TestNet : ElrondNetwork("https://testnet-api.elrond.com", "https://testnet-gateway.elrond.com")
+
+    data class Custom(
+        override val apiUrl: String,
+        override val gatewayUrl: String,
+        override val aeroTokenId: String,
+        override val scAddress: String) : ElrondNetwork(apiUrl, gatewayUrl, aeroTokenId, scAddress)
+}
