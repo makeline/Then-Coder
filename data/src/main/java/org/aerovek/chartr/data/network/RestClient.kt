@@ -12,4 +12,17 @@ import java.io.IOException
 
 /**
  * This class has two different versions of GET and POST methods. The main reason
- * being that the El
+ * being that the Elrond Gateway has a different response body than requests to Elrond API.
+ * [apiGet] handles any generic response body
+ * [gatewayGet] handles the response body that is in the [ResponseBase] format with nested T object
+ */
+class RestClient(
+    private val httpClient: OkHttpClient,
+    private val baseUrl: String,
+    private val gson: Gson
+) {
+
+    @Throws(IOException::class)
+    internal inline fun <reified T> apiGet(resourceUrl: String): T {
+        val url = "$baseUrl/$resourceUrl"
+        val request: Request = Req
