@@ -25,4 +25,19 @@ class RestClient(
     @Throws(IOException::class)
     internal inline fun <reified T> apiGet(resourceUrl: String): T {
         val url = "$baseUrl/$resourceUrl"
-        val request: Request = Req
+        val request: Request = Request.Builder().url(url).build()
+        val responseJson = httpClient.newCall(request).execute().use { response ->
+            response.body?.string()
+        }
+        println(responseJson)
+        val response: T? = responseJson?.let { gson.fromJson(it) }
+        requireNotNull(response)
+        return response
+    }
+
+    @Throws(IOException::class)
+    internal inline fun <reified T> apiPost(resourceUrl: String, json: String): T {
+        val url = "$baseUrl/$resourceUrl"
+        val body = json.toRequestBody(JSON)
+
+      
