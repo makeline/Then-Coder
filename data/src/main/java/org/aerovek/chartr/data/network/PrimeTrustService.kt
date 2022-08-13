@@ -14,4 +14,6 @@ internal class PrimeTrustServiceImpl(
     private val gson: Gson
 ): PrimeTrustService {
     override suspend fun createUser(data: PTCreateUserData): ResponseBase<PTCreateUserResponseData> {
-        return restClient.gatewayPost("v2/u
+        return restClient.gatewayPost("v2/users", gson.toJson(data))
+    }
+}
