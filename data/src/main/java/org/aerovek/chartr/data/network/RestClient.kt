@@ -55,4 +55,17 @@ class RestClient(
     }
 
     @Throws(IOException::class)
-    internal inline fun <reified T : ResponseBase<*>> gatewa
+    internal inline fun <reified T : ResponseBase<*>> gatewayGet(resourceUrl: String): T {
+        val url = "$baseUrl/$resourceUrl"
+        val request: Request = Request.Builder().url(url).build()
+        val responseJson = httpClient.newCall(request).execute().use { response ->
+            response.body?.string()
+        }
+        println(responseJson)
+        val response: T? = responseJson?.let { gson.fromJson(it) }
+        requireNotNull(response).throwIfError()
+        return response
+    }
+
+    @Throws(IOException::class)
+    internal inline fun <reif
