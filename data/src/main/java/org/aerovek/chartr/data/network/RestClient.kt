@@ -83,4 +83,13 @@ class RestClient(
         }
         val response: T? = responseJson?.let { gson.fromJson(it) }
         requireNotNull(response).throwIfError()
-  
+        return response
+    }
+
+    private inline fun <reified T> Gson.fromJson(json: String) =
+        this.fromJson<T>(json, object : TypeToken<T>() {}.type)!!
+
+    companion object {
+        private val JSON = "application/json; charset=utf-8".toMediaType()
+    }
+}
