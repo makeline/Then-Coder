@@ -15,4 +15,11 @@ internal class AeroPlaidRepositoryImpl(
     override suspend fun createLinkToken(clientName: String, userId: String): LinkTokenCreateResponse? {
         val request = LinkTokenCreateRequest(clientName, userId)
         return try {
-            aeroPlaidService.createLinkToken(re
+            aeroPlaidService.createLinkToken(request).data
+        } catch (e: Exception) {
+            println("ERROR trying to create link token - ${e.localizedMessage}")
+            null
+        }
+    }
+
+}
