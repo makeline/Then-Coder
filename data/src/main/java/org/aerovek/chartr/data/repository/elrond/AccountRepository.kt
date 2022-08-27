@@ -13,4 +13,23 @@ interface AccountRepository {
         IOException::class,
         ElrondException.ProxyRequestException::class,
         ElrondException.AddressException::class
-  
+    )
+    fun getAccount(address: Address): Account
+
+    @Throws(
+        IOException::class,
+        ElrondException.ProxyRequestException::class,
+        ElrondException.AddressException::class
+    )
+    fun getAddressNonce(address: Address): Long
+
+    @Throws(
+        IOException::class,
+        ElrondException.ProxyRequestException::class,
+        ElrondException.AddressException::class
+    )
+    fun getAddressBalance(address: Address): BigInteger
+
+    @Throws(
+        IOException::class,
+        ElrondExcep
