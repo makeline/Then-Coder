@@ -31,4 +31,6 @@ internal class PrimeTrustRepositoryImpl(
             println("ERROR trying to create user ${e.localizedMessage}")
             null
         }
- 
+    }
+}
+
