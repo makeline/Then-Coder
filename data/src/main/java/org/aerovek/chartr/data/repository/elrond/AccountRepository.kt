@@ -32,4 +32,13 @@ interface AccountRepository {
 
     @Throws(
         IOException::class,
-        ElrondExcep
+        ElrondException.ProxyRequestException::class
+    )
+    fun getAccountTokenDetails(bech32Address: String, tokenId: String): AccountToken
+
+    @Throws(
+        IOException::class,
+        ElrondException.ProxyRequestException::class
+    )
+    fun getTokensForAccount(bech32Address: String): List<AccountToken>
+}
