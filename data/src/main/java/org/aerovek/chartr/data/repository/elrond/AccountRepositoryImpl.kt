@@ -28,3 +28,17 @@ internal class AccountRepositoryImpl(
 
     @Throws(
         IOException::class,
+        ElrondException.ProxyRequestException::class,
+        ElrondException.AddressException::class
+    )
+    override fun getAddressNonce(address: Address): Long {
+        val response = elrondGatewayService.getAddressNonce(address)
+        return requireNotNull(response.data).nonce
+    }
+
+    @Throws(
+        IOException::class,
+        ElrondException.ProxyRequestException::class,
+        ElrondException.AddressException::class
+    )
+    override fun getAddressBalance(address
