@@ -12,4 +12,19 @@ import java.math.BigInteger
 
 internal class AccountRepositoryImpl(
     private val elrondGatewayService: ElrondGatewayService,
-    private val elrondApi
+    private val elrondApiService: ElrondApiService
+) : AccountRepository {
+
+    @Throws(
+        IOException::class,
+        ElrondException.ProxyRequestException::class,
+        ElrondException.AddressException::class
+    )
+    override fun getAccount(address: Address): Account {
+        val response = elrondGatewayService.getAccount(address)
+        val payload = requireNotNull(response.data).account
+        return payload.toDomain(address)
+    }
+
+    @Throws(
+        IOException::class,
