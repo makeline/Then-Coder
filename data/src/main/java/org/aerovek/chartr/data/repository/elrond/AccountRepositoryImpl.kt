@@ -41,4 +41,19 @@ internal class AccountRepositoryImpl(
         ElrondException.ProxyRequestException::class,
         ElrondException.AddressException::class
     )
-    override fun getAddressBalance(address
+    override fun getAddressBalance(address: Address): BigInteger {
+        val response = elrondGatewayService.getAddressBalance(address)
+        return requireNotNull(response.data).balance
+    }
+
+    @Throws(
+        IOException::class,
+        ElrondException.ProxyRequestException::class
+    )
+    override fun getAccountTokenDetails(bech32Address: String, tokenId: String): AccountToken {
+        return elrondApiService.getAccountTokenDetails(bech32Address, tokenId)
+    }
+
+    @Throws(
+        IOException::class,
+        ElrondException.ProxyRequestException::c
