@@ -56,4 +56,9 @@ internal class AccountRepositoryImpl(
 
     @Throws(
         IOException::class,
-        ElrondException.ProxyRequestException::c
+        ElrondException.ProxyRequestException::class
+    )
+    override fun getTokensForAccount(bech32Address: String): List<AccountToken> {
+        return elrondApiService.getTokensForAccount(bech32Address)
+    }
+}
