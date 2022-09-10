@@ -17,4 +17,11 @@ internal class ElrondNetworkRepositoryImpl(
     @Throws(IOException::class, ElrondException.ProxyRequestException::class)
     override fun getNetworkConfig(): NetworkConfig {
         val response = elrondGatewayService.getNetworkConfig()
-        retur
+        return requireNotNull(response.data).config.toDomain()
+    }
+
+    @Throws(IOException::class, ElrondException.ProxyRequestException::class)
+    override fun getNetworkEconomics(): NetworkEconomics {
+        return elrondApiService.getNetworkEconomics()
+    }
+}
