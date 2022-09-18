@@ -20,4 +20,18 @@ interface TransactionRepository {
     @Throws(
         IOException::class,
         ElrondException.CannotSerializeTransactionException::class,
-        ElrondException
+        ElrondException.ProxyRequestException::class
+    )
+    fun simulateTransaction(transaction: Transaction, wallet: Wallet): SimulateTransactionInfo
+
+    @Throws(
+        IOException::class,
+        ElrondException.CannotSerializeTransactionException::class,
+        ElrondException.ProxyRequestException::class
+    )
+    fun getTransactions(address: Address): List<TransactionOnNetwork>
+
+    @Throws(
+        IOException::class,
+        ElrondException.CannotSerializeTransactionException::class,
+        ElrondException.ProxyRequestException::clas
