@@ -11,4 +11,6 @@ interface VmRepository {
     fun queryContractHex(queryContractInput: QueryContractInput): QueryContractStringOutput
     fun queryContractString(queryContractInput: QueryContractInput): QueryContractStringOutput
     fun queryContractInt(queryContractInput: QueryContractInput): QueryContractDigitOutput
-    fun getChartrAccount(queryContractInput: Q
+    fun getChartrAccount(queryContractInput: QueryContractInput): ChartrAccount?
+    fun getChartrAccountList(queryContractInput: QueryContractInput): List<ChartrAccount>?
+}
