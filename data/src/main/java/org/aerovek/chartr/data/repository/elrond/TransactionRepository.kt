@@ -34,4 +34,18 @@ interface TransactionRepository {
     @Throws(
         IOException::class,
         ElrondException.CannotSerializeTransactionException::class,
-        ElrondException.ProxyRequestException::clas
+        ElrondException.ProxyRequestException::class
+    )
+    fun estimateCostOfTransaction(transaction: Transaction): String
+
+    @Throws(
+        IOException::class,
+        ElrondException.CannotSerializeTransactionException::class,
+        ElrondException.ProxyRequestException::class
+    )
+    fun getTransactionInfo(txHash: String, sender: Address?, withResults: Boolean): TransactionInfo
+
+    @Throws(
+        IOException::class,
+        ElrondException.CannotSerializeTransactionException::class,
+        ElrondException.Proxy
