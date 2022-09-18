@@ -48,4 +48,7 @@ interface TransactionRepository {
     @Throws(
         IOException::class,
         ElrondException.CannotSerializeTransactionException::class,
-        ElrondException.Proxy
+        ElrondException.ProxyRequestException::class
+    )
+    fun getTransactionStatus(txHash: String, sender: Address?): String
+}
