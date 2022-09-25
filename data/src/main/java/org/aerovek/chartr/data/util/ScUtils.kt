@@ -18,4 +18,10 @@ internal object ScUtils {
             throw IllegalArgumentException("unknown format for $arg")
         }
 
-        return argUpCase.t
+        return argUpCase.toBigInteger().toHex().uppercase(Locale.ROOT)
+    }
+
+    fun prepareBooleanArgument(key: String, value: Boolean) =
+        "${key.toHex()}@${value.toString().toHex()}"
+
+}
