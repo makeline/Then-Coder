@@ -22,4 +22,19 @@ class AddressTest {
     @Test
     fun shouldNotCreate() {
         assertThrows(Exceptions.CannotCreateAddressException::class.java) { Address.fromHex("F") }
-        assertThrows(Exceptions.CannotCreateAddressException::c
+        assertThrows(Exceptions.CannotCreateAddressException::class.java) {
+            Address.fromHex(
+                "FOOBAR"
+            )
+        }
+        assertThrows(Exceptions.CannotCreateBech32AddressException::class.java) {
+            Address.fromBech32(
+                "erd1l453hd0gt5gzdp7czpuall8ggt2dcv5zwmfdf3sd3lguxseux2fsmsgldy"
+            )
+        }
+    }
+
+    @Test
+    fun isValidBech32() {
+        assertTrue(Address.isValidBech32("erd1l453hd0gt5gzdp7czpuall8ggt2dcv5zwmfdf3sd3lguxseux2fsmsgldz"))
+        assertTrue(Address.isValidBech32("erd1cux02
