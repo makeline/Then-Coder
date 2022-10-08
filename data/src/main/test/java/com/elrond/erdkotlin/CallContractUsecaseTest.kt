@@ -20,4 +20,21 @@ class CallContractUsecaseTest {
             gasLimit = 100,
             contractAddress = Address.fromBech32("erd1qqqqqqqqqqqqqpgqagvtnqn9dgnx7a6stw4n92kufathjrfd8tzqf80mkz"),
             funcName = "awesomeFunc",
-            args = listOf("255", "0x5745474c442d616263646566", "0xDEADBEEF
+            args = listOf("255", "0x5745474c442d616263646566", "0xDEADBEEF")
+        )
+
+        assertEquals(
+            "awesomeFunc@FF@5745474C442D616263646566@DEADBEEF",
+            sentTransaction.data
+        )
+    }
+
+    @Test
+    fun `should fail if arg is not digit`() {
+        assertThrows(IllegalArgumentException::class.java) {
+            callContractUsecase.execute(
+                account = account,
+                wallet = wallet,
+                networkConfig = networkConfig,
+                gasPrice = 100,
+                gasLimit = 100,
