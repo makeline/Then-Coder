@@ -38,3 +38,11 @@ class CallContractUsecaseTest {
                 networkConfig = networkConfig,
                 gasPrice = 100,
                 gasLimit = 100,
+                contractAddress = Address.fromBech32("erd1qqqqqqqqqqqqqpgqagvtnqn9dgnx7a6stw4n92kufathjrfd8tzqf80mkz"),
+                funcName = "awesomeFunc",
+                args = listOf("notADigit")
+            )
+        }
+    }
+
+}
