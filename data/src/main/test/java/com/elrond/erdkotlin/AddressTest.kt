@@ -43,4 +43,7 @@ class AddressTest {
         assertFalse(Address.isValidBech32("erd1."))
         assertFalse(Address.isValidBech32("tbnb1uzqphymsp539lc8s2pucqwdphzydmr2a76jm8w"))
         assertFalse(Address.isValidBech32("erd1l453hd0gt5gzdp7czpuall8ggt2dcv5zwmfdf3sd3lguxseux2fsmsgldy"))
-        assertFalse(Address.isValidBe
+        assertFalse(Address.isValidBech32("bad1l453hd0gt5gzdp7czpuall8ggt2dcv5zwmfdf3sd3lguxseux2fsmsgldz"))
+        assertFalse(Address.isValidBech32("erd1CUX02ZERSDE0L7HHKLZHYWCXK4U9N4PY5TDXYX7VRVHNZA2R4GMQ4VW35R"))
+    }
+}
