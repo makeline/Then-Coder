@@ -49,4 +49,22 @@ class ComputeDnsAddressUsecaseTest {
     fun `compute dns address hex from name`() {
         val dnsAddress = computeDnsAddressUsecase.execute("alex.elrond")
         assertEquals(
-            "000000000000000005005734f5e901084fc20d7c5cd0af58a0e5aaa
+            "000000000000000005005734f5e901084fc20d7c5cd0af58a0e5aaa33b40003d",
+            dnsAddress.hex
+        )
+    }
+
+    @Test
+    fun `compute dns address bech32 from shardId`() {
+        val dnsAddress = computeDnsAddressUsecase.execute(61)
+        assertEquals(
+            "erd1qqqqqqqqqqqqqpgq2u60t6gppp8uyrtutng27k9quk42xw6qqq7s63qz5v",
+            dnsAddress.bech32
+        )
+    }
+
+    @Test
+    fun `compute dns address hex from shardId`() {
+        val dnsAddress = computeDnsAddressUsecase.execute(61)
+        assertEquals(
+            "000000000000000005005734f5e901084fc20d7c5cd0af
