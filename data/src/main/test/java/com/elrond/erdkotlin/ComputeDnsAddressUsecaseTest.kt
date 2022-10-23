@@ -67,4 +67,8 @@ class ComputeDnsAddressUsecaseTest {
     fun `compute dns address hex from shardId`() {
         val dnsAddress = computeDnsAddressUsecase.execute(61)
         assertEquals(
-            "000000000000000005005734f5e901084fc20d7c5cd0af
+            "000000000000000005005734f5e901084fc20d7c5cd0af58a0e5aaa33b40003d",
+            dnsAddress.hex
+        )
+    }
+}
