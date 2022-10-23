@@ -26,4 +26,27 @@ class DataMapperTest {
             logs = null
         )
 
-        val returnedData = queryResponseData.toDomain().return
+        val returnedData = queryResponseData.toDomain().returnData?.first()!!
+
+        assertEquals(
+            "ZA==",
+            returnedData.asBase64
+        )
+        assertEquals(
+            "64",
+            returnedData.asHex
+        )
+        assertEquals(
+            "d",
+            returnedData.asString,
+        )
+        assertEquals(
+            100.toBigInteger(),
+            returnedData.asBigInt
+        )
+    }
+
+    @Test
+    fun `esdt properties should be well formatted`() {
+        val response = QueryContractResponse.Data(
+            ret
