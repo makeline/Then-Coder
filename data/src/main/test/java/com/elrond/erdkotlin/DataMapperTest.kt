@@ -12,4 +12,18 @@ class DataMapperTest {
 
     @Test
     fun `query return data must be well decoded and formatted`() {
-        val oneHundredBase64 = Str
+        val oneHundredBase64 = String(Base64.encode(arrayOf(100.toByte()).toByteArray()))
+
+        val queryResponseData = QueryContractResponse.Data(
+            returnData = listOf(oneHundredBase64),
+            returnCode = "",
+            returnMessage = null,
+            gasRemaining = BigInteger.ZERO,
+            gasRefund = BigInteger.ZERO,
+            outputAccounts = null,
+            deletedAccounts = null,
+            touchedAccounts = null,
+            logs = null
+        )
+
+        val returnedData = queryResponseData.toDomain().return
