@@ -61,4 +61,16 @@ class DataMapperTest {
                 "Q2FuQnVybi10cnVl",
                 "Q2FuQ2hhbmdlT3duZXItZmFsc2U=",
                 "Q2FuUGF1c2UtdHJ1ZQ==",
-                "Q2FuR
+                "Q2FuRnJlZXplLXRydWU=",
+                "Q2FuV2lwZS10cnVl",
+                "Q2FuQWRkU3BlY2lhbFJvbGVzLXRydWU=",
+                "Q2FuVHJhbnNmZXJORlRDcmVhdGVSb2xlLWZhbHNl",
+                "TkZUQ3JlYXRlU3RvcHBlZC1mYWxzZQ==",
+                "TnVtV2lwZWQtMA=="
+            ),
+            returnCode = "",
+            returnMessage = null,
+            gasRemaining = BigInteger.ZERO,
+            gasRefund = BigInteger.ZERO,
+            outputAccounts = null,
+            del
