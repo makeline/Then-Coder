@@ -49,4 +49,16 @@ class DataMapperTest {
     @Test
     fun `esdt properties should be well formatted`() {
         val response = QueryContractResponse.Data(
-            ret
+            returnData = listOf("QWxpY2VUb2tlbnM=",
+                "RnVuZ2libGVFU0RU",
+                "2DSJxJNAmou8TU9f4WQo7rpyJ822eZVUQYwnabJM5hk=",
+                "MTAwMDAwMDAwMDA=",
+                "MA==",
+                "TnVtRGVjaW1hbHMtNg==",
+                "SXNQYXVzZWQtZmFsc2U=",
+                "Q2FuVXBncmFkZS10cnVl",
+                "Q2FuTWludC10cnVl",
+                "Q2FuQnVybi10cnVl",
+                "Q2FuQ2hhbmdlT3duZXItZmFsc2U=",
+                "Q2FuUGF1c2UtdHJ1ZQ==",
+                "Q2FuR
