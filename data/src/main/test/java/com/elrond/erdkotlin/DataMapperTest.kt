@@ -73,4 +73,14 @@ class DataMapperTest {
             gasRemaining = BigInteger.ZERO,
             gasRefund = BigInteger.ZERO,
             outputAccounts = null,
-            del
+            deletedAccounts = null,
+            touchedAccounts = null,
+            logs = null
+        ).toDomain()
+
+        val esdtProperties = response.toEsdtProperties()
+        assertEquals(esdtProperties.tokenName, "AliceTokens")
+        assertEquals(esdtProperties.tokenType, "FungibleESDT")
+        assertEquals(esdtProperties.address.bech32, "erd1mq6gn3yngzdgh0zdfa07zepga6a8yf7dkeue24zp3snknvjvucvs37hmrq")
+        assertEquals(esdtProperties.tokenName, "AliceTokens")
+        assertEquals(esdtPr
