@@ -92,4 +92,16 @@ class DataMapperTest {
         assertEquals(esdtProperties.canBurn, true)
         assertEquals(esdtProperties.canChangeOwner, false)
         assertEquals(esdtProperties.canPause, true)
- 
+        assertEquals(esdtProperties.canFreeze, true)
+        assertEquals(esdtProperties.canWipe, true)
+        assertEquals(esdtProperties.canAddSpecialRoles, true)
+        assertEquals(esdtProperties.canTransferNftCreateRole, false)
+        assertEquals(esdtProperties.nftCreateStopped, false)
+        assertEquals(esdtProperties.numWiped, BigInteger.ZERO)
+
+    }
+
+    @Test
+    fun `esdt specialRoles should be well formatted`() {
+        val response = QueryContractResponse.Data(
+    
