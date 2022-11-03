@@ -111,4 +111,18 @@ class DataMapperTest {
             gasRefund = BigInteger.ZERO,
             outputAccounts = null,
             deletedAccounts = null,
-          
+            touchedAccounts = null,
+            logs = null
+        ).toDomain()
+
+        val specialRoles = response.toSpecialRoles()
+        assertNotNull(specialRoles)
+        val addresses = specialRoles!!.addresses
+
+
+        val addr0 = Address.fromBech32("erd136rl878j09mev24gzpy70k2wfm3xmvj5ucwxffs9v5t5sk3kshtszz25z9")
+        val specialRoles0 = addresses.getValue(addr0)
+        assert(specialRoles0.size == 1)
+        assertEquals(specialRoles0, listOf(EsdtSpecialRole.ESDTRoleLocalBurn))
+
+        v
