@@ -125,4 +125,11 @@ class DataMapperTest {
         assert(specialRoles0.size == 1)
         assertEquals(specialRoles0, listOf(EsdtSpecialRole.ESDTRoleLocalBurn))
 
-        v
+        val addr1 = Address.fromBech32("erd1kzzv2uw97q5k9mt458qk3q9u3cwhwqykvyk598q2f6wwx7gvrd9s8kszxk")
+        val specialRoles1 = addresses.getValue(addr1)
+        assert(specialRoles1.size == 2)
+
+        assertEquals(specialRoles1, listOf(EsdtSpecialRole.ESDTRoleNFTAddQuantity, EsdtSpecialRole.ESDTRoleNFTBurn))
+
+    }
+}
