@@ -72,4 +72,17 @@ class SignTransactionUsecaseTest {
                 '\'',
                 '"'
             )
-        val signedTransaction = SignTransactionUseca
+        val signedTransaction = SignTransactionUsecase().execute(transaction, wallet)
+
+        Assert.assertEquals(expectedSignature, signedTransaction.signature)
+        Assert.assertEquals(expectedJson, signedTransaction.serialize())
+    }
+
+    @Test
+    fun `sign with option`() {
+        // with an option
+        val transaction = TestDataProvider.transactionWithoutData().copy(
+            option = Transaction.OPTION_TX_HASH_SIGN
+        )
+        val expectedSignature =
+            "c48181af13b1c51426e7e985a790f62c98cf9e0297e8d0c0b044fe3a1
