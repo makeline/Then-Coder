@@ -53,4 +53,17 @@ class SignTransactionUsecaseTest {
                 '"'
             )
 
-        val signedTransaction = SignTransactionUsecase().execute(tran
+        val signedTransaction = SignTransactionUsecase().execute(transaction, wallet)
+
+        Assert.assertEquals(expectedSerialized, transaction.serialize())
+        Assert.assertEquals(expectedSignature, signedTransaction.signature)
+        Assert.assertEquals(expectedJson, signedTransaction.serialize())
+    }
+
+
+    @Test
+    fun `sign without data field`() {
+        // Without data field
+        val transaction = TestDataProvider.transactionWithoutData()
+        val expectedSignature =
+            "4a6d8186eae110894e7417af82c9bf9592696c0600faf110972e0e5310d8485efc656b867a2336acec2b
