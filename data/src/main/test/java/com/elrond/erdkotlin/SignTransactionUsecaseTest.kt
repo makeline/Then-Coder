@@ -48,4 +48,9 @@ class SignTransactionUsecaseTest {
         val expectedSignature =
             "264febfbb40e5a60143a035f054e12507738336a6b387ca4731c433b70bae785d631899bd86d6d8f68b293e579c0cf4b63a4eddfb9d91e46edb5d9eb1164160f"
         val expectedJson =
-            "
+            "{'nonce':89,'value':'0','receiver':'erd1spyavw0956vq68xj8y4tenjpq2wd5a9p2c6j8gsz7ztyrnpxrruqzu66jx','sender':'erd1qyu5wthldzr8wx5c9ucg8kjagg0jfs53s8nr3zpz3hypefsdd8ssycr6th','senderUsername':'YWxpY2U=','receiverUsername':'Ym9i','gasPrice':1000000000,'gasLimit':50000,'chainID':'local-testnet','version':1,'signature':'$expectedSignature'}".replace(
+                '\'',
+                '"'
+            )
+
+        val signedTransaction = SignTransactionUsecase().execute(tran
