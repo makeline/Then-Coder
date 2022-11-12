@@ -25,4 +25,7 @@ class TransactionTest {
                 '\'',
                 '"'
             )
-        assertEquals(expected, transaction.se
+        assertEquals(expected, transaction.serialize())
+    }
+
+}
