@@ -4,4 +4,19 @@ import com.elrond.erdkotlin.domain.esdt.management.BurnEsdtUsecase
 import com.elrond.erdkotlin.helper.TestDataProvider.account
 import com.elrond.erdkotlin.helper.TestDataProvider.networkConfig
 import com.elrond.erdkotlin.helper.TestDataProvider.wallet
-import com.elrond.erdk
+import com.elrond.erdkotlin.helper.TestUsecaseProvider.sendTransactionUsecase
+import junit.framework.Assert.assertEquals
+import org.junit.Test
+import org.junit.runner.RunWith
+import org.mockito.junit.MockitoJUnitRunner
+
+@RunWith(MockitoJUnitRunner::class)
+class BurnEsdtUsecaseTest {
+
+    private val burnEsdtUsecase = BurnEsdtUsecase(sendTransactionUsecase)
+
+    @Test
+    fun `data should be well encoded`() {
+        val transaction = burnEsdtUsecase.execute(
+            account = account,
+        
