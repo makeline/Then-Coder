@@ -31,4 +31,7 @@ class WalletTest {
         expectedPublicKey = "fd41097cdc0462dfb4fc96c1f04410ad13407e012290c73bbb85d8a96d28aa22"
         wallet = Wallet.createFromMnemonic(mnemonic, 0)
         assertEquals(expectedPrivateKey, wallet.privateKeyHex)
-     
+        assertEquals(expectedPublicKey, wallet.publicKeyHex)
+    }
+
+}
