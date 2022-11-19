@@ -13,4 +13,18 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class ChangeOwnerEsdtUsecaseTest {
 
-    private val changeOwnerEsdtUsecase = ChangeOwnerEsdtUsecase(sendTrans
+    private val changeOwnerEsdtUsecase = ChangeOwnerEsdtUsecase(sendTransactionUsecase)
+
+    @Test
+    fun `data should be well encoded`() {
+        val transaction = changeOwnerEsdtUsecase.execute(
+            account = account,
+            wallet = wallet,
+            networkConfig = networkConfig,
+            gasPrice = networkConfig.minGasPrice,
+            tokenIdentifier = "ERDKT6972-b6ed2a",
+            newOwnerAddress = Address.fromBech32("erd17te5zg2pnxtsmnpuppkupeuhmeul0txtj8y5guh0fytxed0m4tzqazsj9z"),
+        )
+
+        assertEquals(
+            "transferOwnership
