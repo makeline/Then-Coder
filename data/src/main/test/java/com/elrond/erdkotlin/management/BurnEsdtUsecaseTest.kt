@@ -19,4 +19,18 @@ class BurnEsdtUsecaseTest {
     fun `data should be well encoded`() {
         val transaction = burnEsdtUsecase.execute(
             account = account,
-        
+            wallet = wallet,
+            networkConfig = networkConfig,
+            gasPrice = networkConfig.minGasPrice,
+            tokenIdentifier = "ERDKT6972-b6ed2a",
+            supplyToBurn = "10".toBigInteger(),
+        )
+
+        assertEquals(
+            "ESDTBurn@4552444b54363937322d623665643261@0a",
+            transaction.data
+        )
+
+    }
+
+}
