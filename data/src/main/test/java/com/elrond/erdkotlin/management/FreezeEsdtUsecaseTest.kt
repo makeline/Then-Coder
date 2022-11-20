@@ -20,4 +20,18 @@ class FreezeEsdtUsecaseTest {
         val transaction = freezeEsdtUsecase.execute(
             account = account,
             wallet = wallet,
-            netw
+            networkConfig = networkConfig,
+            gasPrice = networkConfig.minGasPrice,
+            tokenIdentifier = "ERDKT6972-b6ed2a",
+            addressToUpdate = Address.fromBech32("erd17te5zg2pnxtsmnpuppkupeuhmeul0txtj8y5guh0fytxed0m4tzqazsj9z"),
+            action = FreezeAccountEsdtUsecase.Action.Freeze
+        )
+
+        assertEquals(
+            "freeze@4552444b54363937322d623665643261@f2f341214199970dcc3c086dc0e797de79f7accb91c94472ef49166cb5fbaac4",
+            transaction.data
+        )
+
+    }
+
+    @Test
