@@ -35,3 +35,12 @@ class FreezeEsdtUsecaseTest {
     }
 
     @Test
+    fun `data should be well encoded unfreeze`() {
+        val transaction = freezeEsdtUsecase.execute(
+            account = account,
+            wallet = wallet,
+            networkConfig = networkConfig,
+            gasPrice = networkConfig.minGasPrice,
+            tokenIdentifier = "ERDKT6972-b6ed2a",
+            addressToUpdate = Address.fromBech32("erd17te5zg2pnxtsmnpuppkupeuhmeul0txtj8y5guh0fytxed0m4tzqazsj9z"),
+            action = FreezeAccountEsdtUsecase.Action.UnFreez
