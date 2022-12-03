@@ -28,4 +28,9 @@ class MintEsdtUsecaseTest {
 
         assertEquals(
             "mint@4552444b54363937322d623665643261@0a",
-   
+            transaction.data,
+        )
+
+    }
+
+}
