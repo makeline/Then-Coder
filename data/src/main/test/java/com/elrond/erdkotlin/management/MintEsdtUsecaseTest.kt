@@ -13,4 +13,19 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class MintEsdtUsecaseTest {
 
-    private val mintEsdtUsecase = MintEsdtUseca
+    private val mintEsdtUsecase = MintEsdtUsecase(sendTransactionUsecase)
+
+    @Test
+    fun `data should be well encoded`() {
+        val transaction = mintEsdtUsecase.execute(
+            account = account,
+            wallet = wallet,
+            networkConfig = networkConfig,
+            gasPrice = networkConfig.minGasPrice,
+            tokenIdentifier = "ERDKT6972-b6ed2a",
+            supplyToMint = "10".toBigInteger(),
+        )
+
+        assertEquals(
+            "mint@4552444b54363937322d623665643261@0a",
+   
