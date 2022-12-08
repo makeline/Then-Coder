@@ -29,4 +29,16 @@ class SetSpecialRolesToAccountEsdtUsecaseTest {
         )
 
         assertEquals(
-            "setSpecialRole@4552444b54363937322d623665643261@f2f341214199970
+            "setSpecialRole@4552444b54363937322d623665643261@f2f341214199970dcc3c086dc0e797de79f7accb91c94472ef49166cb5fbaac4@45534454526f6c654c6f63616c4d696e74@45534454526f6c654c6f63616c4275726e",
+            transaction.data
+        )
+
+    }
+
+    @Test
+    fun `data should be well encoded unfreeze`() {
+        val transaction = setSpecialRolesEsdtUsecase.execute(
+            account = account,
+            wallet = wallet,
+            networkConfig = networkConfig,
+            gasPrice = networkConfig.minGasPric
