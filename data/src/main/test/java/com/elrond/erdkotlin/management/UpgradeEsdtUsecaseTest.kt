@@ -19,4 +19,18 @@ class UpgradeEsdtUsecaseTest {
 
     @Test
     fun `data should be well encoded`() {
-     
+        val transaction = upgradeEsdtUsecase.execute(
+            account = account,
+            wallet = wallet,
+            networkConfig = networkConfig,
+            gasPrice = networkConfig.minGasPrice,
+            tokenIdentifier = "ERDKT6972-b6ed2a",
+            managementProperties = mapOf(
+                ManagementProperty.CanFreeze to true,
+                ManagementProperty.CanBurn to false,
+                ManagementProperty.CanWipe to true
+            )
+        )
+
+        assertEquals(
+            "controlChanges@4552444b54363937322d6236656
