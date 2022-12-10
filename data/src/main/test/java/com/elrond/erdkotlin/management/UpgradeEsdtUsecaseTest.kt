@@ -33,4 +33,18 @@ class UpgradeEsdtUsecaseTest {
         )
 
         assertEquals(
-            "controlChanges@4552444b54363937322d6236656
+            "controlChanges@4552444b54363937322d623665643261@63616e467265657a65@74727565@63616e4275726e@66616c7365@63616e57697065@74727565",
+            transaction.data,
+        )
+
+    }
+
+    @Test
+    fun `managementProperties should not be empty`() {
+        Assert.assertThrows(IllegalArgumentException::class.java) {
+            upgradeEsdtUsecase.execute(
+                account = account,
+                wallet = wallet,
+                networkConfig = networkConfig,
+                gasPrice = networkConfig.minGasPrice,
+                tokenIdentifier = "ERD
