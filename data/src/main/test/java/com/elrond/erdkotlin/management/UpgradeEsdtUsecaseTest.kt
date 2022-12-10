@@ -47,4 +47,10 @@ class UpgradeEsdtUsecaseTest {
                 wallet = wallet,
                 networkConfig = networkConfig,
                 gasPrice = networkConfig.minGasPrice,
-                tokenIdentifier = "ERD
+                tokenIdentifier = "ERDKT6972-b6ed2a",
+                managementProperties = emptyMap()
+            )
+        }
+    }
+
+}
