@@ -49,4 +49,10 @@ class SetSpecialRolesToAccountEsdtUsecaseTest {
         )
 
         assertEquals(
-            "unSetSpecialRole@4552444b54363937322d623665643261@f2f341214199970dcc3c086dc0e797de79f7accb91c94472ef49166cb5fbaac4@45534454
+            "unSetSpecialRole@4552444b54363937322d623665643261@f2f341214199970dcc3c086dc0e797de79f7accb91c94472ef49166cb5fbaac4@45534454526f6c654e46544164645175616e74697479@45534454526f6c654e46544275726e",
+            transaction.data
+        )
+
+    }
+
+}
