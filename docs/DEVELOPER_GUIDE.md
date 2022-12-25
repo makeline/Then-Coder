@@ -15,4 +15,9 @@ The architecture is typical of your standard Android project. It also employs th
 ## Project Structure
 The project has two modules - <i>app</i> and <i>data</i>
 
-The app module
+The app module is typical of any standard Android project. It holds all files that have to do with UI, such as fragments, layout files, view models, etc, as well as any Android specific logic such as logic that needs to interact with the Android SDK.
+
+The data module should only be concerned with network access and data structures, or any helper code that has nothing to do with the UI. The data module should never reference anything from the app module.
+
+## Building and Packaging
+### **build.g
