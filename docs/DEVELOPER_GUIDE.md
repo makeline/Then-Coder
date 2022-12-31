@@ -30,4 +30,11 @@ When running the app locally, it's recommended to use the *internalDebug* varian
 
 ### **Packaging**
 To package the app to upload to the Google Play console from Android Studio follow these steps
-1. F
+1. From the Build menu select *Generate signed bundle/apk*
+2. Select App Bundle
+3. Fill in the keystore details (you can find the correct values to enter in the build.gradle file as mentioned above)
+4. Choose the correct build configuration (*internalBeta* if you want the app to use devnet. *productionRelease* if you want the app to use Mainnet)
+5. Open the Event Log and click the *Locate* link to find the aab file you just built
+
+## UI
+* [DataBinding](https://developer.android.com/topic/libraries/d
