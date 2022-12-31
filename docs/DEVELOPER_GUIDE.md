@@ -23,4 +23,11 @@ The data module should only be concerned with network access and data structures
 ### **build.gradle**
 * In the app level [build.gradle](../app/build.gradle) file under *signingConfigs* you will find the reference to the keystore details. It’s highly recommended you move the password to an environment variable, or more preferably a CI variable in your pipeline.
 
-* Under *defaultConfig* you will find the versioning scheme using the four variables - major, minor, patch, hotfix. There’s a method in there that creates the proper version code based on those variables. Always in
+* Under *defaultConfig* you will find the versioning scheme using the four variables - major, minor, patch, hotfix. There’s a method in there that creates the proper version code based on those variables. Always increment prior to uploading a new build to the Google Play Console.
+
+### **Variants and Product Flavors**
+When running the app locally, it's recommended to use the *internalDebug* variant since that is already enabled for debugging and it also will be pointed at the Devnet chain. If you select *productionRelease* the app will be pointed at Mainnet so use caution when selecting this option.
+
+### **Packaging**
+To package the app to upload to the Google Play console from Android Studio follow these steps
+1. F
