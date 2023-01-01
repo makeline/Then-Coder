@@ -47,4 +47,8 @@ Groupie is a simple, flexible library for complex RecyclerView layouts.
 It’s important to call out a few gotchas when using this library. Let’s take a look at an example that already exists in the app — the *Transaction History screen*. These are the files involved:
 * [TransactionHistoryFragment](../app/src/main/java/org/aerovek/chartr/ui/wallet/transaction/TransactionHistoryFragment.kt)
 * [TransactionHistoryViewModel](../app/src/main/java/org/aerovek/chartr/ui/wallet/transaction/TransactionHistoryViewModel.kt)
-* [TransactionItemViewModel](../app/src/main/java/org/aerovek/chartr/ui/adapterItems/viewmodels/TransactionItemViewModel.kt) - instead of setting several variables in the *data* block of the layout file, this single object has all the data we need, then our data labels bind to t
+* [TransactionItemViewModel](../app/src/main/java/org/aerovek/chartr/ui/adapterItems/viewmodels/TransactionItemViewModel.kt) - instead of setting several variables in the *data* block of the layout file, this single object has all the data we need, then our data labels bind to the properties in this class
+* [TransactionItem](../app/src/main/java/org/aerovek/chartr/ui/adapterItems/TransactionItem.kt) is responsible for binding the data for each individual transaction item, and is required for Groupie configuration (explained below in more detail)
+* [transaction_item.xml](../app/src/main/res/layout/transaction_item.xml) - the layout file for our transaction item
+
+The fragment will set up the recyclerView that will display all our transact
