@@ -64,4 +64,8 @@ private fun setupRecyclerView(recyclerView: RecyclerView) {
 }
 ```
 
-The
+The view model retrieves the transaction data from the blockchain and builds a list of TransactionItemViewModel objects with the data we want to display in each adapter item. The view model sends that list back to the fragment and here’s what happens next…
+
+The groupie adapter needs to work with something called a BindableItem class. So we create our own TransactionItem class that extends ```BindableItem<TransactionItemBinding>```, then override the required methods:
+
+* ```bind(
