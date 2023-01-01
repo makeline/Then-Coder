@@ -51,4 +51,17 @@ It’s important to call out a few gotchas when using this library. Let’s take
 * [TransactionItem](../app/src/main/java/org/aerovek/chartr/ui/adapterItems/TransactionItem.kt) is responsible for binding the data for each individual transaction item, and is required for Groupie configuration (explained below in more detail)
 * [transaction_item.xml](../app/src/main/res/layout/transaction_item.xml) - the layout file for our transaction item
 
-The fragment will set up the recyclerView that will display all our transact
+The fragment will set up the recyclerView that will display all our transactions, and all we need to do is create a layout manager and set the adapter to a ```GroupAdapter<GroupieViewHolder>```. This will work in most cases, more complicated recycler view layouts might require more setup.
+```
+private fun setupRecyclerView(recyclerView: RecyclerView) {
+   recyclerView.apply {
+       layoutManager = LinearLayoutManager(
+            requireContext(),
+            LinearLayoutManager.VERTICAL, false
+       )
+       adapter = GroupAdapter<GroupieViewHolder>()
+   }
+}
+```
+
+The
