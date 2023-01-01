@@ -37,4 +37,12 @@ To package the app to upload to the Google Play console from Android Studio foll
 5. Open the Event Log and click the *Locate* link to find the aab file you just built
 
 ## UI
-* [DataBinding](https://developer.android.com/topic/libraries/d
+* [DataBinding](https://developer.android.com/topic/libraries/data-binding) is used for most, if not all, layouts
+* RecyclerViews use [Groupie](https://github.com/lisawray/groupie) which makes for seamless recycler view setups
+
+### **Notes on Groupie**
+
+Groupie is a simple, flexible library for complex RecyclerView layouts. 
+
+It’s important to call out a few gotchas when using this library. Let’s take a look at an example that already exists in the app — the *Transaction History screen*. These are the files involved:
+* [TransactionHistoryFragment](../
