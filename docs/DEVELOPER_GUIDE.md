@@ -75,4 +75,19 @@ The groupie adapter needs to work with something called a BindableItem class. So
 
 TransactionItemBinding is a generated class that represents our layout file, same as our fragment bindings. So the layout xml file needs to be created first before the TransactionItem class can be finished otherwise the TransactionItemBinding would not exist yet.
 
-Back to the fragment. Once we have the TransactionItem class filled out, we map the list of TransactionItemViewModel objects sent back to the fragment into a new list of TransactionI
+Back to the fragment. Once we have the TransactionItem class filled out, we map the list of TransactionItemViewModel objects sent back to the fragment into a new list of TransactionItem objects and that list is what we ultimately set the recyclerView’s data items with.
+
+```
+viewModel.transactionItemModels.observe(viewLifecycleOwner) { models ->
+    val items = models.map {
+        TransactionItem(requireContext(), it)
+    }
+
+    binding.recyclerView.setDataItems(items)
+    viewModel.showLoading.postValue(false)
+    binding.swipeRefreshLayout.isRefreshing = false
+}
+```
+
+### **Dependency Injection**
+Refer to [AppModules](../app/src/main/java/org/aerovek/chartr/AppModules.kt) to see how we set up our dependency structur
