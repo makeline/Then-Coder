@@ -71,4 +71,8 @@ The groupie adapter needs to work with something called a BindableItem class. So
 * ```bind()``` - use this method to set variable values in your xml layout, in this example we have a “vm” variable that we set the TransactionItemViewModel to. You can also change UI state directly via the viewBinding object passed in. In this example I change the transaction status label text color based on the transaction status value
 
 * ```getLayout()``` - this should return the xml layout file for the transaction item
-* ```initializeViewBinding()``` - this should return the result of DataBindingUt
+* ```initializeViewBinding()``` - this should return the result of DataBindingUtil.bind(view)
+
+TransactionItemBinding is a generated class that represents our layout file, same as our fragment bindings. So the layout xml file needs to be created first before the TransactionItem class can be finished otherwise the TransactionItemBinding would not exist yet.
+
+Back to the fragment. Once we have the TransactionItem class filled out, we map the list of TransactionItemViewModel objects sent back to the fragment into a new list of TransactionI
