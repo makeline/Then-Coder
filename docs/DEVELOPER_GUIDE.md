@@ -90,4 +90,11 @@ viewModel.transactionItemModels.observe(viewLifecycleOwner) { models ->
 ```
 
 ### **Dependency Injection**
-Refer to [AppModules](../app/src/main/java/org/aerovek/chartr/AppModules.kt) to see how we set up our dependency structur
+Refer to [AppModules](../app/src/main/java/org/aerovek/chartr/AppModules.kt) to see how we set up our dependency structure. For example, we register view models using the viewModel dsl extension and pass whatever dependencies we need into the view model constructor (such as repository interfaces). The view model instance can then be referenced in the associated fragment like this:
+```
+    private val viewModel: CreateAccountViewModel by inject()
+```
+
+### **Activities and Fragments**
+
+The Chartr app is a single activity app, meaning there is only the MainActivity. Well sort of, the onboarding flow
