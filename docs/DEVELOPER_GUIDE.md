@@ -68,4 +68,7 @@ The view model retrieves the transaction data from the blockchain and builds a l
 
 The groupie adapter needs to work with something called a BindableItem class. So we create our own TransactionItem class that extends ```BindableItem<TransactionItemBinding>```, then override the required methods:
 
-* ```bind(
+* ```bind()``` - use this method to set variable values in your xml layout, in this example we have a “vm” variable that we set the TransactionItemViewModel to. You can also change UI state directly via the viewBinding object passed in. In this example I change the transaction status label text color based on the transaction status value
+
+* ```getLayout()``` - this should return the xml layout file for the transaction item
+* ```initializeViewBinding()``` - this should return the result of DataBindingUt
