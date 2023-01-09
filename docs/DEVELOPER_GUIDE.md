@@ -97,4 +97,6 @@ Refer to [AppModules](../app/src/main/java/org/aerovek/chartr/AppModules.kt) to 
 
 ### **Activities and Fragments**
 
-The Chartr app is a single activity app, meaning there is only the MainActivity. Well sort of, the onboarding flow
+The Chartr app is a single activity app, meaning there is only the MainActivity. Well sort of, the onboarding flow uses its own activity but once onboarding is done that activity finishes and the rest of the app uses the MainActivity throughout. So since onboarding is done only once for a user (as long as they complete it without force quitting the app) after they install the app, I still consider it a single activity app.
+
+With that said, each screen should have its own fragment and view model class. So when creating a new fragment select the option with viewmodel as shown belo
