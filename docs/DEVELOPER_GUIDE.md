@@ -104,4 +104,6 @@ With that said, each screen should have its own fragment and view model class. S
 Also DO NOT name the layout like “fragment_edit_account” because the databinding framework will generate classes that represent this layout and you will be referencing these classes in code, so you don’t want to generate a class called “FragmentEditAccountBinding”. Instead, name it something like “edit_account_fragment” so you’ll end up with a generated binding class called “EditAccountFragmentBinding” which is more readable and intuitive.
 
 ### Asynchronous Operations
-W
+When making network calls or performing any long running asynchronous operation, always use the [DispatcherProvider](../app/src/main/java/org/aerovek/chartr/util/DispatcherProvider.kt) implementation with the ```viewModelScope.launch``` call to run a coroutine in the background. This allows you to easily specify which thread you want to run that block of code on (UI thread vs background thread). There are plenty of examples in the code on how to do this properly. 
+
+For exam
