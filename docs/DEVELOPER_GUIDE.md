@@ -106,4 +106,15 @@ Also DO NOT name the layout like “fragment_edit_account” because the databin
 ### Asynchronous Operations
 When making network calls or performing any long running asynchronous operation, always use the [DispatcherProvider](../app/src/main/java/org/aerovek/chartr/util/DispatcherProvider.kt) implementation with the ```viewModelScope.launch``` call to run a coroutine in the background. This allows you to easily specify which thread you want to run that block of code on (UI thread vs background thread). There are plenty of examples in the code on how to do this properly. 
 
-For exam
+For example, this line will run the code block in a background thread
+```
+viewModelScope.launch(dispatcherProvider.IO)
+```
+
+While this will run the block on the main UI thread
+```
+viewModelScope.launch(dispatcherProvider.MAIN)
+
+```
+
+You may find yourself needing to modify the UI within a callback that was originally executed on the IO thread, in which case you need to launch a new routine on the MAIN thread and within that block you can access the UI without the OS barfing o
