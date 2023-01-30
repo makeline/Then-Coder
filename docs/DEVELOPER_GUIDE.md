@@ -117,4 +117,12 @@ viewModelScope.launch(dispatcherProvider.MAIN)
 
 ```
 
-You may find yourself needing to modify the UI within a callback that was originally executed on the IO thread, in which case you need to launch a new routine on the MAIN thread and within that block you can access the UI without the OS barfing o
+You may find yourself needing to modify the UI within a callback that was originally executed on the IO thread, in which case you need to launch a new routine on the MAIN thread and within that block you can access the UI without the OS barfing on you.
+
+
+### **Making network calls from the UI**
+
+Network calls need to be done inside a coroutine as mentioned above. They should always be done from a view model class and from there call the appropriate repository implementation. There are some exceptions where you find you need to run something in the background from a fragment, in that case you just need to reference the viewModelScope off the viewModel instance in your fragment. Something like ….
+
+```
+homeViewModel.viewModelScope.launch(
