@@ -125,4 +125,15 @@ You may find yourself needing to modify the UI within a callback that was origin
 Network calls need to be done inside a coroutine as mentioned above. They should always be done from a view model class and from there call the appropriate repository implementation. There are some exceptions where you find you need to run something in the background from a fragment, in that case you just need to reference the viewModelScope off the viewModel instance in your fragment. Something like ….
 
 ```
-homeViewModel.viewModelScope.launch(
+homeViewModel.viewModelScope.launch(dispatcherProvider.IO) {
+   // Do Something
+}
+
+```
+
+The call hierarchy for making network calls should go like this:
+* ViewModel -> Repository -> Service -> REST client
+
+The view model has an instance of whatever repository you want to use passed in its constructor via dependency injection. The repository in turn uses the correct service class passed into its constructor (ElrondApiService as an example) and that in turn calls the REST client get or post methods.
+
+### **Navigatio
