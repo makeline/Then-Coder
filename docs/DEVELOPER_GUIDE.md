@@ -167,4 +167,9 @@ So where did the *SecretPhraseFragmentDirections* class come from? That class wa
 
 ## Data Module
 
-The data module consists of all the logic that knows nothing about the UI or
+The data module consists of all the logic that knows nothing about the UI or anything about Android in general. Theoretically this data module can be plugged into another android app with little to no modifications. 
+
+I had plans to make this its own github public repository, eventually it probably should be.
+
+### **Dependency Injection**
+Refer to the [DataModules](../data/src/main/java/org/aerovek/chartr/data/di/DataModules.kt) class. This is where we create singletons of our repository, service, and http client classes. The logic in here is much more complicated than the AppModules.kt class above, par
