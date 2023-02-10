@@ -156,4 +156,15 @@ So in this example we are navigating from the “secret phrase” fragment to th
 In your fragment, override the ```onViewCreated()``` method and subscribe to the event above, something like this:
 
 ```
-override fun onViewCreated(view: View, savedInstanceState: Bundl
+override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+   super.onViewCreated(view, savedInstanceState)
+   viewModel.navigationEvent.observe(viewLifecycleOwner,
+        NavigationObserver(NavHostFragment.findNavController(this@SecretPhraseFragment))
+)}
+```
+
+So where did the *SecretPhraseFragmentDirections* class come from? That class was generated based on the *action* block you define in the nav_graph.xml file, in conjunction with the element IDs.
+
+## Data Module
+
+The data module consists of all the logic that knows nothing about the UI or
