@@ -145,4 +145,15 @@ private val _navigationEvent = LiveEvent<NavigationEvent>()
 val navigationEvent: LiveData<NavigationEvent> = _navigationEvent
 ```
 
-In the same view model file, add this logic wherever you want to trigge
+In the same view model file, add this logic wherever you want to trigger a navigation somewhere
+
+```
+_navigationEvent.postValue(NavigationEvent.Directions(
+   SecretPhraseFragmentDirections.actionSecretPhraseToVerifyWordsFragment()
+))
+```
+So in this example we are navigating from the “secret phrase” fragment to the “verify secret phrase” fragment.
+In your fragment, override the ```onViewCreated()``` method and subscribe to the event above, something like this:
+
+```
+override fun onViewCreated(view: View, savedInstanceState: Bundl
