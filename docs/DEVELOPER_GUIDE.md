@@ -136,4 +136,13 @@ The call hierarchy for making network calls should go like this:
 
 The view model has an instance of whatever repository you want to use passed in its constructor via dependency injection. The repository in turn uses the correct service class passed into its constructor (ElrondApiService as an example) and that in turn calls the REST client get or post methods.
 
-### **Navigatio
+### **Navigation**
+Navigation between fragments is configured in [nav_graph.xml](../app/src/main/res/navigation/nav_graph.xml).  If you need to navigate from a view model, there is an easy way to do it:
+From your view model class, create an event your fragment can subscribe to as follows:
+
+```
+private val _navigationEvent = LiveEvent<NavigationEvent>()
+val navigationEvent: LiveData<NavigationEvent> = _navigationEvent
+```
+
+In the same view model file, add this logic wherever you want to trigge
