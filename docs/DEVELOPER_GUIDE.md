@@ -172,4 +172,7 @@ The data module consists of all the logic that knows nothing about the UI or any
 I had plans to make this its own github public repository, eventually it probably should be.
 
 ### **Dependency Injection**
-Refer to the [DataModules](../data/src/main/java/org/aerovek/chartr/data/di/DataModules.kt) class. This is where we create singletons of our repository, service, and http client classes. The logic in here is much more complicated than the AppModules.kt class above, par
+Refer to the [DataModules](../data/src/main/java/org/aerovek/chartr/data/di/DataModules.kt) class. This is where we create singletons of our repository, service, and http client classes. The logic in here is much more complicated than the AppModules.kt class above, particularly the networkModule block.  
+
+The main idea is that we inject the correct [RestClient](../data/src/main/java/org/aerovek/chartr/data/network/RestClient.kt) instance with the baseUrl for whatever service we are using. 
+For example, the Elrond Gateway service has a different base URL than the Elrond API service. So if we want to call an endpoint on the Elrond API, we use the [ElrondApiService](../data/src/main/java/org/aerovek/chartr/data/network/ElrondApiService.kt) class which is set up to accept the proper r
