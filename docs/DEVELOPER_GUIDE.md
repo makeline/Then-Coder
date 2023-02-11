@@ -182,3 +182,9 @@ Repositories should be the only access point for making network calls from the U
 
 All repositories are registered in the Koin IoC container, as mentioned above. All repositories in turn need to inject the proper service class in their constructor, again that is configured in the IoC container in DataModules.kt
 
+The repositories should also be responsible for most of the business logic, doing null checks, catching exceptions, etc, and returning the correct data back to the UI.
+
+This extra layer of separation between the repository and service classes also allows for better unit testing, something this library desperately needs.
+
+### **Service Classes**
+Service classes are responsible for simply calling the GET/POST methods in the RestClient.kt class. As mentioned earlier, each service class is set up in the Data
