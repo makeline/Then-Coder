@@ -178,4 +178,7 @@ The main idea is that we inject the correct [RestClient](../data/src/main/java/o
 For example, the Elrond Gateway service has a different base URL than the Elrond API service. So if we want to call an endpoint on the Elrond API, we use the [ElrondApiService](../data/src/main/java/org/aerovek/chartr/data/network/ElrondApiService.kt) class which is set up to accept the proper restClient instance that has the elrond API baseUrl.  That way we only have to have one HTTP client class (the RestClient.kt class) to make all our web service calls in a generic fashion.
 
 ### **Repositories**
-Repositories should be the only access point for making network calls from the UI. The interfaces are public but not their implementations, which is important to note because you can’t actually create a new instance of a repository concrete class from within the 
+Repositories should be the only access point for making network calls from the UI. The interfaces are public but not their implementations, which is important to note because you can’t actually create a new instance of a repository concrete class from within the app module because they are marked internal, the interface has to be injected into whatever UI file you need to use it in, then it gets resolved into its concrete implementation by Koin whenever we ask for an instance of it.
+
+All repositories are registered in the Koin IoC container, as mentioned above. All repositories in turn need to inject the proper service class in their constructor, again that is configured in the IoC container in DataModules.kt
+
