@@ -187,4 +187,6 @@ The repositories should also be responsible for most of the business logic, doin
 This extra layer of separation between the repository and service classes also allows for better unit testing, something this library desperately needs.
 
 ### **Service Classes**
-Service classes are responsible for simply calling the GET/POST methods in the RestClient.kt class. As mentioned earlier, each service class is set up in the Data
+Service classes are responsible for simply calling the GET/POST methods in the RestClient.kt class. As mentioned earlier, each service class is set up in the DataModules.kt class with the baseUrl already. So depending on the service class you want to use, it will have the correct instance of RestClient passed into the constructor. 
+
+* [ElrondGatewayService](../data/src/main/java/org/aerovek/chartr/data/network/ElrondGatewayService.kt) has specific methods for calling endpoints on the [elrond gateway](https://docs.multiversx.com/sdk-and-tools/rest-api/gateway-overview) (base url of https://gateway.elrond.com), while ElrondApiService has specific methods for ca
