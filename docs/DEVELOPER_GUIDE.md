@@ -192,4 +192,10 @@ Service classes are responsible for simply calling the GET/POST methods in the R
 * [ElrondGatewayService](../data/src/main/java/org/aerovek/chartr/data/network/ElrondGatewayService.kt) has specific methods for calling endpoints on the [elrond gateway](https://docs.multiversx.com/sdk-and-tools/rest-api/gateway-overview) (base url of https://gateway.elrond.com), while ElrondApiService has specific methods for calling endpoints that only exist on the [elrond API](https://docs.multiversx.com/sdk-and-tools/rest-api/multiversx-api) (base url of https://api.elrond.com)
 * [AeroPlaidService](../data/src/main/java/org/aerovek/chartr/data/network/AeroPlaidService.kt) - this was meant to be used with our Plaid backend, a NodeJS backend I built for use with the [Plaid services](https://plaid.com/) This was POC’d out on iOS but not Android. This may no longer be the viable option for Chartr but it was the direction we were going.
 * [AviationEdgeService](../data/src/main/java/org/aerovek/chartr/data/network/AviationEdgeService.kt) - This service doesn’t do anything yet, but was meant to query aircraft data via the [Aviation Edge API](https://aviation-edge.com/aviation-api-list/)
-* [PrimeTrustService](../data/src/main/java/org/aerovek/chartr/data/network/PrimeTrustService.kt) This was meant to be used in conjunction with Plaid for the financial piece of Chartr - [see more](https://plaid.com/docs/auth/par
+* [PrimeTrustService](../data/src/main/java/org/aerovek/chartr/data/network/PrimeTrustService.kt) This was meant to be used in conjunction with Plaid for the financial piece of Chartr - [see more](https://plaid.com/docs/auth/partnerships/prime-trust)
+
+### **RestClient.kt**
+The first thing you’ll notice is that there are two different versions of get and post methods apiGet() and apiPost() vs gatewayGet() and gatewayPost(). This is because the JSON response structure is different between the Gateway and the API, so it was easier to just create two different versions for each. This can definitely be improved but it works. 
+
+### **ErdKotlin**
+Most of the Elrond specific logic, such as data structures, cryptographic 
