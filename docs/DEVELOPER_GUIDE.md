@@ -200,4 +200,13 @@ The first thing you’ll notice is that there are two different versions of get 
 ### **ErdKotlin**
 Most of the Elrond specific logic, such as data structures, cryptographic functions, etc,  was taken from the [ErdKotlin](https://github.com/ElrondNetwork/elrond-sdk-erdkotlin) repo and restructured to fit our architecture better. Since it’s not actively maintained, I pulled the necessary pieces out and added the code to our data module so we can maintain it ourselves.
 
-Note the *elrondsdk.usecase* package. This may have some helpful functions to use later, but note the deprecated warnings on all of the classes in there. Do not use these classes, they need to be co
+Note the *elrondsdk.usecase* package. This may have some helpful functions to use later, but note the deprecated warnings on all of the classes in there. Do not use these classes, they need to be converted into a repository class and set up like all the other repository classes so it fits the Chartr architecture.
+
+
+## Resources
+* https://docs.elrond.com/sdk-and-tools/rest-api/rest-api/
+* https://docs.elrond.com/sdk-and-tools/rest-api/gateway-overview/
+* https://docs.elrond.com/sdk-and-tools/rest-api/api-elrond-com/
+* https://developer.android.com/studio/build/build-variants#sourcesets
+* https://kotlinlang.org/docs/reference/coroutines/flow.html
+* https://github.com/bumpte
