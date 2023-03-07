@@ -209,4 +209,9 @@ Note the *elrondsdk.usecase* package. This may have some helpful functions to us
 * https://docs.elrond.com/sdk-and-tools/rest-api/api-elrond-com/
 * https://developer.android.com/studio/build/build-variants#sourcesets
 * https://kotlinlang.org/docs/reference/coroutines/flow.html
-* https://github.com/bumpte
+* https://github.com/bumptech/glide
+* https://developer.android.com/training/camerax
+* https://developer.android.com/jetpack/androidx/releases/navigation
+* https://github.com/lisawray/groupie
+* https://square.github.io/okhttp/
+* https://github.com/InsertKoinIO/koin
