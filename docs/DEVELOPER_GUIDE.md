@@ -198,4 +198,6 @@ Service classes are responsible for simply calling the GET/POST methods in the R
 The first thing you’ll notice is that there are two different versions of get and post methods apiGet() and apiPost() vs gatewayGet() and gatewayPost(). This is because the JSON response structure is different between the Gateway and the API, so it was easier to just create two different versions for each. This can definitely be improved but it works. 
 
 ### **ErdKotlin**
-Most of the Elrond specific logic, such as data structures, cryptographic 
+Most of the Elrond specific logic, such as data structures, cryptographic functions, etc,  was taken from the [ErdKotlin](https://github.com/ElrondNetwork/elrond-sdk-erdkotlin) repo and restructured to fit our architecture better. Since it’s not actively maintained, I pulled the necessary pieces out and added the code to our data module so we can maintain it ourselves.
+
+Note the *elrondsdk.usecase* package. This may have some helpful functions to use later, but note the deprecated warnings on all of the classes in there. Do not use these classes, they need to be co
